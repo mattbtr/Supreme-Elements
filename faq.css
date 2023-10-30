@@ -1,0 +1,111 @@
+button:hover,
+select:hover {
+  background-color: #236dcc;
+}
+
+button,
+select {
+  background-color: #2c3540;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.starterImgEigen {
+  margin-top: 10px;
+  width: 50%;
+  height: auto;
+  border-radius: 15px;
+}
+
+main {
+  text-align: center;
+}
+
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+.faq-container {
+  margin: 0 200px 0 200px;
+
+}
+
+.faq {
+  list-style: none;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+
+
+
+}
+
+.faq li {
+  padding: 10px;
+  background-color: #f0eaea;
+  margin: 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.contact-us {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #aec1db;
+  background-color: #eff0f4;
+  border-radius: 10px;
+  width: 75%;
+  margin: auto;
+  justify-content: center;
+  
+  
+}
+
+.contact-formular-left {
+  border: 2px solid #aec1db;
+  width: 70%;
+  padding-bottom: 20px;
+  
+}
+
+.contact-formular-right {
+  border: 2px solid #aec1db;
+  width: 30%;
+}
+
+.contact-formular-left table {
+  width: 90%;
+  margin: auto;
+  text-align: left;
+}
+
+.contact-formular-left table textarea {
+  margin: auto;
+}
+
+.submit-button {
+  background-color: #53667c;
+  color: #ffffff;
+
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}

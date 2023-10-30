@@ -1,0 +1,137 @@
+header h4 {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(159, 159, 159);
+    z-index: 1000;
+}
+
+
+nav {
+    border: 1px solid #6980b244;
+    width: 100%;
+    position: fixed; 
+    top: 30px;
+    left: 0px;
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+    align-items: center;
+    z-index: 1000;
+}
+
+nav ul {                              
+    display: flex;                  
+    list-style: none;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+nav li {  
+    margin: 0px; 
+    margin-right: 43px;
+    margin-left: 43px;                     
+}
+
+nav li a {
+    margin-right:0px;
+    margin-left: 0px;
+    line-height: 50px;          /*!!!richtig zentrieren !*/
+    font-weight: bold;
+    color: #010101;
+    font-size: 15px;
+    text-decoration: none;
+    vertical-align: middle; 
+
+}
+
+nav li a:hover {
+    background-color: rgba(150, 163, 151, 0.785);
+}
+
+
+.Logo {/*Logo*/
+    margin-left: 0px;
+    width: 190px; 
+    height: auto;  
+}
+
+.navigationImg{
+    margin-left: 10px;
+    width: 30px;
+}
+
+.StarterImg { /*Header Bild*/
+    margin-top: 0px;
+    width: 100%; 
+    height: auto;     
+    border-radius: 15px;
+}
+
+
+
+
+footer {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(130, 129, 129);
+    margin-top: 0px;
+}
+
+
+
+#footerTabel th img {
+    width: 20px;
+    height: auto;
+    margin: 0 5px; 
+    vertical-align: middle; 
+}
+
+
+#footerTabel{
+    width: 100%;
+    border-spacing: 80px;
+}
+
+#footerTabel th a{
+    text-decoration: none;
+    color: #000000;
+}
+
+#footerTabel th{
+    color: #000000;
+    vertical-align:text-top 
+
+}
+
+#insta{  /*Darstellung Icons*/
+    width: 20px;
+    height: auto;
+}
+
+#footerEnde{
+    background-color: rgba(87, 89, 89, 0.349);
+}
+
+main {
+    color: #444444;
+    background-color: rgb(243, 241, 234);
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 50px;
+    margin-top: 70px;
+    font-style:oblique;
+    font-size: 15px;
+   
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: #444444;
+}
