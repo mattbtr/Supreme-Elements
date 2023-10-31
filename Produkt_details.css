@@ -1,0 +1,68 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.AP:hover{
+    text-decoration: underline;
+}
+
+.Produkt1{
+    width: 40%;
+    height: 20%;
+    padding-left: 28%;
+}
+
+.bildrahmen{
+    border-radius: 5px;
+    margin-right: 10%;
+    box-shadow: 0px  0px 05px 0px rgb(185, 179, 171);
+}
+#Produktbild{
+    width: 55%;
+    margin-left: 10;
+    padding-left: 0%;
+    padding-right: 10%;
+    border-radius: 15px;    
+    background-color: rgb(247, 246, 245);
+ }
+br{
+    display: block;
+    margin: 10px 0  ;
+    line-height:22px;
+  }
+
+button{
+    background-color: black; 
+    color: #ffffff; 
+    border: none; 
+    padding: 10px 35px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 10px; 
+    border-radius: 3px; 
+    cursor: pointer; }
+
+.hinzufügen:hover{
+    background-color: red;
+}
+.p1{
+    margin-right: 44%;
+}
+.p2,h1,.hinzufügen{
+    margin-left: 60%;
+    font-size: large;
+}
+h1{
+    text-decoration: underline;
+}
+.p3{
+    margin-left: 70%;   
+}
+.p3:hover{
+    background-color: green;
+}
+hr {
+    margin-right: 45%;
+}
