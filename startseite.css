@@ -1,0 +1,109 @@
+#startseiteaside1 {
+    width: 180px;
+    height: 200px;
+    background-color: rgb(238, 174, 150);
+    color: #111;
+    margin-top: 200px;
+    float: left;
+    font-size: xx-large;
+    margin-top: 100px;
+    margin-left: 30px;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+aside input {
+    border-style: none;
+    border-radius: 30px;
+    background-color:rgb(243, 214, 170);
+    height: 25px;
+    margin-top: 30px;
+}
+
+aside input:hover {
+    background-color: orange;
+}
+
+#startseiteaside2 {
+    float: right;
+    margin-right: 30px;
+    margin-top: 350px;
+    width: 170px;
+    height: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-style: none;
+    border-radius: 30px;
+    background-color: rgb(9, 168, 76);
+    text-align: center;
+}
+
+main img { /* Zitrone*/
+    width: 160px;
+    height: 160px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+main input {/*jetzt kaufen button*/
+    position:absolute;
+    top: 440px;
+    left: 230px;
+    background-color: orange;
+    border-style: none;
+    border-radius: 30px;
+    width: 200px;
+    height: 40px;
+    margin-left: 280px;
+    margin-top: 30px;
+}
+
+main input:hover {
+    background-color: rgb(255, 115, 0);
+}
+
+main section { /*Grenze*/
+    margin-top: 220px;
+    background-color: orange;
+    height: 250px;
+}
+
+body article {/*Box 1 von main */
+    position: absolute;
+    top: 700px;
+    left: 150px;
+    padding-top:  35px;
+    padding-left: 50px;
+    width: 500px;
+    height: 350px;
+    background-color: rgb(192, 197, 119);
+    border-radius: 15px;
+}
+
+section img {/*Box 2 von main*/
+    position: absolute;
+    top: 750px;
+    left: 550px;
+    padding: 0px;
+    width: 500px;
+    height: 350px;
+    border-radius: 15px;
+}
+
+article input {/*zu den Studien*/
+    margin-left: 0px;
+    background-color: rgb(155, 161, 73);
+    border-style: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 30px;   
+}
+
+article input:hover {
+    background-color: rgb(43, 148, 21);
+}
