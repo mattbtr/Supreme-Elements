@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="main.css" rel="stylesheet">
+    <link href="konto.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h4>Versandkostenfrei ab 50€ (innerhalb Deutschlands) | kostenloser Rückversand (DE) (14 Tage Rückgaberecht) | Versand am gleichen Tag</h4>
+    <nav>
+      <a href="index.html">
+        <img class="Logo" src="Bilder/LogoWebshop.png">
+      </a>
+      <ul class="nav">
+        <li><a href="index.html">STARTSEITE</a></li>
+        <li><a href="shop.html">SHOP</a></li>
+        <li><a href="faq">FAQ</a></li>
+        <li><a href="überuns.html">ÜBER UNS</a></li>
+      </ul>
+      <a href="konto.html">
+            <img class="navigationImg" src="Bilder/User.svg">
+      </a>
+      <a href="warenkorb.html">
+        <img class="navigationImg" src="Bilder/Cart-shopping.svg">
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <br>
+    <h1>Dein Profil</h1>
+        
+    <table class="WarenkorbTabelleWrapper">
+      <tr>
+        <td id="LetzteBestellungen">
+          <table id="LetzteBestellungenArtikel">
+            <thead>
+              <tr><h3>Letzte Bestellungen</h3></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center"><img class="shopImg" src="Bilder/Baisinger.jpg"></td>
+                <td>
+                  <table>
+                    <tr>
+                      <td><b>Baisinger Hefe Hell</b></td>
+                    </tr>
+                    <tr>
+                      <td>super lecker</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Versand: 1-2 Werktage</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Menge: 2</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="right">                  
+                  <br/><br/><br/><br/>
+                  <span>20,00 €</span>
+                </td>
+              </tr>
+              <tr>
+                <td align="center"><img class="shopImg" src="Bilder/Baisinger_helles.jpg"></td>
+                <td>
+                  <table>
+                    <tr>
+                      <td><b>Baisinger Helles</b></td>
+                    </tr>
+                    <tr>
+                      <td>super lecker</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Versand: 1-4 Werktage</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Menge: 8</td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="right">                    
+                  <br/><br/><br/><br/>
+                  <span>19,00 €</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        
+      </tr>
+    </table>
+  
+    <div id="Kontodaten">
+      <h1>Kontodaten</h1>
+      <p>
+        Hier siehst Du Deine aktuellen Daten<br>
+        Um diese zu ändern: Feld ausfüllen und speichern drücken
+      </p>
+      <table align="center" id="KontodatenTabelle">
+        <tr>
+          <td>Vorname</td>
+          <td><input type="text" size="20"/></td>
+        </tr>
+        <tr>
+          <td>Nachname</td>
+          <td><input type="text" size="20"/></td>
+        </tr>
+        <tr>
+          <td>E-Mail</td>
+          <td><input type="email" size="20"/></td>
+        </tr>
+        <tr>
+          <td>Telefon</td>
+          <td><input type="tel" size="20"/></td>
+        </tr>
+        <tr>
+          <td>Straße & Nr.</td>
+          <td><input type="text" size="20"/></td>
+        </tr>
+        <tr>
+          <td>PLZ & Ort</td>
+          <td align="left"><input type="text" size="5"/>   <input type="text" size="12"/></td>
+          <td align="left"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button>Speichern</button></td>
+        </tr>
+      </table>
+    </div>       
+  </main>
+  
+  <footer>
+    <section>
+      <table id="footerTabel">
+        <tr>
+          <th>Du brauchst Hilfe?<br><button>Kontaktiere uns</button></th>
+          <th><a href="faq.html">FAQ</a></th>
+          <th><a href="impressum.html">Impressum</a></th>
+          <th><a href="überuns.html">Über uns</a></th>
+          <th>
+            <a href="https://www.instagram.com/">
+            </a>
+            <a href="https://de-de.facebook.com/login.php">
+                <img src="Bilder/facebook.svg" alt="Facebook">
+            </a>
+            <a href="https://www.youtube.com/">
+                <img src="Bilder/youtube.svg" alt="Youtube">
+            </a>
+            <a href="https://twitter.com/i/flow/login">
+                <img src="Bilder/x-twitter.svg" alt="Twitter">
+            </a>
+          </th>
+        </tr>
+      </table>
+    </section>
+    <section>
+        © Copyright 2022 | SUPREME ELEMENTS GmbH
+    </section>
+    <section id="footerEnde"><br><br></section>
+  </footer>
+</body>
+</html>

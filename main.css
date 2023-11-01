@@ -17,7 +17,7 @@ nav {
     position: fixed; 
     top: 30px;
     left: 0px;
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     display: flex;
     padding-left: 50px;
     padding-right: 50px;
@@ -25,17 +25,17 @@ nav {
     z-index: 1000;
 }
 
-nav ul {                              
-    display: flex;                  
+nav ul {                               /*ul ungeordnete List um liste mit bulletpoints zu erstellen */
+    display: flex;                  /*lexible Ausrichtung: Mit display: flex; können Sie die Ausrichtung der Elemente in einem Container festlegen, entweder horizontal (in einer Zeile) oder vertikal (in einer Spalte).*/
     list-style: none;
     padding-left: 150px;
     padding-right: 150px;
 }
 
-nav li {  
-    margin: 0px; 
+nav li {  /*li um ein element der liste zu erstellen*/
+    margin: 0px; /* Gleichmäßiger Abstand zwischen den Textelementen */
     margin-right: 43px;
-    margin-left: 43px;                     
+    margin-left: 43px;                       /*Block-Verhalten: Das Element behält seine Blockeigenschaften bei, was bedeutet, dass Sie die Breite, Höhe, den Rand und das Padding des Elements festlegen können.*/
 }
 
 nav li a {
@@ -46,8 +46,6 @@ nav li a {
     color: #010101;
     font-size: 15px;
     text-decoration: none;
-    vertical-align: middle; 
-
 }
 
 nav li a:hover {
@@ -67,7 +65,7 @@ nav li a:hover {
 }
 
 .StarterImg { /*Header Bild*/
-    margin-top: 0px;
+    margin-top: 100px;
     width: 100%; 
     height: auto;     
     border-radius: 15px;
@@ -88,8 +86,8 @@ footer {
 #footerTabel th img {
     width: 20px;
     height: auto;
-    margin: 0 5px; 
-    vertical-align: middle; 
+    margin: 0 5px; /* Fügt 5px Abstand zwischen den Icons hinzu */
+    vertical-align: middle; /* Zentriert die Icons vertikal */
 }
 
 
@@ -100,11 +98,11 @@ footer {
 
 #footerTabel th a{
     text-decoration: none;
-    color: #000000;
+    color: #010101;
 }
 
 #footerTabel th{
-    color: #000000;
+    color: #010101;
     vertical-align:text-top 
 
 }
@@ -119,19 +117,19 @@ footer {
 }
 
 main {
+    text-align: center;
     color: #444444;
     background-color: rgb(243, 241, 234);
-    padding-bottom: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 50px;
-    margin-top: 70px;
+    margin-bottom: 0px;
+    padding: auto;
+    margin-bottom: 0px;
     font-style:oblique;
     font-size: 15px;
-   
+    margin-top: 115px; /*Abstand unter Header sicherstellen*/
 }
 
 body {
     font-family: 'Source Sans 3', sans-serif;
     color: #444444;
+
 }

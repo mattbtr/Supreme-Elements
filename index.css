@@ -1,0 +1,152 @@
+
+
+
+#Testzeile{
+  background-color: aqua;
+}
+
+button:hover, select:hover {
+  background-color: #236dcc; /* Hintergrundfarbe ändert sich bei Hover */
+}
+
+button, select{
+  background-color: #2c3540; /* Hintergrundfarbe */
+  color: #ffffff; /* Textfarbe */
+  border: none; /* Kein Rand */
+  padding: 5px 10px; /* Innenabstand oben/unten und links/rechts */
+  text-align: center; /* Text zentrieren */
+  text-decoration: none; /* Keine Unterstreichung */
+  display: inline-block;
+  font-size: 16px; /* Schriftgröße */
+  border-radius: 5px; /* Abrundung der Ecken */
+  cursor: pointer; /* Zeige Handcursor beim Überfahren */
+}
+
+
+#Produktliste tr th{
+  box-shadow: 0px  0px 15px 0px rgb(233, 198, 159);
+  border-radius: 15px;
+}
+
+#Produktliste2 tr th{
+  box-shadow: 0px  0px 15px 0px rgb(233, 198, 159);
+  border-radius: 15px;
+}
+
+ #Produktliste{
+    border-spacing: 70px;
+    padding: 0px;
+    box-align: center;
+    margin: auto;
+    border-radius: 15px;
+    background-color: rgb(247, 246, 245);
+ }
+
+ #wenigerZeigen{
+  display: none;
+  position: relative;
+  top: -120px;
+ }
+ 
+
+ #Produktliste2{ /*weitere Produkte*/
+  display: none;
+  position: relative;
+  top: -120px;
+  border-spacing: 70px;
+  padding: 0px;
+  box-align: center;
+  margin: auto;
+  border-radius: 15px;
+  background-color: rgb(247, 246, 245);
+}
+  
+
+  #weitereStudienButton {
+    visibility: visible;
+    left: 450px;
+    border-style: none;
+    border-radius: 20px;
+    background-color: orange;
+  }
+
+  #wenigerStudien{ /*Button weniger Produkte*/
+    display: none;
+    position: relative;
+    width: 250px;
+    margin:auto;
+    height: 40px;
+    border-style: none;
+    border-radius: 30px;
+    background-color: rgb(0, 0, 0);
+}
+  
+ 
+ hr{ /*Trennlinie nach Headerbild*/
+    width: 80%;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 0px; 
+    border: none; 
+    border-top: 1px solid #727272; 
+ }
+
+
+
+
+.shopImg {
+  width: auto;
+  height: 370px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+section{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/*Header Slider*/
+.sliderElement {
+  text-align: center;
+  position: relative;
+  /*outline: 1px solid orange;*/
+}
+
+.infoBox {
+  /*outline: 1px solid green;*/
+  position: relative;
+  bottom: 25px;
+  left: 40%;
+  width: 20%;
+}
+
+/*Text Nahrungsergänzungsmittel*/
+.infoText {
+  border: 1px solid black;
+  padding: 10px;
+  position: relative;
+  text-align: left;
+}
+
+/*Newsletter*/
+.newsletter {
+  width: 100%;
+  text-align: left;
+}
+
+.sectionNewsletter{
+  background-color: #d6d6d6;
+}
+
+/*Position Layout*/
+.layoutContainer {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
