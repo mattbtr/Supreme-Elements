@@ -1,9 +1,10 @@
 function Danksagung() {
-    alert("Vielen Dank für Ihren Einkauf bei Mighty Elements.")
+    alert("Vielen Dank für Ihren Einkauf bei Supreme Elements.")
 }
 
-function Warnung() {
-    alert("Leider momentan ausverkauft!")
+function WeiterleitungDetails() {
+    window.location.href = 'produktdetails.html';
+
 }
 
 function mehrProdukteJS() {    
