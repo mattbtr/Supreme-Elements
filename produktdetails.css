@@ -2,27 +2,28 @@ a{
     text-decoration: none;
     color: black;
 }
-
 .AP:hover{
     text-decoration: underline;
 }
-
 .Produkt1{
-    width: 40%;
+    width: 25%;
     height: 20%;
-    padding-left: 28%;
+    padding-left: 35%;
 }
-
-.bildrahmen{
+.ersteTabellenspalte{
     border-radius: 5px;
-    margin-right: 10%;
+    margin-right: 0%;
     box-shadow: 0px  0px 05px 0px rgb(185, 179, 171);
+    width: 1200px;
+    height: auto;
+}
+.zweiteTabellenspalte{
+    width: 440px;
 }
 #Produktbild{
-    width: 55%;
-    margin-left: 10;
+    margin-left: 0;
     padding-left: 0%;
-    padding-right: 10%;
+    padding-right: 0%;
     border-radius: 15px;    
     background-color: rgb(247, 246, 245);
  }
@@ -31,8 +32,7 @@ br{
     margin: 10px 0  ;
     line-height:22px;
   }
-
-button{
+.hinzufügen{
     background-color: black; 
     color: #ffffff; 
     border: none; 
@@ -40,29 +40,56 @@ button{
     text-align: center; 
     text-decoration: none; 
     display: inline-block;
-    font-size: 10px; 
+    font-size: 18px; 
     border-radius: 3px; 
-    cursor: pointer; }
+    cursor: pointer; 
+    margin-left: 60px;
+    margin-top: 50px;
+}
 
 .hinzufügen:hover{
     background-color: red;
 }
-.p1{
+.p4{
     margin-right: 44%;
 }
-.p2,h1,.hinzufügen{
-    margin-left: 60%;
-    font-size: large;
+.p1{
+    margin-left: 60px;
+    font-size: small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.p2{
+    margin-left: 60px;
+    font-size: x-large   ;
 }
 h1{
     text-decoration: underline;
+    margin-bottom: 0px;
+    margin-left: 50px;
 }
 .p3{
-    margin-left: 70%;   
+    margin-left: 60px;  
+    margin-bottom: 260px; 
+    margin-top: 60px;
 }
 .p3:hover{
     background-color: green;
 }
 hr {
-    margin-right: 45%;
+    margin-right: 35.5%;
 }
+button:hover, select:hover {
+    background-color: #236dcc; /* Hintergrundfarbe ändert sich bei Hover */
+  }
+button, select{
+    background-color: #2c3540; /* Hintergrundfarbe */
+    color: #ffffff; /* Textfarbe */
+    border: none; /* Kein Rand */
+    padding: 5px 10px; /* Innenabstand oben/unten und links/rechts */
+    text-align: center; /* Text zentrieren */
+    text-decoration: none; /* Keine Unterstreichung */
+    display: inline-block;
+    font-size: 16px; /* Schriftgröße */
+    border-radius: 5px; /* Abrundung der Ecken */
+    cursor: pointer; /* Zeige Handcursor beim Überfahren */
+    }
