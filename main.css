@@ -114,6 +114,7 @@ footer {
 
 #footerEnde{
     background-color: rgba(87, 89, 89, 0.349);
+    margin: 0;
 }
 
 main {
@@ -131,5 +132,6 @@ main {
 body {
     font-family: 'Source Sans 3', sans-serif;
     color: #444444;
+    margin: 0;
 
 }

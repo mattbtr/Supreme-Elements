@@ -1,10 +1,11 @@
 button:hover,
-select:hover {
+select:hover,
+input[type=submit]:hover {
   background-color: #236dcc;
 }
 
 button,
-select {
+select, input[type=submit] {
   background-color: #2c3540;
   color: #ffffff;
   border: none;
@@ -96,16 +97,4 @@ h1 {
 
 .contact-formular-left table textarea {
   margin: auto;
-}
-
-.submit-button {
-  background-color: #53667c;
-  color: #ffffff;
-
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  border-radius: 3px;
-  cursor: pointer;
 }
