@@ -1,7 +1,7 @@
 
 
 
-#dropdown {
+.dropdown {
   position: relative;
   right: 400px;
   border-spacing: 0px;
@@ -9,8 +9,9 @@
    
 }
 
-#Testzeile{
-  background-color: aqua;
+.indenWarenkorb{ /*Button*/
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #Produktanzahl{
@@ -37,10 +38,45 @@ button, select{
   cursor: pointer; 
 }
 
+.produktTitel{
+  padding: 10px;
+  font-size: 15px;
+  font-style: initial;
+  font-weight: bolder;
+  color: #444444;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.inhaltsstoffe{
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-style:normal;
+}
+
+.verfuegbarkeit{
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.preis{
+  margin-top: 35px;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-style: normal;
+}
+
+
+
+
+
 
 #Produktliste tr th{
   box-shadow: 0px  0px 15px 0px rgb(233, 198, 159);
   border-radius: 15px;
+  width: auto;
+  vertical-align:text-top;
 }
 
 #Produktliste2 tr th{
@@ -62,14 +98,14 @@ button, select{
  #wenigerZeigen{
   display: none;
   position: relative;
-  top: -120px;
+  top: -60px;
  }
  
 
  #Produktliste2{ /*weitere Produkte*/
   display: none;
   position: relative;
-  top: -120px;
+  top: -60px;
   border-spacing: 70px;
   padding: 0px;
   box-align: center;
