@@ -26,7 +26,7 @@ nav {
 }
 
 nav ul {                               /*ul ungeordnete List um liste mit bulletpoints zu erstellen */
-    display: flex;                  /*lexible Ausrichtung: Mit display: flex; können Sie die Ausrichtung der Elemente in einem Container festlegen, entweder horizontal (in einer Zeile) oder vertikal (in einer Spalte).*/
+    display: flex;                  
     list-style: none;
     padding-left: 150px;
     padding-right: 150px;
@@ -35,13 +35,13 @@ nav ul {                               /*ul ungeordnete List um liste mit bullet
 nav li {  /*li um ein element der liste zu erstellen*/
     margin: 0px; /* Gleichmäßiger Abstand zwischen den Textelementen */
     margin-right: 43px;
-    margin-left: 43px;                       /*Block-Verhalten: Das Element behält seine Blockeigenschaften bei, was bedeutet, dass Sie die Breite, Höhe, den Rand und das Padding des Elements festlegen können.*/
+    margin-left: 43px;                       
 }
 
 nav li a {
     margin-right:0px;
     margin-left: 0px;
-    line-height: 50px;          /*!!!richtig zentrieren !*/
+    line-height: 50px;        
     font-weight: bold;
     color: #010101;
     font-size: 15px;
@@ -64,8 +64,9 @@ nav li a:hover {
     width: 30px;
 }
 
-.StarterImg { /*Header Bild*/
-    margin-top: 100px;
+
+.headerBild { /*Header Bild*/
+    margin-top: 0px;
     width: 100%; 
     height: auto;     
     border-radius: 15px;
