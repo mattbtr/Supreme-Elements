@@ -2,14 +2,17 @@ a{
     text-decoration: none;
     color: black;
 }
+
 .AP:hover{
     text-decoration: underline;
 }
+
 .Produkt1{
     width: 25%;
     height: 20%;
-    padding-left: 35%;
+    padding-left: 0%;
 }
+
 .ersteTabellenspalte{
     border-radius: 5px;
     margin-right: 0%;
@@ -17,10 +20,13 @@ a{
     width: 1200px;
     height: auto;
 }
+
 .zweiteTabellenspalte{
     width: 440px;
+    
 }
 #Produktbild{
+    /*width: 55%; */
     margin-left: 0;
     padding-left: 0%;
     padding-right: 0%;
@@ -32,6 +38,7 @@ br{
     margin: 10px 0  ;
     line-height:22px;
   }
+
 .hinzufügen{
     background-color: black; 
     color: #ffffff; 
@@ -49,9 +56,12 @@ br{
 
 .hinzufügen:hover{
     background-color: red;
+
 }
 .p4{
     margin-right: 44%;
+    text-align: left;
+    padding-left: 10px;
 }
 .p1{
     margin-left: 60px;
@@ -62,10 +72,16 @@ br{
     margin-left: 60px;
     font-size: x-large   ;
 }
+
 h1{
     text-decoration: underline;
     margin-bottom: 0px;
     margin-left: 50px;
+}
+
+.h23{
+    text-align: left;
+    padding-left: 10px;
 }
 .p3{
     margin-left: 60px;  
@@ -76,12 +92,13 @@ h1{
     background-color: green;
 }
 hr {
-    margin-right: 35.5%;
+    margin-right: 36.7%;
 }
 button:hover, select:hover {
     background-color: #236dcc; /* Hintergrundfarbe ändert sich bei Hover */
   }
-button, select{
+  
+  button, select{
     background-color: #2c3540; /* Hintergrundfarbe */
     color: #ffffff; /* Textfarbe */
     border: none; /* Kein Rand */
