@@ -1,147 +1,216 @@
 <!DOCTYPE html>
 <html lang="de">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Shop</title>
-        <link href="main.css" rel="stylesheet">
-        <link href="shop.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="shop.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link href="main.css" rel="stylesheet">
+    <link href="shop.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="shop.js"></script>
+</head>
 
-    <body>
-        <header>
-            <h4>Versandkostenfrei ab 50€ (innerhalb Deutschlands) | kostenloser Rückversand (DE) (14 Tage Rückgaberecht) |
-                Versand am gleichen Tag</h4>
-                <nav>
-                    <a href="index.html">
-                        <img class="Logo" src="Bilder/LogoWebshop.png">
-                    </a>
-                    <ul class="nav">
-                        <li><a href="index.html">STARTSEITE</a></li>
-                        <li><a href="shop.html">SHOP</a></li>
-                        <li><a href="faq">FAQ</a></li>
-                        <li><a href="ueberuns.html">ÜBER UNS</a></li>
-                    </ul>
-                    <a href="konto.html">
-                        <img class="navigationImg" src="Bilder/User.svg">
-                    </a>
-                    <a href="warenkorb.html">
-                        <img class="navigationImg" src="Bilder/Cart-shopping.svg">
-                    </a>
-                </nav>
-        </header>
+<body>
+    <header>
+        <h4>Versandkostenfrei ab 50€ (innerhalb Deutschlands) | kostenloser Rückversand (DE) (14 Tage Rückgaberecht) |
+            Versand am gleichen Tag</h4>
+        <nav>
+            <a href="index.html">
+                <img class="Logo" src="Bilder/LogoWebshop.png" alt="Logo">
+            </a>
+            <ul class="nav">
+                <li><a href="index.html">STARTSEITE</a></li>
+                <li><a href="shop.html">SHOP</a></li>
+                <li><a href="faq">FAQ</a></li>
+                <li><a href="ueberuns.html">ÜBER UNS</a></li>
+            </ul>
+            <a href="konto.html">
+                <img class="navigationImg" src="Bilder/User.svg" alt="konto">
+            </a>
+            <a href="warenkorb.html">
+                <img class="navigationImg" src="Bilder/Cart-shopping.svg" alt="warenkorb">
+            </a>
+        </nav>
+    </header>
 
-        <main>
-            <img class="headerBild" src="Bilder/Shopable.png">
-            <hr>
-
-
-            <label id="dropdown" for=Attribute></label>
-            <select id="dropdown" name="attribute">
-                <option value="" disabled selected hidden>Sortiert nach</option>
-                <option value="name">Name</option>
-                <option value="preis">Preis</option>
-                <option value="Verfügbarkeit">Verfügbarkeit</option>
-            </select>
-            <label id="dropdown" for=Pries></label>
-            <select id="dropdown" name="preis">
-                <option value="aufsteigend">Preis aufsteigend</option>
-                <option value="absteigend">Preis absteigend</option>
-            </select>
-
-            <section id="Produktanzahl">28 Produkte</section>
+    <main>
+        <img class="headerBild" src="Bilder/Shopable.png" alt="headerBild">
+        <hr>
 
 
-            <table id="Produktliste">
-                <tbody>
-                    <tr>
-                        <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Beautiful.png"><br>
-                            <section id="produktTitel">Beautiful</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button>
-                        </th>
-                        <section>
-                            <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Fireshield.png"><br>
-                                <section id="produktTitel">Fireshield</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den
-                                    Warenkorb</button></th>
+        <label class="dropdown" for=Attribute></label>
+        <select class="dropdown" name="attribute">
+            <option value="" disabled selected hidden>Sortiert nach</option>
+            <option value="name">Name</option>
+            <option value="preis">Preis</option>
+            <option value="Verfügbarkeit">Verfügbarkeit</option>
+        </select>
+        <label class="dropdown" for=Pries></label>
+        <select class="dropdown" name="preis">
+            <option value="aufsteigend">Preis aufsteigend</option>
+            <option value="absteigend">Preis absteigend</option>
+        </select>
 
-                            <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Essentials.png"><br>
-                                <section id="produktTitel"> Essentials</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den
-                                    Warenkorb</button></th>
-                        </section>
-                        <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Focus.png"><br>
-                            <section id="produktTitel"> Focus</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button></th>
-                    </tr>
-                    <tr>
-                        <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Beautiful.png"><br>
-                            <section id="produktTitel"> Beautiful</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button>
-                        </th>
+        <section id="Produktanzahl">28 Produkte</section>
 
-                        <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Fireshield.png"><br>
-                            <section id="produktTitel"> Fireshield</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button>
-                        </th>
 
-                        <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Essentials.png"><br>
-                            <section id="produktTitel">Essentials</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button>
-                        </th>
+        <table id="Produktliste">
+            <tbody>
+                <tr>
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Beautiful.png"
+                            alt="Beautiful"><br>
+                        <p class="produktTitel">Beautiful</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
 
-                        <th id="blickpunktWeniger"><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Focus.png"><br>
-                            <section id="produktTitel">Focus</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button></th>
-                    </tr>
-                </tbody>
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Fireshield.png"
+                            alt="Fireshield"><br>
+                        <p class="produktTitel">Fireshield</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den
+                            Warenkorb</button>
+                    </th>
+
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Essentials.png"
+                            alt="Essentials"><br>
+                        <p class="produktTitel"> Essentials</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den
+                            Warenkorb</button>
+                    </th>
+
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Focus.png" alt="Focus"><br>
+                        <p class="produktTitel"> Focus</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Beautiful.png"
+                            alt="Beautiful"><br>
+                        <p class="produktTitel"> Beautiful</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
+
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Fireshield.png"
+                            alt="Fireshield"><br>
+                        <p class="produktTitel"> Fireshield</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
+
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Essentials.png"
+                            alt="Essentials"><br>
+                        <p class="produktTitel">Essentials</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
+
+                    <th id="blickpunktWeniger"><img onclick="WeiterleitungDetails()" class="shopImg"
+                            src="Bilder/Focus.png" alt="Focus"><br>
+                        <p class="produktTitel">Focus</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <section id="zeigeMehr">8 von 12 Produkte<br><button onclick="mehrProdukteJS()">Zeige
+                mehr</button></section>
+        <table id="Produktliste2">
+            <tbody>
+                <tr>
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Beautiful.png"
+                            alt="Beautiful"><br>
+                        <p class="produktTitel">Beautiful</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
+
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Fireshield.png"
+                            alt="Fireshield"><br>
+                        <p class="produktTitel">Fireshield</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den
+                            Warenkorb</button>
+                    </th>
+
+                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Essentials.png"
+                            alt="Essentials"><br>
+                        <p class="produktTitel">Essentials</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den
+                            Warenkorb</button>
+                    </th>
+
+                    <th id="blickpunktMehr"><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Focus.png"
+                            alt="Focus"><br>
+                        <p class="produktTitel">Focus</p>
+                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
+                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
+                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungDetails()">In
+                            den Warenkorb</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <section id="wenigerZeigen">8 von 12 Produkte<br><button onclick="wenigerZeigen()">Zeige
+                weniger</button>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <table id="footerTabel">
+                <tr>
+                    <th>Du brauchst Hilfe?<br><a href="faq.html"><button>Kontaktiere uns</button></a></th>
+                    <th><a href="faq.html">FAQ</a></th>
+                    <th><a href="impressum.html">Impressum</a></th>
+                    <th><a href="ueberuns.html">Über uns</a></th>
+                    <th><a href="https://www.instagram.com/"><img src="Bilder/instagram.svg" alt="instagram">
+                        </a>
+                        <a href="https://de-de.facebook.com/login.php">
+                            <img src="Bilder/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="https://www.youtube.com/">
+                            <img src="Bilder/youtube.svg" alt="Youtube">
+                        </a>
+                        <a href="https://twitter.com/i/flow/login">
+                            <img src="Bilder/x-twitter.svg" alt="Twitter">
+                        </a>
+                    </th>
+                </tr>
             </table>
-            <section id="zeigeMehr">von 12 Produkte<br><button id="indenWarenkorb" onclick="mehrProdukteJS()">Zeige mehr</button></section>
-            <table id="Produktliste2">
-                <tbody>
-                    <tr>
-                        <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Beautiful.png"><br>
-                            <section id="produktTitel">Beautiful</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button>
-                        </th>
-                        <section>
-                            <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Fireshield.png"><br>
-                                <section id="produktTitel">Fireshield</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den
-                                    Warenkorb</button></th>
+        </section>
+        <section>
+            © Copyright 2022 | SUPREME ELEMENTS GmbH
+        </section>
+        <section id="footerEnde"><br><br></section>
+    </footer>
+</body>
 
-                            <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Essentials.png"><br>
-                                <section id="produktTitel">Essentials</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den
-                                    Warenkorb</button></th>
-                        </section>
-                        <th id="blickpunktMehr"><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Focus.png"><br>
-                            <section id="produktTitel">Focus</section><section id="verfuegbarkeit">Verfügbarkeit: 9</section><section id="inhaltsstoffe">300mg Vitamin c + 50mg Zink</section><section id="preis">21,90€</section><button id="indenWarenkorb" onclick="WeiterleitungDetails()">In den Warenkorb</button></th>
-                    </tr>
-                </tbody>
-            </table>
-            <section id="wenigerZeigen">von 12 Produkte<br><button id="indenWarenkorb" onclick="wenigerZeigen()">Zeige weniger</button>
-            </section>
-        </main>
-        <footer>
-            <section>
-                <table id="footerTabel">
-                    <tr>
-                        <th>Du brauchst Hilfe?<br><a href="faq.html"><button>Kontaktiere uns</button></a></th>
-                        <th><a href="faq.html">FAQ</a></th>
-                        <th><a href="impressum.html">Impressum</a></th>
-                        <th><a href="ueberuns.html">Über uns</a></th>
-                        <th><a href="https://www.instagram.com/">
-                            </a>
-                            <a href="https://de-de.facebook.com/login.php">
-                                <img src="Bilder/facebook.svg" alt="Facebook">
-                            </a>
-                            <a href="https://www.youtube.com/">
-                                <img src="Bilder/youtube.svg" alt="Youtube">
-                            </a>
-                            <a href="https://twitter.com/i/flow/login">
-                                <img src="Bilder/x-twitter.svg" alt="Twitter">
-                            </a>
-                        </th>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                © Copyright 2022 | SUPREME ELEMENTS GmbH
-            </section>
-            <section id="footerEnde"><br><br></section>
-        </footer>
-    </body>
 </html>
