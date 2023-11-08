@@ -60,9 +60,9 @@ h1 {
   border-radius: 30px;
   display: flex;
   justify-content: space-between;
-
-
 }
+
+
 
 .contact-us {
   display: flex;
@@ -98,3 +98,4 @@ h1 {
 .contact-formular-left table textarea {
   margin: auto;
 }
+
