@@ -11,23 +11,24 @@
 
 <body>
   <header>
-    <h4>Versandkostenfrei ab 50€ (innerhalb Deutschlands) | kostenloser Rückversand (DE) (14 Tage Rückgaberecht) | Versand am gleichen Tag</h4>
-    <nav>
-      <a href="index.html">
-        <img class="Logo" src="Bilder/LogoWebshop.png">
-      </a>
-      <ul class="nav">
-        <li></li>
-        <li>
-          <a href="shop.html">
-              <img width="30px" height="auto" src="Bilder/Pfeil.svg">
+      <h4>Versandkostenfrei ab 50€ (innerhalb Deutschlands) | kostenloser Rückversand (DE) (14 Tage Rückgaberecht) | Versand am gleichen Tag</h4>
+      <nav>
+          <a href="index.html">
+            <img class="Logo" src="Bilder/LogoWebshop.png">
           </a>
-          <a href="shop.html">
-              BACK TO SHOP
+          <ul class="nav">
+              <li><a href="index.html">STARTSEITE</a></li>
+              <li><a href="shop.html">SHOP</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="ueberuns.html">ÜBER UNS</a></li>
+          </ul>
+          <a href="konto.html">
+            <img class="navigationImg" src="Bilder/User.svg">
           </a>
-        </li>
-      </ul>
-    </nav>
+          <a href="warenkorb.html">
+            <img class="navigationImg" src="Bilder/Cart-shopping.svg">
+          </a>
+      </nav>
   </header>
 
   <main>
@@ -43,14 +44,20 @@
             </thead>
             <tbody>
               <tr>
-                <td align="center"><img class="shopImg" src="Bilder/Baisinger.jpg"></td>
+                <td align="center"><a href="produktdetails.html"><img class="shopImg" src="Bilder/Fireshield.png"></a></td>
                 <td>
                   <table>
                     <tr>
-                      <td><b>Baisinger Hefe Hell</b></td>
+                      <td><b>Fireshield</b></td>
                     </tr>
                     <tr>
-                      <td>super lecker</td>
+                      <td>macht Abwehrkraft</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Einzelpreis: 20,00€</td>
                     </tr>
                     <tr>
                       <td></td>
@@ -62,29 +69,35 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td><input type="number" size="5"/></td>
+                      <td><input type="number" size="5" value="1"/></td>
                     </tr>
                   </table>
                 </td>
                 <td align="right">
                   <img class="symbols" src="Bilder/muelleimer.jpg">
-                  <br/><br/><br/><br/>
-                  <span>20,00 €</span>
+                  <br/><br/><br/><br/><br/>
+                  <span>Preis: 20,00€</span>
                 </td>
               </tr>
                 <tr>
-                  <td align="center"><img class="shopImg" src="Bilder/Baisinger_helles.jpg"></td>
+                  <td align="center"><a href="produktdetails.html"><img class="shopImg" src="Bilder/Beautiful.png"></a></td>
                   <td>
                     <table>
                       <tr>
-                        <td><b>Baisinger Helles</b></td>
+                        <td><b>Beautiful</b></td>
                       </tr>
                       <tr>
-                        <td>super lecker</td>
+                        <td>damit wirst du noch schöner!</td>
                       </tr>
                       <tr>
                         <td></td>
                       </tr>
+                      <tr>
+                      <td>Einzelpreis: 19,00€</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                    </tr>
                       <tr>
                         <td>Versand: 1-4 Werktage</td>
                       </tr>
@@ -92,42 +105,42 @@
                         <td></td>
                       </tr>
                       <tr>
-                        <td><input type="number" size="5"/></td>
+                        <td><input type="number" size="5" value="1"/></td>
                       </tr>
                     </table>
                   </td>
                   <td align="right">
                     <img class="symbols" src="Bilder/muelleimer.jpg">
-                    <br/><br/><br/><br/>
-                    <span>19,00 €</span>
+                    <br/><br/><br/><br/><br/>
+                    <span>Preis: 19,00€</span>
                   </td>
                 </tr>
             </tbody>
           </table>
         </td>
         <td id="WarenkorbRechts" valign="top">
+          <h3>Zusammenfassung</h3>
           <table id="deineBestellung">
-            <thead>
-              <tr><h3>Zusammenfassung</h3></thead></tr>
             <tbody>
               <tr>
                 <td>Artikel im Warenkorb</td>
-                <td> 149,49€</td>
+                <td align="right"> 149,49€</td>
               </tr>
               <tr>
                 <td>Versand</td>
-                <td>18,85€</td>
+                <td align="right">18,85€</td>
               </tr>
               <tr>
                 <th>Gesamtsumme</th>
-                <th>166,45€</th>
+                <th align="right">166,45€</th>
               </tr>
               <tr>
                 <td>inkl. 19% Mwst.</td>
-                <td>23,44€</td>
+                <td align="right">23,44€</td>
               </tr>
               <tr>
-                <th><button>zur Kasse</button></th></th>
+                <td><a href="kasse.html"><button>zur Kasse</button></a></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
@@ -160,7 +173,7 @@
     <section>
       <table id="footerTabel">
         <tr>
-          <th>Du brauchst Hilfe?<br><button>Kontaktiere uns</button></th>
+          <th>Du brauchst Hilfe?<br><button class="kontaktButton">Kontakt</button></th>
           <th><a href="faq.html">FAQ</a></th>
           <th><a href="impressum.html">Impressum</a></th>
           <th><a href="ueberuns.html">Über uns</a></th>

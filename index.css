@@ -1,10 +1,4 @@
 
-
-
-#Testzeile{
-  background-color: aqua;
-}
-
 button:hover, select:hover {
   background-color: #236dcc; /* Hintergrundfarbe ändert sich bei Hover */
 }
@@ -22,80 +16,6 @@ button, select{
   cursor: pointer; /* Zeige Handcursor beim Überfahren */
 }
 
-
-#Produktliste tr th{
-  box-shadow: 0px  0px 15px 0px rgb(233, 198, 159);
-  border-radius: 15px;
-}
-
-#Produktliste2 tr th{
-  box-shadow: 0px  0px 15px 0px rgb(233, 198, 159);
-  border-radius: 15px;
-}
-
- #Produktliste{
-    border-spacing: 70px;
-    padding: 0px;
-    box-align: center;
-    margin: auto;
-    border-radius: 15px;
-    background-color: rgb(247, 246, 245);
- }
-
- #wenigerZeigen{
-  display: none;
-  position: relative;
-  top: -120px;
- }
- 
-
- #Produktliste2{ /*weitere Produkte*/
-  display: none;
-  position: relative;
-  top: -120px;
-  border-spacing: 70px;
-  padding: 0px;
-  box-align: center;
-  margin: auto;
-  border-radius: 15px;
-  background-color: rgb(247, 246, 245);
-}
-  
-
-  #weitereStudienButton {
-    visibility: visible;
-    left: 450px;
-    border-style: none;
-    border-radius: 20px;
-    background-color: orange;
-  }
-
-  #wenigerStudien{ /*Button weniger Produkte*/
-    display: none;
-    position: relative;
-    width: 250px;
-    margin:auto;
-    height: 40px;
-    border-style: none;
-    border-radius: 30px;
-    background-color: rgb(0, 0, 0);
-}
-  
- 
- hr{ /*Trennlinie nach Headerbild*/
-    width: 80%;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-    position: relative;
-    margin-top: 100px;
-    margin-left: 0px; 
-    border: none; 
-    border-top: 1px solid #727272; 
- }
-
-
-
-
 .shopImg {
   width: auto;
   height: 370px;
@@ -104,7 +24,6 @@ button, select{
   margin-left: auto;
   margin-right: auto;
 }
-
 
 section{
   margin-top: 50px;
@@ -115,7 +34,8 @@ section{
 .sliderElement {
   text-align: center;
   position: relative;
-  /*outline: 1px solid orange;*/
+  /*outline: 5px solid orange;*/
+  background-color: #d6d6d6;
 }
 
 .infoBox {
