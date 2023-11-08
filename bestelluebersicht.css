@@ -40,7 +40,7 @@ button:hover, select:hover {
 
 
 #Preise{
-    margin-top: 40px;
+    padding-top: 50px;
 }
 
 #Bestellübersicht #Linkespalte{
@@ -186,6 +186,12 @@ input[type="button"]:hover {
 
 #ProduktbeschreibungUndLieferadresse{
     margin-top: 40px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+#Einzelpreis{
+    margin-top: 0px;
     font-weight: normal;
     font-size: 14px;
 }
