@@ -8,7 +8,7 @@ function WeiterleitungDetails() {
 
 
 function WeiterleitungWarenkorb() {
-  window.location.href = 'warenkrob.html';
+  window.location.href = 'warenkorbgit.html';
 }
 
 function mehrProdukteJS() {    
