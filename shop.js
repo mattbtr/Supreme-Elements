@@ -4,7 +4,11 @@ function Danksagung() {
 
 function WeiterleitungDetails() {
     window.location.href = 'produktdetails.html';
+}
 
+
+function WeiterleitungWarenkorb() {
+  window.location.href = 'warenkrob.html';
 }
 
 function mehrProdukteJS() {    
