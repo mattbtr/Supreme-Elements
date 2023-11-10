@@ -1,12 +1,4 @@
 
-#Personenbild{
-    width: 20px;
-    height: auto;
-    vertical-align: middle; /* Zentriert die Icons vertikal */
-    margin-right: 20px;
-}
-
-
 button:hover, select:hover {
     background-color: #236dcc; /* Hintergrundfarbe ändert sich bei Hover */
   }
@@ -39,9 +31,7 @@ button:hover, select:hover {
 }
 
 
-#Preise{
-    padding-top: 50px;
-}
+
 
 #Bestellübersicht #Linkespalte{
     vertical-align:top;
@@ -55,7 +45,7 @@ button:hover, select:hover {
 
 #Bestellübersicht #Rechtespalte{
     vertical-align:top;
-    text-align: center; 
+    text-align: left; 
 }
 
 #ZustellungNach{
@@ -130,10 +120,6 @@ button:hover, select:hover {
     width: 150px;
 }
 
-#Trash{
-    width: 20px;
-    height: auto;
-}
 
 #versandkostenspalte{
     line-height: 100px;
@@ -142,11 +128,15 @@ button:hover, select:hover {
 /*--------------------------------------------------------------------------------------------------*/
 
 #Preise{
-    margin-top: 175px;
-    font-size: 17px;
+    padding-top: 225px;
+    font-size: 15px;
 }
 
-#PreisVersandkostenUndGesamtkosten{
+#PreiseVersandMwst{
+    font-size: 15px;
+}
+
+#PreisGesamtkosten{
     margin-top: 0px;
     font-size: 17px;
 }
@@ -191,20 +181,20 @@ input[type="button"]:hover {
 }
 
 #Einzelpreis{
-    margin-top: 0px;
+    margin-top: 10px;
     font-weight: normal;
     font-size: 14px;
 }
 
 #Versand{
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 12px;
     font-style: italic;
 }
 
 #Menge{
     margin-top: 20px;
-    margin-left: 45px;
+    font-size: 17px;
 }
 
 #TrennerBestellübersicht{

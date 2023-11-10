@@ -32,89 +32,125 @@
     </header>
 
     <main>
-        <h1>Checkout</h1>
+        <br>
+        <h1>Kasse</h1>
         <h4>Versandkosten werden an der Kasse berechnet.</h4>
 
         <table class="GesamtTabellePersonendatenBestellung">
             <tr>
                 <th id="GesamtTabelleRechts">
+                    <h3>Rechnungsdetails</h3>
                     <table id="PersonendatenTabelle">
-                        <thead>
-                            <tr>
-                                <h3><a href="konto.html"><img id="Personenbild" src="Bilder/Personas.svg" alt="konto">John Doe</h3></a>
-                            </tr>
-                        </thead>
                         <tbody>
-                            <tr>
-                                <th>Email:<section id="content">johannes.k0@gmail.com</section>
-                                </th>
-                                <th>Adresse:<section id="content">wi********fd***37<br>****kali***gfr*******</section>
+                            <tr> 
+                                <th colspan="2">
+                                    <select id="anrede" name="anrede">
+                                    <option value="" disabled selected hidden>Anrede</option>
+                                    <option value="Keine">Keine</option>
+                                    <option value="Herr">Herr</option>
+                                    <option value="Frau">Frau</option>
+                                    <option value="Divers">Divers</option>    
                                 </th>
                             </tr>
                             <tr>
-                                <th>Telefon (mobil):<section id="content">+49********45</section>
+                                <th>                            
+                                    <input placeholder="Vorname" type="text" class="rechnungsdetails" name="vorname" required>
+                                </th>
+                                <th>
+                                    <input placeholder="Nachname" type="text" class="rechnungsdetails" name="nachname" required>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <input placeholder="Straße" type="text" class="rechnungsdetails" name="straße" required>
+                                </th>
+                                <th>
+                                    <input placeholder="Hausnummer" type="number" class="rechnungsdetails" name="hausnummer" required>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <input placeholder="PLZ"  type="text" class="rechnungsdetails" name="plz" required>
+                                </th>
+                                <th>
+                                    <input placeholder="Ort" type="text" class="rechnungsdetails" name="ort" required>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <input placeholder="E-Mail" type="email" class="rechnungsdetails" name="email" required>
+                                </th>
+                                <th>
+                                    <input placeholder="Telefonnummer" type="text" class="rechnungsdetails" name="telefonnummer" required>
                                 </th>
                             </tr>
                         </tbody>
                     </table>
                 </th>
                 <th id="GesamtTabelleLinksOben">
+                    <h3>Deine Bestellung</h3>
                     <table id="deineBestellung">
-                        <thead>
-                            <tr>
-                                <h3>Deine Bestellung</h3>
-                        </thead>
-            </tr>
             <tbody>
                 <tr>              
                         <td>Artikel im Warenkorb</td>
                         <td class="preis"> 149,49€</td>
                 </tr>
                 <tr>
-                    <td>Versand</td>
-                    <td class="preis">18,85€</td>
+                    <td>Versandkosten</td>
+                    <td class="preis">5,44€</td>
+                </tr>
+                <tr>
+                    <td>19% Mwst.</td>
+                    <td class="preis">23,44€</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr>
+                    </td>
                 </tr>
                  <tr>
                     <th>Gesamtsumme</th>
                     <th class="preis">166,45€</th>
                 </tr>
-                <tr>
-                    <td>inkl. 19% Mwst.</td>
-                    <td class="preis">23,44€</td>
             </tbody>
         </table>
         </th>
         </tr>
         <tr>
             <th>
+                <h3>Zahlungsart</h3>
                 <table id="Zahlungsartwählen">
-                    <thead>
-                        <tr>
-                            <h3>Zahlungsart wählen</h3>
-                    </thead>
-        </tr>
         <tbody>
             <tr>
                 <th><label>
-                        <input type="radio" name="auswahl" value="Paypal">
+                        <input type="radio" name="auswahl" checked value="Paypal">
                         Paypal
                     </label></th>
 
             </tr>
-            <tr>
-                <th><a href="bestelluebersicht.html"><button>Jetzt kaufen!</button></a></th>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <section id="Geschäftsbedingungen">Kauf abschließen" klicke, bestätige ich, dass ich weiß und
-                        akzeptiere, dass ich verpflichtet bin, für meine Bestellugn zu bezahlen. Ich akzeütiere die
-                        <a href="agb.html">Allgemeinen Geschäftsbedingungen</a>.</section>
-                </th>
-            </tr>
         </tbody>
         </table>
         </th>
+            <th>
+                <h3>Bestellung abschließen</h3>
+                <table id="bestellungAbschließen">
+                    <tr>
+                        <th>
+                            <section id="Geschäftsbedingungen">Indem Sie auf „Jetzt kaufen“  klicken, bestätigen Sie, dass Sie den Kauf
+                                akzeptieren und verpflichtet sind, für Ihre Bestellugn zu bezahlen.
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><input type="checkbox"><div id="Geschäftsbedingungen">Ich akzeptiere die
+                            <a href="agb.html">Allgemeinen Geschäftsbedingungen</a>.</div></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <a href="bestelluebersicht.html"><button>Jetzt kaufen!</button></a>
+                        </th>
+                    </tr>
+                </table>
+            </th>
         </tr>
         </table>
     </main>
@@ -125,6 +161,7 @@
                     <th>Du brauchst Hilfe?<br><a href="faq.html"><button>Kontaktiere uns</button></a></th>
                     <th><a href="faq.html">FAQ</a></th>
                     <th><a href="impressum.html">Impressum</a></th>
+                    <th><a href="agb.html">AGB</a></th>
                     <th><a href="ueberuns.html">Über uns</a></th>
                     <th><a href="https://www.instagram.com/"><img src="Bilder/instagram.svg" alt="instagram">
                         </a>
