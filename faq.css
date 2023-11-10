@@ -40,18 +40,14 @@ section {
 }
 
 .faq {
-  
-  
-  
 }
-.faq button{
+.faq button {
   display: flex;
   justify-content: space-between;
   border-radius: 30px;
   margin: 10px;
-  
 }
-.faq svg{
+.faq svg {
   background-color: #2c3540;
   color: #ffffff;
   border: none;
@@ -63,10 +59,9 @@ section {
   border-radius: 5px;
   cursor: pointer;
 }
-.faq svg:hover{
+.faq svg:hover {
   background-color: #236dcc;
 }
-
 
 .accordion {
   background-color: #f0eaea;
@@ -88,14 +83,14 @@ section {
 
 .panel {
   padding: 0 18px;
-  background-color:  #f0eaea;
+  background-color: #f0eaea;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   border-radius: 10px;
 }
 
-.question{
+.question {
   font-weight: bold;
 }
 
