@@ -14,7 +14,7 @@ header h4 {
 nav {
     border: 1px solid #6980b244;
     width: 100%;
-    position: fixed; 
+    position: fixed;
     top: 30px;
     left: 0px;
     background-color: rgb(255, 255, 255);
@@ -25,23 +25,26 @@ nav {
     z-index: 1000;
 }
 
-nav ul {                               /*ul ungeordnete List um liste mit bulletpoints zu erstellen */
-    display: flex;                  
+nav ul {
+    /*ul ungeordnete List um liste mit bulletpoints zu erstellen */
+    display: flex;
     list-style: none;
     padding-left: 150px;
     padding-right: 150px;
 }
 
-nav li {  /*li um ein element der liste zu erstellen*/
-    margin: 0px; /* Gleichmäßiger Abstand zwischen den Textelementen */
+nav li {
+    /*li um ein element der liste zu erstellen*/
+    margin: 0px;
+    /* Gleichmäßiger Abstand zwischen den Textelementen */
     margin-right: 43px;
-    margin-left: 43px;                       
+    margin-left: 43px;
 }
 
 nav li a {
-    margin-right:0px;
+    margin-right: 0px;
     margin-left: 0px;
-    line-height: 50px;        
+    line-height: 50px;
     font-weight: bold;
     color: #010101;
     font-size: 15px;
@@ -53,22 +56,24 @@ nav li a:hover {
 }
 
 
-.Logo {/*Logo*/
+.Logo {
+    /*Logo*/
     margin-left: 0px;
-    width: 190px; 
-    height: auto;  
+    width: 190px;
+    height: auto;
 }
 
-.navigationImg{
+.navigationImg {
     margin-left: 50px;
     width: 30px;
 }
 
 
-.headerBild { /*Header Bild*/
+.headerBild {
+    /*Header Bild*/
     margin-top: 0px;
-    width: 100%; 
-    height: auto;     
+    width: 100%;
+    height: auto;
     border-radius: 15px;
 }
 
@@ -87,42 +92,46 @@ footer {
 #footerTabel th img {
     width: 20px;
     height: auto;
-    margin: 0 5px; /* Fügt 5px Abstand zwischen den Icons hinzu */
-    vertical-align: middle; /* Zentriert die Icons vertikal */
+    margin: 0 5px;
+    /* Fügt 5px Abstand zwischen den Icons hinzu */
+    vertical-align: middle;
+    /* Zentriert die Icons vertikal */
 }
 
-input[type="text"], input[type="number"], input[type="email"] {
+input[type="text"],
+input[type="number"],
+input[type="email"] {
     background-color: rgb(255, 250, 242);
     border-radius: 5px;
     border: none;
-    box-shadow: 2px  2px 10px 0px rgb(233, 198, 159);
+    box-shadow: 2px 2px 10px 0px rgb(233, 198, 159);
     text-align: center;
     height: 25px;
 }
 
 
-#footerTabel{
+#footerTabel {
     width: 100%;
     border-spacing: 80px;
 }
 
-#footerTabel th a{
+#footerTabel th a {
     text-decoration: none;
     color: #010101;
 }
 
-#footerTabel th{
+#footerTabel th {
     color: #010101;
-    vertical-align:text-top 
-
+    vertical-align: text-top
 }
 
-#insta{  /*Darstellung Icons*/
+#insta {
+    /*Darstellung Icons*/
     width: 20px;
     height: auto;
 }
 
-#footerEnde{
+#footerEnde {
     background-color: rgba(87, 89, 89, 0.349);
     margin: 0;
 }
@@ -134,9 +143,10 @@ main {
     margin-bottom: 0px;
     padding: auto;
     margin-bottom: 0px;
-    font-style:normal;
+    font-style: normal;
     font-size: 15px;
-    margin-top: 115px; /*Abstand unter Header sicherstellen*/
+    margin-top: 115px;
+    /*Abstand unter Header sicherstellen*/
 }
 
 body {
