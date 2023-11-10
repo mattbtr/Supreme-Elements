@@ -130,15 +130,19 @@ button:hover, select:hover {
 #Preise{
     padding-top: 225px;
     font-size: 15px;
+    text-align: right;
 }
 
 #PreiseVersandMwst{
     font-size: 15px;
+    text-align: right;
 }
 
 #PreisGesamtkosten{
     margin-top: 0px;
     font-size: 17px;
+    text-align: right;
+
 }
 
 #Anzahl{
@@ -194,13 +198,12 @@ input[type="button"]:hover {
 
 #Menge{
     margin-top: 20px;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 #TrennerBestellübersicht{
-    position: absolute;
-    width: 540px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #TrennerGesamtsumme{
