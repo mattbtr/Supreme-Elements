@@ -2,32 +2,25 @@ a{
     text-decoration: none;
     color: black;
 }
-
-.AP:hover{
-    text-decoration: underline;
-}
-
 .Produkt1{
     width: 25%;
     height: 20%;
     padding-left: 0%;
 }
-
 .ersteTabellenspalte{
+    margin-left: 00px;
     border-radius: 5px;
     margin-right: 0%;
     box-shadow: 0px  0px 05px 0px rgb(185, 179, 171);
-    width: 1200px;
+    width: 800px;
     height: auto;
 }
-
 .zweiteTabellenspalte{
     width: 440px;
-    
 }
 #Produktbild{
     /*width: 55%; */
-    margin-left: 0;
+    margin-left: 300px;
     padding-left: 0%;
     padding-right: 0%;
     border-radius: 15px;    
@@ -38,9 +31,8 @@ br{
     margin: 10px 0  ;
     line-height:22px;
   }
-
 .hinzufügen{
-    background-color: black; 
+    background-color: #2c3540;
     color: #ffffff; 
     border: none; 
     padding: 10px 35px; 
@@ -51,28 +43,40 @@ br{
     border-radius: 3px; 
     cursor: pointer; 
     margin-left: 60px;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 230px;
 }
-
 .hinzufügen:hover{
-    background-color: red;
-
+    background-color: #236dcc;
+}
+.AP{
+    background-color: #2c3540;
+    color: #ffffff; 
+    border: none; 
+    padding: 10px 35px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 18px; 
+    border-radius: 3px; 
+    cursor: pointer; 
+    margin-right: 54%;
 }
 .p4{
-    margin-right: 44%;
+    margin-left: 300px;
+    margin-right: 18.5%;
     text-align: left;
     padding-left: 10px;
 }
 .p1{
     margin-left: 60px;
-    font-size: small;
+    font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .p2{
     margin-left: 60px;
     font-size: x-large   ;
 }
-
 h1{
     text-decoration: underline;
     margin-bottom: 0px;
@@ -80,6 +84,7 @@ h1{
 }
 
 .h23{
+    margin-left: 300px;
     text-align: left;
     padding-left: 10px;
 }
@@ -88,16 +93,13 @@ h1{
     margin-bottom: 260px; 
     margin-top: 60px;
 }
-.p3:hover{
-    background-color: green;
-}
 hr {
-    margin-right: 36.7%;
+    margin-left: 305px;
+    margin-right: 18.5%;
 }
 button:hover, select:hover {
     background-color: #236dcc; /* Hintergrundfarbe ändert sich bei Hover */
   }
-  
   button, select{
     background-color: #2c3540; /* Hintergrundfarbe */
     color: #ffffff; /* Textfarbe */

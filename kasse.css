@@ -1,61 +1,63 @@
-button:hover, select:hover {
-    background-color: #236dcc; 
-  }
-  
-  button, select{
-    background-color: #2c3540; 
-    color: #ffffff; 
-    border: none; 
-    padding: 5px 10px; 
-    text-align: center; 
-    text-decoration: none; 
-    font-size: 16px; 
+button:hover,
+select:hover {
+    background-color: #236dcc;
+}
+
+button,
+select {
+    background-color: #2c3540;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
     border-radius: 5px;
-    cursor: pointer; 
-  }
+    cursor: pointer;
+}
 
-  
 
-  #PersonendatenTabelle{
+
+#PersonendatenTabelle {
     border-spacing: 25px;
-    text-align:left;
+    text-align: left;
     width: 700px;
     background-color: aliceblue;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 2px  2px 10px 0px rgb(233, 198, 159);
+    box-shadow: 2px 2px 10px 0px rgb(233, 198, 159);
 }
 
-#PersonendatenTabelle th{
+#PersonendatenTabelle th {
     text-align: center;
     margin-top: 0px;
 }
 
 
-#deineBestellung{
+#deineBestellung {
     border-spacing: 20px;
     width: 350px;
     background-color: rgb(255, 255, 255);
-    text-align:left;
+    text-align: left;
     border-radius: 15px;
-    box-shadow: 2px  2px 10px 0px rgb(233, 198, 159);
+    box-shadow: 2px 2px 10px 0px rgb(233, 198, 159);
 }
 
 
-#deineBestellung td{
+#deineBestellung td {
     font-style: normal;
     font-weight: 100;
 }
 
-.preis{
+.preis {
     text-align: right;
 }
 
-#anrede{
+#anrede {
     background-color: rgb(255, 250, 242);
     border-radius: 5px;
     border: none;
-    box-shadow: 2px  2px 10px 0px rgb(233, 198, 159);
+    box-shadow: 2px 2px 10px 0px rgb(233, 198, 159);
     text-align: center;
     height: 30px;
     width: 660px;
@@ -69,10 +71,10 @@ button:hover, select:hover {
 }
 
 
-#Zahlungsartwählen{
+#Zahlungsartwählen {
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
-    box-shadow: 2px  2px 10px 0px rgb(233, 198, 159);
+    box-shadow: 2px 2px 10px 0px rgb(233, 198, 159);
     width: 400px;
     border-spacing: 20px;
     text-align: center;
@@ -80,18 +82,18 @@ button:hover, select:hover {
 
 
 
-#bestellungAbschließen{
+#bestellungAbschließen {
     text-align: center;
     background-color: rgb(255, 255, 255);
     margin-top: 0px;
     padding-top: 0px;
     margin-bottom: 100px;
     border-radius: 15px;
-    box-shadow: 2px  2px 10px 0px rgb(233, 198, 159);
+    box-shadow: 2px 2px 10px 0px rgb(233, 198, 159);
     border-spacing: 20px;
 }
 
-#Geschäftsbedingungen{
+#Geschäftsbedingungen {
     text-align: center;
     width: 350px;
     font-size: 10px;
@@ -100,15 +102,16 @@ button:hover, select:hover {
 
 
 
-.GesamtTabellePersonendatenBestellung{
-    text-align:left;
+.GesamtTabellePersonendatenBestellung {
+    text-align: left;
     margin: auto;
     padding: auto;
     border-spacing: 50px;
 }
 
-.GesamtTabellePersonendatenBestellung th{
-    vertical-align: top;  /*damit beide tabellen auf einer Höhe sind*/
+.GesamtTabellePersonendatenBestellung th {
+    vertical-align: top;
+    /*damit beide tabellen auf einer Höhe sind*/
     margin: 0px;
     padding: 0px;
 }
@@ -119,24 +122,24 @@ button:hover, select:hover {
 
 .GesamtTabellePersonendatenBestellung #GesamtTabelleRechts {
     width: 66.66%;
-    
+
 }
 
-h1, h4{
+h1,
+h4 {
     text-align: center;
 }
 
-h3{
+h3 {
     padding-left: 20px;
 }
 
 
-#Pfeil{
+#Pfeil {
     margin-top: 0px;
     margin-right: 20px;
     width: 30px;
     height: auto;
-    vertical-align: middle; /* Zentriert die Icons vertikal */
+    vertical-align: middle;
+    /* Zentriert die Icons vertikal */
 }
-
-
