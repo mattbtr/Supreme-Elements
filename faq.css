@@ -45,6 +45,7 @@ section {
   justify-content: space-between;
   border-radius: 30px;
   margin: 10px;
+  align-items: center;
 }
 .faq svg {
   background-color: #2c3540;
