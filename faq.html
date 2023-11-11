@@ -26,7 +26,7 @@
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="ueberuns.html">ÜBER UNS</a></li>
         </ul>
-        
+
         <a href="warenkorb.html"
           ><img class="navigationImg" src="Bilder/Cart-shopping.svg"
         /></a>
@@ -235,7 +235,8 @@
           </div>
 
           <button class="accordion">
-            trsjgkegksg
+            <p class="question">Beispiel</p>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15"
@@ -252,14 +253,7 @@
           </button>
 
           <div class="panel">
-            1. Bessere Bioverfügbarkeit: Dies ermöglicht eine effizientere
-            Aufnahme im Darm, was dazu führen kann, dass ein größerer Anteil des
-            Wirkstoffs in den Blutkreislauf gelangt und vom Körper genutzt wird.
-            2. Geringere Dosierung: Aufgrund der verbesserten Bioverfügbarkeit
-            können liposomale Nahrungsergänzungsmittel in niedrigeren
-            Dosierungen wirksam sein, was die Kosten pro Portion reduzieren
-            kann. 3. Reduziertes Risiko von Magenbeschwerden 4. Verbesserter
-            Geschmack und Geruch
+            <p>Besipiel</p>
           </div>
         </div>
         <br />
@@ -286,48 +280,30 @@
             </p>
 
             <form action="" method="get">
-              <table>
-                <tr>
-                  <td colspan="1"><label for="vname">Vorname: </label></td>
-                  <td colspan="1"><label for="nname">Nachname: </label></td>
-                  <td colspan="2"><label for="email">E-Mail</label></td>
-                </tr>
-                <tr>
-                  <td colspan="1"><input type="text" name="" id="" /></td>
-                  <td colspan="1"><input type="text" name="" id="" /></td>
-                  <td colspan="2"><input type="email" name="" id="" /></td>
-                </tr>
+              <div class="responsive">
+                <div class="labels">
+                  <label for="vname">Vorname: </label>
+                  <label for="nname">Nachname: </label>
+                  <label for="email">E-Mail:</label>
+                </div>
+                <div class="inputs">
+                  <input type="text" name="" id="" placeholder="Vorname" />
+                  <input type="text" name="" id="" placeholder="Nachname" />
+                  <input type="email" name="" id="" placeholder="E-Mail" />
+                </div>
+              </div>
 
-                <tr>
-                  <td
-                    colspan="4"
-                    style="padding-bottom: 20px; padding-top: 40px"
-                  >
-                    <textarea
-                      name=""
-                      id=""
-                      cols="100"
-                      rows="15"
-                      placeholder="Schreibe Deine Nachricht direkt hier in das Textfeld..."
-                    ></textarea>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <input
-                      type="submit"
-                      value="Abschicken"
-                      class="submit-button"
-                    />
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </table>
+              <div class="textarea">
+                <textarea
+                  placeholder="Schreibe Deine Nachricht direkt hier in das Textfeld..."
+                ></textarea>
+              </div>
+              <div class="submit-reset">
+                <input type="submit" value="Abschicken" />
+              </div>
             </form>
           </div>
+
           <div class="contact-formular-right">
             <h2>So kannst du uns noch erreichen:</h2>
             <br />
