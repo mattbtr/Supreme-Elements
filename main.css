@@ -19,31 +19,24 @@ nav {
     left: 0px;
     background-color: rgb(255, 255, 255);
     display: flex;
-    padding-left: 50px;
-    padding-right: 50px;
+    
     align-items: center;
     z-index: 1000;
+    justify-content: space-around;
 }
 
 nav ul {
     /*ul ungeordnete List um liste mit bulletpoints zu erstellen */
     display: flex;
     list-style: none;
-    padding-left: 150px;
-    padding-right: 150px;
+    width: 50%;
+    justify-content: space-around;
 }
 
-nav li {
-    /*li um ein element der liste zu erstellen*/
-    margin: 0px;
-    /* Gleichmäßiger Abstand zwischen den Textelementen */
-    margin-right: 43px;
-    margin-left: 43px;
-}
+
 
 nav li a {
-    margin-right: 0px;
-    margin-left: 0px;
+    
     line-height: 50px;
     font-weight: bold;
     color: #010101;
@@ -53,6 +46,8 @@ nav li a {
 
 nav li a:hover {
     background-color: rgba(150, 163, 151, 0.785);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 
