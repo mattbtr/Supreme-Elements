@@ -95,7 +95,8 @@ footer {
 
 input[type="text"],
 input[type="number"],
-input[type="email"] {
+input[type="email"],
+input[type="date"] {
     background-color: rgb(255, 250, 242);
     border-radius: 5px;
     border: none;
