@@ -136,8 +136,23 @@ select {
     text-align: right;
 }
 
-#PreiseVersandMwst {
+#PreisVersand{
     font-size: 15px;
+    text-align: right;
+}
+
+#Mwst{
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 100;
+    text-align: left;
+    padding-left: 8px;
+}
+
+#PreisMwst{
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 100;
     text-align: right;
 }
 

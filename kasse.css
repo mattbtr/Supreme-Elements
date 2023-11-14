@@ -53,6 +53,20 @@ select {
     text-align: right;
 }
 
+#Mwst{
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 100;
+    padding-left: 2px;
+}
+
+#PreisMwst{
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 100;
+    text-align: right;
+}
+
 #anrede {
     background-color: rgb(255, 250, 242);
     border-radius: 5px;
