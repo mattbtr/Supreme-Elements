@@ -44,8 +44,9 @@ insert into Person (id, anrede, vorname, nachname, telefonnummer, email, strasse
 -- Bestellwesen
 
 -- Bestellung
-INSERT INTO Bestellung (id, bestellzeitpunkt, bestellerId) VALUES (1, '13.11.2023 17:19', 1);
-INSERT INTO Bestellung (id, bestellzeitpunkt, bestellerId) VALUES (2, '19-12-2022 16:20:21', 1);
+-- Format für Datum oder Zeipunkt: TEXT as ISO8601 strings ("YYYY-MM-DD HH:MM:SS.SSS")
+INSERT INTO Bestellung (id, bestellzeitpunkt, bestellerId) VALUES (1, '2023-13-11 17:19:234', 1);
+INSERT INTO Bestellung (id, bestellzeitpunkt, bestellerId) VALUES (2, '2022-12-01 16:20:211', 1);
 
 
 -- Bestellposition
