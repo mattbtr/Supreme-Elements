@@ -5,7 +5,7 @@
 -- ------------------------------
 -- Produkte
 
-CREATE TABLE Mehrwertsteuer (
+CREATE TABLE Mehrwertsteuer (  -- heiß wir mach mehrwertsteuer dann eigene tabelle.
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	bezeichnung TEXT NOT NULL,
 	steuerSatz REAL NOT NULL DEFAULT 19.0
@@ -31,12 +31,12 @@ CREATE TABLE Person (
 	anrede INTEGER NOT NULL DEFAULT 0,
 	vorname TEXT NOT NULL,
 	nachname TEXT NOT NULL,
-	adresseId INTEGER NOT NULL,
+	--adresseId INTEGER NOT NULL, --> ist überflüssig, weil alle daten eingebettet in Person
 	telefonnummer TEXT NOT NULL,
 	email TEXT NOT NULL,
   strasse TEXT NOT NULL,
 	hausnummer TEXT NOT NULL,
-	adresszusatz TEXT NOT NULL,
+	adresszusatz TEXT NOT NULL, -- warum not null? hat ja nicht jeder einen adresszusatz oder?
 	plz TEXT NOT NULL,
 	ort TEXT NOT NULL,
 );
@@ -53,7 +53,7 @@ CREATE TABLE Bestellung (
 
 CREATE TABLE Bestellposition (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	bestellungId INTEGER NOT NULL,
+	bestellungId INTEGER NOT NULL, -- für zuweisung der einzelnen Bestellpositionen zu der zugehörigen bestellung
 	produktId INTEGER NOT NULL,
 	menge INTEGER NOT NULL DEFAULT 1,
 	CONSTRAINT fk_Bestellposition1 FOREIGN KEY (bestellungId) REFERENCES Bestellung(id),
