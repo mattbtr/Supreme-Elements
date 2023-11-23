@@ -9,11 +9,12 @@ CREATE TABLE Produkt (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	bezeichnung TEXT NOT NULL,
 	beschreibung TEXT NOT NULL,
-	mehrwertsteuer INTEGER NOT NULL,
+	mehrwertsteuerId INTEGER NOT NULL,
 	details TEXT DEFAULT NULL,
 	nettopreis REAL NOT NULL DEFAULT 0.0,
 	verfuegbarkeit INTEGER DEFAULT NULL,
-    produktbild TEXT NOT NULL
+  	produktbild TEXT NOT NULL,
+  	CONSTRAINT fk_Produkt2 FOREIGN KEY (mehrwertsteuerId) REFERENCES Mehrwertsteuer(id)
 );
 
 -- ------------------------------
@@ -49,4 +50,10 @@ CREATE TABLE Bestellposition (
 	menge INTEGER NOT NULL DEFAULT 1,
 	CONSTRAINT fk_Bestellposition1 FOREIGN KEY (bestellungId) REFERENCES Bestellung(id),
 	CONSTRAINT fk_Bestellposition2 FOREIGN KEY (produktId) REFERENCES Produkt(id)
+);
+
+CREATE TABLE Mehrwertsteuer (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	bezeichnung TEXT NOT NULL,
+	steuerSatz REAL NOT NULL DEFAULT 19.0
 );
