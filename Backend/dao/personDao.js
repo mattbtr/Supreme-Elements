@@ -12,51 +12,11 @@ class PersonDao {
     }
 
     loadById(id) {
-        const adresseDao = new AdresseDao(this._conn);
-
-        var sql = 'SELECT * FROM Person WHERE id=?';
-        var statement = this._conn.prepare(sql);
-        var result = statement.get(id);
-
-        if (helper.isUndefined(result)) 
-            throw new Error('No Record found by id=' + id);
-
-        if (result.anrede == 0) 
-            result.anrede = 'Herr';
-        else 
-            result.anrede = 'Frau';
-
-        result.geburtstag = helper.formatToGermanDate(helper.parseSQLDateTimeString(result.geburtstag));
-
-        result.adresse = adresseDao.loadById(result.adresseId);
-        delete result.adresseId;
-
-        return result;
+        
     }
 
     loadAll() {
-        const adresseDao = new AdresseDao(this._conn);
-
-        var sql = 'SELECT * FROM Person';
-        var statement = this._conn.prepare(sql);
-        var result = statement.all();
-
-        if (helper.isArrayEmpty(result)) 
-            return [];
-
-        for (var i = 0; i < result.length; i++) {
-            if (result[i].anrede == 0) 
-                result[i].anrede = 'Herr';
-            else 
-                result[i].anrede = 'Frau';
-
-            result[i].geburtstag = helper.formatToGermanDate(helper.parseSQLDateTimeString(result[i].geburtstag));
-            
-            result[i].adresse = adresseDao.loadById(result[i].adresseId);
-            delete result[i].adresseId;
-        }
-
-        return result;
+       
     }
 
     exists(id) {
@@ -70,10 +30,10 @@ class PersonDao {
         return false;
     }
 
-    create(anrede = 'Herr', vorname = '', nachname = '', adresseId = 1, telefonnummer = '', email = '', geburtstag = null) {
-        var sql = 'INSERT INTO Person (anrede,vorname,nachname,adresseId,telefonnummer,email,geburtstag) VALUES (?,?,?,?,?,?,?)';
+    create(anrede = 'Herr', vorname = '', nachname = '', telefonnummer = '', email = '', strasse =  '', hausnummer =  '', plz =  '', ort =  '') {
+        var sql = 'INSERT INTO Person (id, anrede, vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort) VALUES (?,?,?,?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [(helper.strStartsWith(anrede, 'He') ? 0 : 1), vorname, nachname, adresseId, telefonnummer, email, (helper.isNull(geburtstag) ? null : helper.formatToSQLDate(geburtstag))];
+        var params = [(helper.strStartsWith(anrede, 'He') ? 0 : 1), vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort];
         var result = statement.run(params);
 
         if (result.changes != 1) 
