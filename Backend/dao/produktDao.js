@@ -12,7 +12,10 @@ class ProduktDao {
     }
 
     loadById(id) {
+        //const produktkategorieDao = new ProduktkategorieDao(this._conn);
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
+        //const downloadDao = new DownloadDao(this._conn);
+        const produktbildDao = new ProduktbildDao(this._conn);
 
         var sql = 'SELECT * FROM Produkt WHERE id=?';
         var statement = this._conn.prepare(sql);
@@ -21,8 +24,17 @@ class ProduktDao {
         if (helper.isUndefined(result)) 
             throw new Error('No Record found by id=' + id);
 
+        //result.kategorie = produktkategorieDao.loadById(result.kategorieId);
+        //delete result.kategorieId;
         result.mehrwertsteuer = mehrwertsteuerDao.loadById(result.mehrwertsteuerId);
         delete result.mehrwertsteuerId;
+        /*if (helper.isNull(result.datenblattId)) {
+            result.datenblatt = null;
+        } else {
+            result.datenblatt = downloadDao.loadById(result.datenblattId);
+        }
+        */delete result.datenblattId;
+        result.produktbild = produktbildDao.loadByParent(result.id);
 
         result.mehrwertsteueranteil = helper.round((result.nettopreis / 100) * result.mehrwertsteuer.steuerSatz);
 
@@ -32,7 +44,10 @@ class ProduktDao {
     }
 
     loadAll() {
+       // const produktkategorieDao = new ProduktkategorieDao(this._conn);
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
+        //const produktbildDao = new ProduktbildDao(this._conn);
+        //const downloadDao = new DownloadDao(this._conn);
 
         var sql = 'SELECT * FROM Produkt';
         var statement = this._conn.prepare(sql);
@@ -41,10 +56,21 @@ class ProduktDao {
         if (helper.isArrayEmpty(result)) 
             return [];
 
-        for (var i = 0; i < result.length; i++) {
-
+       /* for (var i = 0; i < result.length; i++) {
+            result[i].kategorie = produktkategorieDao.loadById(result[i].kategorieId);
+            delete result[i].kategorieid;
+*/
             result[i].mehrwertsteuer = mehrwertsteuerDao.loadById(result[i].mehrwertsteuerId);
             delete result[i].mehrwertsteuerid;
+
+  /*          if (helper.isNull(result[i].datenblattId)) {
+                result[i].datenblatt = null;
+            } else {
+                result[i].datenblatt = downloadDao.loadById(result[i].datenblattId);
+            }
+            delete result[i].datenblattId;
+*/
+           {
 
             result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuerSatz);
 
@@ -65,19 +91,19 @@ class ProduktDao {
         return false;
     }
 
-    create(kategorieId = 1, bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, datenblattId = null, bilder = []) {
+    create( bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, verfuegbarkeit = 0, produktbild = "") {
         const produktbildDao = new ProduktbildDao(this._conn);
 
-        var sql = 'INSERT INTO Produkt (kategorieId,bezeichnung,beschreibung,mehrwertsteuerId,details,nettopreis,datenblattId) VALUES (?,?,?,?,?,?,?)';
+        var sql = 'INSERT INTO Produkt (bezeichnung,beschreibung,mehrwertsteuerId,details,nettopreis,verfuegbarkeit, produktbild) VALUES (?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [kategorieId, bezeichnung, beschreibung, mehrwertsteuerId, details, nettopreis, datenblattId];
+        var params = [bezeichnung, beschreibung, mehrwertsteuerId, details, nettopreis, verfuegbarkeit, produktbild];
         var result = statement.run(params);
 
         if (result.changes != 1) 
             throw new Error('Could not insert new Record. Data: ' + params);
 
-        if (bilder.length > 0) {
-            for (var element of bilder) {
+        if (produktbild.length > 0) {
+            for (var element of produktbild) {
                 produktbildDao.create(element.bildpfad, result.lastInsertRowid);
             }
         }
@@ -85,19 +111,19 @@ class ProduktDao {
         return this.loadById(result.lastInsertRowid);
     }
 
-    update(id, kategorieId = 1, bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, datenblattId = null, bilder = []) {
+    update(id, bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, verfuegbarkeit = 0, produktbild = "") {
         const produktbildDao = new ProduktbildDao(this._conn);
         produktbildDao.deleteByParent(id);
 
-        var sql = 'UPDATE Produkt SET kategorieId=?,bezeichnung=?,beschreibung=?,mehrwertsteuerId=?,details=?,nettopreis=?,datenblattId=? WHERE id=?';
+        var sql = 'UPDATE Produkt SET bezeichnung=?,beschreibung=?,mehrwertsteuerId=?,details=?,nettopreis=?,verfuegbarkeit=?, produktbild=? WHERE id=?';
         var statement = this._conn.prepare(sql);
-        var params = [kategorieId, bezeichnung, beschreibung, mehrwertsteuerId, details, nettopreis, datenblattId, id];
+        var params = [ bezeichnung, beschreibung, mehrwertsteuerId, details, nettopreis, verfuegbarkeit, produktbild, id];
         var result = statement.run(params);
 
         if (result.changes != 1) 
             throw new Error('Could not update existing Record. Data: ' + params);
 
-        if (bilder.length > 0) {
+        if (produktbild.length > 0) {
             for (var element of bilder) {
                 produktbildDao.create(element.bildpfad, id);
             }
@@ -106,23 +132,7 @@ class ProduktDao {
         return this.loadById(id);
     }
 
-    delete(id) {
-        try {
-            const produktbildDao = new ProduktbildDao(this._conn);
-            produktbildDao.deleteByParent(id);
 
-            var sql = 'DELETE FROM Produkt WHERE id=?';
-            var statement = this._conn.prepare(sql);
-            var result = statement.run(id);
-
-            if (result.changes != 1) 
-                throw new Error('Could not delete Record by id=' + id);
-
-            return true;
-        } catch (ex) {
-            throw new Error('Could not delete Record by id=' + id + '. Reason: ' + ex.message);
-        }
-    }
 
     toString() {
         console.log('ProduktDao [_conn=' + this._conn + ']');
