@@ -92,7 +92,6 @@ class ProduktDao {
     }
 
     create( bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, verfuegbarkeit = 0, produktbild = "") {
-        //const produktbildDao = new ProduktbildDao(this._conn);
 
         var sql = 'INSERT INTO Produkt (bezeichnung,beschreibung,mehrwertsteuerId,details,nettopreis,verfuegbarkeit, produktbild) VALUES (?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
@@ -102,7 +101,7 @@ class ProduktDao {
         if (result.changes != 1) 
             throw new Error('Could not insert new Record. Data: ' + params);
 
-        /*if (produktbild.length > 0) {
+       /* if (produktbild.length > 0) {
             for (var element of produktbild) {
                 produktbildDao.create(element.bildpfad, result.lastInsertRowid);
             }
@@ -112,9 +111,7 @@ class ProduktDao {
     }
 
     update(id, bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, verfuegbarkeit = 0, produktbild = "") {
-        //const produktbildDao = new ProduktbildDao(this._conn);
-        //produktbildDao.deleteByParent(id);
-
+    
         var sql = 'UPDATE Produkt SET bezeichnung=?,beschreibung=?,mehrwertsteuerId=?,details=?,nettopreis=?,verfuegbarkeit=?, produktbild=? WHERE id=?';
         var statement = this._conn.prepare(sql);
         var params = [ bezeichnung, beschreibung, mehrwertsteuerId, details, nettopreis, verfuegbarkeit, produktbild, id];

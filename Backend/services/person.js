@@ -60,25 +60,27 @@ serviceRouter.post('/person', function(request, response) {
         errorMsgs.push('vorname fehlt');
     if (helper.isUndefined(request.body.nachname)) 
         errorMsgs.push('nachname fehlt');
-    if (helper.isUndefined(request.body.adresse)) {
+    /*if (helper.isUndefined(request.body.adresse)) {
         errorMsgs.push('adresse fehlt');
     } else if (helper.isUndefined(request.body.adresse.id)) {
         errorMsgs.push('adresse gesetzt, aber id fehlt');
-    }
+    }*/
     if (helper.isUndefined(request.body.telefonnummer)) 
         request.body.telefonnummer = '';
     if (helper.isUndefined(request.body.email)) 
         errorMsgs.push('email fehlt');
     if (!helper.isEmail(request.body.email)) 
         errorMsgs.push('email hat ein falsches Format');
-    if (helper.isUndefined(request.body.geburtstag)) {
-        request.body.geburtstag = null;
-    } else if (!helper.isGermanDateTimeFormat(request.body.geburtstag)) {
-        errorMsgs.push('geburtstag hat das falsche Format, erlaubt: dd.mm.jjjj');
-    } else {
-        request.body.geburtstag = helper.parseDateTimeString(request.body.geburtstag);
-    }
-    
+    if (helper.isUndefined(request.body.strasse)) 
+        errorMsgs.push('strasse fehlt');
+    if (helper.isUndefined(request.body.hausnummer)) 
+        errorMsgs.push('hausnummer fehlt');
+    if (helper.isUndefined(request.body.plz)) 
+        errorMsgs.push('postleitzahl fehlt');
+    if (helper.isUndefined(request.body.ort)) 
+        errorMsgs.push('ort fehlt');
+    /*if (helper.isUndefined(request.body.geburtstag)) {
+        request.body.geburtstag = null; */
     if (errorMsgs.length > 0) {
         console.log('Service Person: Creation not possible, data missing');
         response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
@@ -87,7 +89,8 @@ serviceRouter.post('/person', function(request, response) {
 
     const personDao = new PersonDao(request.app.locals.dbConnection);
     try {
-        var obj = personDao.create(request.body.anrede, request.body.vorname, request.body.nachname, request.body.adresse.id, request.body.telefonnummer, request.body.email, request.body.geburtstag);
+        var obj = personDao.create(request.body.anrede, request.body.vorname, request.body.nachname, request.body.telefonnummer, request.body.email, 
+            request.body.strasse, request.body.hausnummer, request.body.plz, request.body.ort);
         console.log('Service Person: Record inserted');
         response.status(200).json(obj);
     } catch (ex) {
@@ -102,43 +105,46 @@ serviceRouter.put('/person', function(request, response) {
     var errorMsgs=[];
     if (helper.isUndefined(request.body.id)) 
         errorMsgs.push('id missing');
-    if (helper.isUndefined(request.body.anrede)) {
-        errorMsgs.push('anrede fehlt');
-    } else if (request.body.anrede.toLowerCase() !== 'herr' && request.body.anrede.toLowerCase() !== 'frau') {
-        errorMsgs.push('anrede falsch. Herr und Frau sind erlaubt');
-    }        
-    if (helper.isUndefined(request.body.vorname)) 
-        errorMsgs.push('vorname fehlt');
-    if (helper.isUndefined(request.body.nachname)) 
-        errorMsgs.push('nachname fehlt');
-    if (helper.isUndefined(request.body.adresse)) {
-        errorMsgs.push('adresse fehlt');
-    } else if (helper.isUndefined(request.body.adresse.id)) {
-        errorMsgs.push('adresse gesetzt, aber id fehlt');
-    }
-    if (helper.isUndefined(request.body.telefonnummer)) 
-        request.body.telefonnummer = '';
-    if (helper.isUndefined(request.body.email)) 
-        errorMsgs.push('email fehlt');
-    if (!helper.isEmail(request.body.email)) 
-        errorMsgs.push('email hat ein falsches Format');
-    if (helper.isUndefined(request.body.geburtstag)) {
-        request.body.geburtstag = null;
-    } else if (!helper.isGermanDateTimeFormat(request.body.geburtstag)) {
-        errorMsgs.push('geburtstag hat das falsche Format, erlaubt: dd.mm.jjjj');
-    } else {
-        request.body.geburtstag = helper.parseDateTimeString(request.body.geburtstag);
-    }
-
-    if (errorMsgs.length > 0) {
-        console.log('Service Person: Update not possible, data missing');
-        response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
-        return;
+        if (helper.isUndefined(request.body.anrede)) {
+            errorMsgs.push('anrede fehlt');
+        } else if (request.body.anrede.toLowerCase() !== 'herr' && request.body.anrede.toLowerCase() !== 'frau') {
+            errorMsgs.push('anrede falsch. Herr und Frau sind erlaubt');
+        }        
+        if (helper.isUndefined(request.body.vorname)) 
+            errorMsgs.push('vorname fehlt');
+        if (helper.isUndefined(request.body.nachname)) 
+            errorMsgs.push('nachname fehlt');
+        /*if (helper.isUndefined(request.body.adresse)) {
+            errorMsgs.push('adresse fehlt'); */
+        /*} else if (helper.isUndefined(request.body.adresse.id)) {
+            errorMsgs.push('adresse gesetzt, aber id fehlt');
+        }*/
+        if (helper.isUndefined(request.body.telefonnummer)) 
+            request.body.telefonnummer = '';
+        if (helper.isUndefined(request.body.email)) 
+            errorMsgs.push('email fehlt');
+        if (!helper.isEmail(request.body.email)) 
+            errorMsgs.push('email hat ein falsches Format');
+        if (helper.isUndefined(request.body.strasse)) 
+            errorMsgs.push('strasse fehlt');
+        if (helper.isUndefined(request.body.hausnummer)) 
+            errorMsgs.push('hausnummer fehlt');
+        if (helper.isUndefined(request.body.plz)) 
+            errorMsgs.push('postleitzahl fehlt');
+        if (helper.isUndefined(request.body.ort)) 
+            errorMsgs.push('ort fehlt');
+        /*if (helper.isUndefined(request.body.geburtstag)) {
+            request.body.geburtstag = null; */
+        if (errorMsgs.length > 0) {
+            console.log('Service Person: Creation not possible, data missing');
+            response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
+            return;
     }
 
     const personDao = new PersonDao(request.app.locals.dbConnection);
     try {
-        var obj = personDao.update(request.body.id, request.body.anrede, request.body.vorname, request.body.nachname, request.body.adresse.id, request.body.telefonnummer, request.body.email, request.body.geburtstag);
+        var obj = personDao.update(request.body.anrede, request.body.vorname, request.body.nachname, request.body.telefonnummer, request.body.email, 
+            request.body.strasse, request.body.hausnummer, request.body.plz, request.body.ort);
         console.log('Service Person: Record updated, id=' + request.body.id);
         response.status(200).json(obj);
     } catch (ex) {
