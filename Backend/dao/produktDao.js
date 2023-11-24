@@ -1,8 +1,5 @@
 const helper = require('../helper.js');
-const ProduktkategorieDao = require('./produktkategorieDao.js');
 const MehrwertsteuerDao = require('./mehrwertsteuerDao.js');
-const DownloadDao = require('./downloadDao.js');
-const ProduktbildDao = require('./produktbildDao.js');
 
 class ProduktDao {
 

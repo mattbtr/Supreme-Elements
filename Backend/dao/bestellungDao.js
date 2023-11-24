@@ -1,7 +1,6 @@
 const helper = require('../helper.js');
 const BestellpositionDao = require('./bestellpositionDao.js');
 const PersonDao = require('./personDao.js');
-const ZahlungsartDao = require('./zahlungsartDao.js');
 
 class BestellungDao {
 
@@ -16,8 +15,7 @@ class BestellungDao {
     loadById(id) {
         const bestellpositionDao = new BestellpositionDao(this._conn);
         const personDao = new PersonDao(this._conn);
-        const zahlungsartDao = new ZahlungsartDao(this._conn);
-
+        
         var sql = 'SELECT * FROM Bestellung WHERE id=?';
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
@@ -34,8 +32,7 @@ class BestellungDao {
         }
         delete result.bestellerId;
 
-        result.zahlungsart = zahlungsartDao.loadById(result.zahlungsartId);
-        delete result.zahlungsartId;
+        
 
         result.bestellpositionen = bestellpositionDao.loadByParent(result.id);
         
@@ -57,8 +54,7 @@ class BestellungDao {
     loadAll() {
         const bestellpositionDao = new BestellpositionDao(this._conn);
         const personDao = new PersonDao(this._conn);
-        const zahlungsartDao = new ZahlungsartDao(this._conn);
-
+        
         var sql = 'SELECT * FROM Bestellung';
         var statement = this._conn.prepare(sql);
         var result = statement.all();
@@ -75,9 +71,6 @@ class BestellungDao {
                 result[i].besteller = personDao.loadById(result[i].bestellerId);
             }
             delete result[i].bestellerId;
-
-            result[i].zahlungsart = zahlungsartDao.loadById(result[i].zahlungsartId);
-            delete result[i].zahlungsartid;
 
             result[i].bestellpositionen = bestellpositionDao.loadByParent(result[i].id);
 
@@ -108,7 +101,7 @@ class BestellungDao {
         return false;
     }
 
-    create(bestellzeitpunkt = null, bestellerId = null, zahlungsartId = null, bestellpositionen = []) {
+    create(bestellzeitpunkt = null, bestellerId = null, bestellpositionen = []) {
         const bestellpositionDao = new BestellpositionDao(this._conn);
 
         if (helper.isNull(bestellzeitpunkt)) 
