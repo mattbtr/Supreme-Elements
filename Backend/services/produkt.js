@@ -125,7 +125,8 @@ serviceRouter.put('/produkt', function(request, response) {
         response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
         return;
     }
-
+    }
+    
     const produktDao = new ProduktDao(request.app.locals.dbConnection);
     try {
         var obj = produktDao.update(request.body.bezeichnung, request.body.beschreibung, request.body.mehrwertsteuer.id, request.body.details, request.body.nettopreis, request.body.verfuegbarkeit, request.body.produktbild);
