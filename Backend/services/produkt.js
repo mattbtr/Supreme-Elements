@@ -61,25 +61,22 @@ serviceRouter.post('/produkt', function(request, response) {
         errorMsgs.push('nettopreis fehlt');
     if (!helper.isNumeric(request.body.nettopreis)) 
         errorMsgs.push('nettopreis muss eine Zahl sein');
-    if (helper.isUndefined(request.body.kategorie)) {
-        errorMsgs.push('kategorie fehlt');
-    } else if (helper.isUndefined(request.body.kategorie.id)) {
-        errorMsgs.push('kategorie gesetzt, aber id fehlt');
-    }        
+    
     if (helper.isUndefined(request.body.mehrwertsteuer)) {
         errorMsgs.push('mehrwertsteuer fehlt');
     } else if (helper.isUndefined(request.body.mehrwertsteuer.id)) {
         errorMsgs.push('mehrwertsteuer gesetzt, aber id fehlt');
     }        
-    if (helper.isUndefined(request.body.datenblatt)) {
-        request.body.datenblatt = null;
-    } else if (helper.isUndefined(request.body.datenblatt.id)) {
-        errorMsgs.push('datenblatt gesetzt, aber id fehlt');
+    if (helper.isUndefined(request.body.verfuegbarkeit)) {
+        request.body.verfuegbarkeit = null;
+    } else if (helper.isUndefined(request.body.verfuegbarkeit)) {
+        errorMsgs.push('verfuegbarkeit gesetzt, aber id fehlt');
     } else {
-        request.body.datenblatt = request.body.datenblatt.id;
+        request.body.verfuegbarkeit = request.body.verfuegbarkeit;
     }
-    if (helper.isUndefined(request.body.bilder)) 
-        request.body.bilder = [];
+    
+    if (helper.isUndefined(request.body.produktbild)) 
+        request.body.produktbild = "";
     
     if (errorMsgs.length > 0) {
         console.log('Service Produkt: Creation not possible, data missing');
@@ -87,9 +84,9 @@ serviceRouter.post('/produkt', function(request, response) {
         return;
     }
 
-    const produktDao = new ProduktDao(request.app.locals.dbConnection);
+    const produktDao = new ProduktDao(request.body.bezeichnung, request.body.beschreibung, request.body.mehrwertsteuer.id, request.body.details, request.body.nettopreis, request.body.verfuegbarkeit, request.body.produktbild);
     try {
-        var obj = produktDao.create(request.body.kategorie.id, request.body.bezeichnung, request.body.beschreibung, request.body.mehrwertsteuer.id, request.body.details, request.body.nettopreis, request.body.datenblatt, request.body.bilder);
+        var obj = produktDao.create(request.body.bezeichnung, request.body.beschreibung, request.body.mehrwertsteuer.id, request.body.details, request.body.nettopreis, request.body.verfuegbarkeit, request.body.produktbild);
         console.log('Service Produkt: Record inserted');
         response.status(200).json(obj);
     } catch (ex) {
@@ -108,31 +105,20 @@ serviceRouter.put('/produkt', function(request, response) {
         errorMsgs.push('bezeichnung fehlt');
     if (helper.isUndefined(request.body.beschreibung)) 
         request.body.beschreibung = '';
+    if (helper.isUndefined(request.body.mehrwertsteuer)) {
+            errorMsgs.push('mehrwertsteuer fehlt');
+        }else if (helper.isUndefined(request.body.mehrwertsteuer.id)) {
+        errorMsgs.push('mehrwertsteuer gesetzt, aber id fehlt');
     if (helper.isUndefined(request.body.details)) 
         request.body.details = null;
     if (helper.isUndefined(request.body.nettopreis)) 
         errorMsgs.push('nettopreis fehlt');
     if (!helper.isNumeric(request.body.nettopreis)) 
         errorMsgs.push('nettopreis muss eine Zahl sein');
-    if (helper.isUndefined(request.body.kategorie)) {
-        errorMsgs.push('kategorie fehlt');
-    } else if (helper.isUndefined(request.body.kategorie.id)) {
-        errorMsgs.push('kategorie gesetzt, aber id fehlt');
-    }        
-    if (helper.isUndefined(request.body.mehrwertsteuer)) {
-        errorMsgs.push('mehrwertsteuer fehlt');
-    } else if (helper.isUndefined(request.body.mehrwertsteuer.id)) {
-        errorMsgs.push('mehrwertsteuer gesetzt, aber id fehlt');
-    }        
-    if (helper.isUndefined(request.body.datenblatt)) {
-        request.body.datenblatt = null;
-    } else if (helper.isUndefined(request.body.datenblatt.id)) {
-        errorMsgs.push('datenblatt gesetzt, aber id fehlt');
-    } else {
-        request.body.datenblatt = request.body.datenblatt.id;
-    }
-    if (helper.isUndefined(request.body.bilder)) 
-        request.body.bilder = [];
+    
+    
+    if (helper.isUndefined(request.body.produktbild)) 
+        request.body.produktbild = "";
 
     if (errorMsgs.length > 0) {
         console.log('Service Produkt: Update not possible, data missing');
@@ -142,7 +128,7 @@ serviceRouter.put('/produkt', function(request, response) {
 
     const produktDao = new ProduktDao(request.app.locals.dbConnection);
     try {
-        var obj = produktDao.update(request.body.id, request.body.kategorie.id, request.body.bezeichnung, request.body.beschreibung, request.body.mehrwertsteuer.id, request.body.details, request.body.nettopreis, request.body.datenblatt, request.body.bilder);
+        var obj = produktDao.update(request.body.bezeichnung, request.body.beschreibung, request.body.mehrwertsteuer.id, request.body.details, request.body.nettopreis, request.body.verfuegbarkeit, request.body.produktbild);
         console.log('Service Produkt: Record updated, id=' + request.body.id);
         response.status(200).json(obj);
     } catch (ex) {
