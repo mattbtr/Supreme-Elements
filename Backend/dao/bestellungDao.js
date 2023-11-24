@@ -107,9 +107,9 @@ class BestellungDao {
         if (helper.isNull(bestellzeitpunkt)) 
             bestellzeitpunkt = helper.getNow();
 
-        var sql = 'INSERT INTO Bestellung (bestellzeitpunkt,bestellerId,zahlungsartId) VALUES (?,?,?)';
+        var sql = 'INSERT INTO Bestellung (bestellzeitpunkt,bestellerId) VALUES (?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [helper.formatToSQLDateTime(bestellzeitpunkt), bestellerId, zahlungsartId];
+        var params = [helper.formatToSQLDateTime(bestellzeitpunkt), bestellerId];
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -124,16 +124,16 @@ class BestellungDao {
         return this.loadById(result.lastInsertRowid);
     }
 
-    update(id, bestellzeitpunkt = null, bestellerId = null, zahlungsartId = null, bestellpositionen = []) {
+    update(id, bestellzeitpunkt = null, bestellerId = null, bestellpositionen = []) {
         const bestellpositionDao = new BestellpositionDao(this._conn);
         bestellpositionDao.deleteByParent(id);
 
         if (helper.isNull(bestellzeitpunkt)) 
             bestellzeitpunkt = helper.getNow();
 
-        var sql = 'UPDATE Bestellung SET bestellzeitpunkt=?,bestellerId=?,zahlungsartId=? WHERE id=?';
+        var sql = 'UPDATE Bestellung SET bestellzeitpunkt=?,bestellerId=?, WHERE id=?';
         var statement = this._conn.prepare(sql);
-        var params = [helper.formatToSQLDateTime(bestellzeitpunkt), bestellerId, zahlungsartId, id];
+        var params = [helper.formatToSQLDateTime(bestellzeitpunkt), bestellerId, id];
         var result = statement.run(params);
 
         if (result.changes != 1) 
