@@ -65,11 +65,7 @@ serviceRouter.post('/bestellung', function(request, response) {
     } else {
         request.body.besteller = request.body.besteller.id;
     }
-    if (helper.isUndefined(request.body.zahlungsart)) {
-        errorMsgs.push('zahlungsart fehlt');
-    } else if (helper.isUndefined(request.body.zahlungsart.id)) {
-        errorMsgs.push('zahlungsart gesetzt, aber id fehlt');
-    }
+    
     if (helper.isUndefined(request.body.bestellpositionen)) {
         errorMsgs.push('bestellpositionen fehlen');
     } else if (!helper.isArray(request.body.bestellpositionen)) {
@@ -86,7 +82,7 @@ serviceRouter.post('/bestellung', function(request, response) {
 
     const bestellungDao = new BestellungDao(request.app.locals.dbConnection);
     try {
-        var obj = bestellungDao.create(request.body.bestellzeitpunkt, request.body.besteller, request.body.zahlungsart.id, request.body.bestellpositionen);
+        var obj = bestellungDao.create(request.body.bestellzeitpunkt, request.body.besteller, request.body.bestellpositionen);
         console.log('Service Bestellung: Record inserted');
         response.status(200).json(obj);
     } catch (ex) {
@@ -115,11 +111,6 @@ serviceRouter.put('/bestellung', function(request, response) {
     } else {
         request.body.besteller = request.body.besteller.id;
     }
-    if (helper.isUndefined(request.body.zahlungsart)) {
-        errorMsgs.push('zahlungsart fehlt');
-    } else if (helper.isUndefined(request.body.zahlungsart.id)) {
-        errorMsgs.push('zahlungsart gesetzt, aber id fehlt');
-    }
     if (helper.isUndefined(request.body.bestellpositionen)) {
         errorMsgs.push('bestellpositionen fehlen');
     } else if (!helper.isArray(request.body.bestellpositionen)) {
@@ -136,7 +127,7 @@ serviceRouter.put('/bestellung', function(request, response) {
 
     const bestellungDao = new BestellungDao(request.app.locals.dbConnection);
     try {
-        var obj = bestellungDao.update(request.body.id, request.body.bestellzeitpunkt, request.body.besteller, request.body.zahlungsart.id, request.body.bestellpositionen);
+        var obj = bestellungDao.update(request.body.id, request.body.bestellzeitpunkt, request.body.besteller, request.body.bestellpositionen);
         console.log('Service Bestellung: Record updated, id=' + request.body.id);
         response.status(200).json(obj);
     } catch (ex) {

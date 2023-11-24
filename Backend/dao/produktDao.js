@@ -15,6 +15,7 @@ class ProduktDao {
         //const produktkategorieDao = new ProduktkategorieDao(this._conn);
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
         //const downloadDao = new DownloadDao(this._conn);
+        //const produktbildDao = new ProduktbildDao(this._conn);
 
         var sql = 'SELECT * FROM Produkt WHERE id=?';
         var statement = this._conn.prepare(sql);
@@ -33,7 +34,7 @@ class ProduktDao {
             result.datenblatt = downloadDao.loadById(result.datenblattId);
         }
         */delete result.datenblattId;
-        result.produktbild = produktbildDao.loadByParent(result.id);
+        //result.produktbild = produktbildDao.loadByParent(result.id);
 
         result.mehrwertsteueranteil = helper.round((result.nettopreis / 100) * result.mehrwertsteuer.steuerSatz);
 
@@ -119,11 +120,11 @@ class ProduktDao {
         if (result.changes != 1) 
             throw new Error('Could not update existing Record. Data: ' + params);
 
-        if (produktbild.length > 0) {
+        /*if (produktbild.length > 0) {
             for (var element of bilder) {
                 produktbildDao.create(element.bildpfad, id);
             }
-        }
+        }*/
 
         return this.loadById(id);
     }
