@@ -56,12 +56,7 @@ class ProduktDao {
         if (helper.isArrayEmpty(result)) 
             return [];
 
-       /* for (var i = 0; i < result.length; i++) {
-            result[i].kategorie = produktkategorieDao.loadById(result[i].kategorieId);
-            delete result[i].kategorieid;
-*/
-            result[i].mehrwertsteuer = mehrwertsteuerDao.loadById(result[i].mehrwertsteuerId);
-            delete result[i].mehrwertsteuerid;
+        
 
   /*          if (helper.isNull(result[i].datenblattId)) {
                 result[i].datenblatt = null;
@@ -69,13 +64,14 @@ class ProduktDao {
                 result[i].datenblatt = downloadDao.loadById(result[i].datenblattId);
             }
             delete result[i].datenblattId;
-*/
-           {
+*/         for (var i = 0; i < result.length; i++) {
+                result[i].mehrwertsteuer = mehrwertsteuerDao.loadById(result[i].mehrwertsteuerId);
+                delete result[i].mehrwertsteuerId;
 
-            result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuerSatz);
+                result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuerSatz);
+                result[i].bruttopreis = helper.round(result[i].nettopreis + result[i].mehrwertsteueranteil);
 
-            result[i].bruttopreis = helper.round(result[i].nettopreis + result[i].mehrwertsteueranteil);
-        }
+}
 
         return result;
     }
