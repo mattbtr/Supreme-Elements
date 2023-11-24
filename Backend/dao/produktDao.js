@@ -15,7 +15,7 @@ class ProduktDao {
         //const produktkategorieDao = new ProduktkategorieDao(this._conn);
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
         //const downloadDao = new DownloadDao(this._conn);
-        const produktbildDao = new ProduktbildDao(this._conn);
+        //const produktbildDao = new ProduktbildDao(this._conn);
 
         var sql = 'SELECT * FROM Produkt WHERE id=?';
         var statement = this._conn.prepare(sql);
@@ -34,7 +34,7 @@ class ProduktDao {
             result.datenblatt = downloadDao.loadById(result.datenblattId);
         }
         */delete result.datenblattId;
-        result.produktbild = produktbildDao.loadByParent(result.id);
+        //result.produktbild = produktbildDao.loadByParent(result.id);
 
         result.mehrwertsteueranteil = helper.round((result.nettopreis / 100) * result.mehrwertsteuer.steuerSatz);
 
@@ -92,7 +92,7 @@ class ProduktDao {
     }
 
     create( bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, verfuegbarkeit = 0, produktbild = "") {
-        const produktbildDao = new ProduktbildDao(this._conn);
+        //const produktbildDao = new ProduktbildDao(this._conn);
 
         var sql = 'INSERT INTO Produkt (bezeichnung,beschreibung,mehrwertsteuerId,details,nettopreis,verfuegbarkeit, produktbild) VALUES (?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
@@ -102,18 +102,18 @@ class ProduktDao {
         if (result.changes != 1) 
             throw new Error('Could not insert new Record. Data: ' + params);
 
-        if (produktbild.length > 0) {
+        /*if (produktbild.length > 0) {
             for (var element of produktbild) {
                 produktbildDao.create(element.bildpfad, result.lastInsertRowid);
             }
-        }
+        }*/
 
         return this.loadById(result.lastInsertRowid);
     }
 
     update(id, bezeichnung = '', beschreibung = '', mehrwertsteuerId = 1, details = null, nettopreis = 0.0, verfuegbarkeit = 0, produktbild = "") {
-        const produktbildDao = new ProduktbildDao(this._conn);
-        produktbildDao.deleteByParent(id);
+        //const produktbildDao = new ProduktbildDao(this._conn);
+        //produktbildDao.deleteByParent(id);
 
         var sql = 'UPDATE Produkt SET bezeichnung=?,beschreibung=?,mehrwertsteuerId=?,details=?,nettopreis=?,verfuegbarkeit=?, produktbild=? WHERE id=?';
         var statement = this._conn.prepare(sql);
@@ -123,11 +123,11 @@ class ProduktDao {
         if (result.changes != 1) 
             throw new Error('Could not update existing Record. Data: ' + params);
 
-        if (produktbild.length > 0) {
+        /*if (produktbild.length > 0) {
             for (var element of bilder) {
                 produktbildDao.create(element.bildpfad, id);
             }
-        }
+        }*/
 
         return this.loadById(id);
     }
