@@ -38,8 +38,9 @@ try {
     app.locals.dbConnection = dbConnection;
 
     console.log('Binding middleware...');
-    app.use(express.static(__dirname + '/public'))
-    app.use(fileUpload({
+    app.use(express.static(__dirname + '/public')) 
+    // für datei-uploads, die der server verarbeiten kann
+    app.use(fileUpload({               //Dependency „express-fileupload“ wird in server eingebunden, bzw. mitgeteilt, dass das Modul vom server verwendet werden soll
         createParentPath: true,
         limits: {
             fileSize: 2 * 1024 * 1024 * 1024        // limit to 2MB
