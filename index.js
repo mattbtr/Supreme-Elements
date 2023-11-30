@@ -10,14 +10,14 @@ $(document).ready(function(){
       arrows: true,
       dots: true,
     });
-   }, 100);
+   }, 500);
 
   
 });
 
 function loadSliderProducts() {
   $.ajax({
-      url: 'http://localhost:8000/api/Produkt/alle',
+      url: 'http://localhost:8000/api/Produkt/isHighlight',
       method: 'get',
       contentType: 'application/json; charset=utf-8',
       cache: false,
@@ -25,9 +25,8 @@ function loadSliderProducts() {
   }).done(function (response) { //wird ausgeführt, wenn geladen
       console.log(response);
       $(response).each(function(idx, item) {
-        console.log(item.bezeichnung)
-
-        var sliderHTML = '<div class="sliderElement"><br /><a href="produktdetails.html"><img class="shopImg" src=' + item.produktbild + '/></a><div class="infoBox"><br /><b>' + item.bezeichnung + '</b><br />Preis:' + item.nettopreis + '<br /><a href="warenkorb.html"><button onclick="Warnung()">In den Warenkorb</button></a></div></div>';
+        
+        var sliderHTML = '<div class="sliderElement"><br /><a href="produktdetails.html"><img class="shopImg" src="' + item.produktbild + '"/></a><div class="infoBox"><br /><b>' + item.bezeichnung + '</b><br />' + item.bruttopreis + ' €<br /><a href="warenkorb.html"><button onclick="Warnung()">In den Warenkorb</button></a></div></div>';
         $('#sliderContainer').append(sliderHTML);
 
       });            
