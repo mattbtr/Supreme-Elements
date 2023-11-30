@@ -40,7 +40,7 @@ CREATE TABLE Bestellung (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	bestellzeitpunkt TEXT NOT NULL,
 	bestellerId INTEGER DEFAULT NULL,
-	CONSTRAINT fk_Bestellung1 FOREIGN KEY (bestellerId) REFERENCES Person(id),
+	CONSTRAINT fk_Bestellung1 FOREIGN KEY (bestellerId) REFERENCES Person(id)
 );
 
 CREATE TABLE Bestellposition (
