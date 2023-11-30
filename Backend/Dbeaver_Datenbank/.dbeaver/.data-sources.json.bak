@@ -1,0 +1,32 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-18c14fd11d2-cb78eac525b7069": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "supreme.sqlite",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\Mabtr\\Documents\\supremeElements - WebAnwendungen2Praktikum\\Supreme-Elements\\backend\\Dbeaver_Datenbank\\supreme.sqlite",
+				"url": "jdbc:sqlite:C:\\Users\\Mabtr\\Documents\\supremeElements - WebAnwendungen2Praktikum\\Supreme-Elements\\backend\\Dbeaver_Datenbank\\supreme.sqlite",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": false,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800
+		}
+	}
+}
