@@ -174,8 +174,8 @@ try {
     serviceRouter = require('./services/kontaktaufnahme.js');
     app.use(TOPLEVELPATH, serviceRouter);
 
-    serviceRouter = require('./services/newsletter.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/newsletter.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
 
     
