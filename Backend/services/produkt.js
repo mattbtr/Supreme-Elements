@@ -33,6 +33,20 @@ serviceRouter.get('/produkt/alle', function(request, response) {
     }
 });
 
+serviceRouter.get('/produkt/isHighlight', function(request, response) {  //neuer Service Router für die Higlights
+    console.log('Service Produkt: Client requested all records');
+
+    const produktDao = new ProduktDao(request.app.locals.dbConnection);
+    try {
+        var arr = produktDao.loadHighlights();
+        console.log('Service ProduktHighlights: Records loaded, count=' + arr.length);
+        response.status(200).json(arr);
+    } catch (ex) {
+        console.error('Service Produkt: Error loading all records. Exception occured: ' + ex.message);
+        response.status(400).json({ 'fehler': true, 'nachricht': "Fehler2" });
+    }
+});
+
 serviceRouter.get('/produkt/existiert/:id', function(request, response) {
     console.log('Service Produkt: Client requested check, if record exists, id=' + request.params.id);
 
@@ -46,6 +60,8 @@ serviceRouter.get('/produkt/existiert/:id', function(request, response) {
         response.status(400).json({ 'fehler': true, 'nachricht': "Fehler3" });
     }
 });
+
+
 
 serviceRouter.post('/produkt', function(request, response) {
     console.log('Service Produkt: Client requested creation of new record');

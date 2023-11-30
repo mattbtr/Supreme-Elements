@@ -43,6 +43,27 @@ class ProduktDao {
         return result;
     }
 
+    loadHighlights() {
+        const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
+
+        var sql = 'SELECT * FROM Produkt WHERE isHighlight=1';
+        var statement = this._conn.prepare(sql);
+        var result = statement.all();
+
+        if (helper.isUndefined(result)) 
+            throw new Error('No Record found for Highlight');
+
+        for (var i = 0; i < result.length; i++) {
+            result[i].mehrwertsteuer = mehrwertsteuerDao.loadById(result[i].mehrwertsteuerId);
+            delete result[i].mehrwertsteuerId;
+
+            result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuerSatz);
+            result[i].bruttopreis = helper.round(result[i].nettopreis + result[i].mehrwertsteueranteil);
+        }
+
+        return result;
+    }
+
     loadAll() {
        // const produktkategorieDao = new ProduktkategorieDao(this._conn);
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
