@@ -1,7 +1,7 @@
 const helper = require('../helper.js');
 /*const AdresseDao = require('./adresseDao.js');*/
 
-class PersonDao {
+class KontaktaufnahmeDao {
 
     constructor(dbConnection) {
         this._conn = dbConnection;
@@ -17,13 +17,13 @@ class PersonDao {
     loadAll() {
         /*const adresseDao = new AdresseDao(this._conn); */
 
-        var sql = 'SELECT * FROM Person';
+        var sql = 'SELECT * FROM Kontaktaufnahme';
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 
         if (helper.isArrayEmpty(result)) 
             return [];
-
+/*
         for (var i = 0; i < result.length; i++) {
             if (result[i].anrede == 1) 
                 result[i].anrede = 'Herr';
@@ -34,17 +34,17 @@ class PersonDao {
             else 
                 result[i].anrede = 'Keine Angabe';
 
-            /*result[i].geburtstag = helper.formatToGermanDate(helper.parseSQLDateTimeString(result[i].geburtstag));
+            result[i].geburtstag = helper.formatToGermanDate(helper.parseSQLDateTimeString(result[i].geburtstag));
             
             result[i].adresse = adresseDao.loadById(result[i].adresseId);
-            delete result[i].adresseId; */
-        }
+            delete result[i].adresseId; 
+        }*/
 
         return result;
     }
 
     exists(id) {
-        var sql = 'SELECT COUNT(id) AS cnt FROM Person WHERE id=?';
+        var sql = 'SELECT COUNT(id) AS cnt FROM Kontaktaufnahme WHERE id=?';
         var statement = this._conn.prepare(sql);
         var result = statement.get(id);
 
@@ -54,11 +54,10 @@ class PersonDao {
         return false;
     }
 
-    create(id = '', anrede = 'Herr', vorname = '', nachname = '', telefonnummer = '', email = '', strasse = '', hausnummer = '', plz = '', ort = '') {
-        var sql = 'INSERT INTO Person (id, anrede, vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort) VALUES (?,?,?,?,?,?,?,?,?,?,?)';
+    create(id = '', vorname = '', nachname = '', email = '', nachricht = '') {
+        var sql = 'INSERT INTO Person (id, vorname, nachname, email, nachricht) VALUES (?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        // parameter noch anpassen für anrede !! --> nicht nur herr und frau
-        var params = [(helper.strStartsWith(anrede, 'He') ? 0 : 1), id, anrede, vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort]
+        var params = [id, vorname, nachname, email, nachricht]
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -67,11 +66,10 @@ class PersonDao {
         return this.loadById(result.lastInsertRowid);
     }
 
-    update(id, anrede = 'Herr', vorname = '', nachname = '', telefonnummer = '', email = '', strasse = '', hausnummer = '', plz = '', ort = '') {
-        var sql = 'UPDATE Person SET anrede=?,vorname=?,nachname=?,telefonnummer=?,email=?,strasse=?,hausnummer=?, plz=?, ort=? WHERE id=?';
+    update(id, vorname = '', nachname = '', email = '', nachricht = '') {
+        var sql = 'UPDATE Person SET vorname=?,nachname=?,email=?,nachricht=? WHERE id=?';
         var statement = this._conn.prepare(sql);
-        // parameter noch anpassen für anrede !! --> nicht nur herr und frau
-        var params = [(helper.strStartsWith(anrede, 'He') ? 0 : 1), vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort, id];
+        var params = [vorname, nachname, email, nachricht, id];
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -96,8 +94,8 @@ class PersonDao {
     }
 
     toString() {
-        console.log('PersonDao [_conn=' + this._conn + ']');
+        console.log('KontaktaufnahmeDao [_conn=' + this._conn + ']');
     }
 }
 
-module.exports = PersonDao;
+module.exports = KontaktaufnahmeDao;
