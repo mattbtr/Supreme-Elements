@@ -264,6 +264,7 @@
         <p>
           Wir lieben Fragen und Feedback - und wir freuen uns wenn wur dir
           helfen können! <br />
+
           Schreib uns was für dich unklar ist, was dich interessiert oder was
           dich stört.
         </p>
@@ -279,7 +280,7 @@
               innerhalb der nächsten 48h dir zu antworten.
             </p>
 
-            <form action="" method="get">
+            <form action="" method="post" id="kontaktform">
               <div class="responsive">
                 <div class="labels">
                   <label for="vname">Vorname: </label>
@@ -287,19 +288,29 @@
                   <label for="email">E-Mail:</label>
                 </div>
                 <div class="inputs">
-                  <input type="text" name="" id="" placeholder="Vorname" />
-                  <input type="text" name="" id="" placeholder="Nachname" />
-                  <input type="email" name="" id="" placeholder="E-Mail" />
+                  <input
+                    type="text"
+                    name=""
+                    id="vorname"
+                    placeholder="Vorname"
+                  />
+                  <input
+                    type="text"
+                    name=""
+                    id="nachname"
+                    placeholder="Nachname"
+                  />
+                  <input type="email" name="" id="email" placeholder="E-Mail" />
                 </div>
               </div>
 
-              <div class="textarea">
+              <div class="textarea" id="nachricht">
                 <textarea
                   placeholder="Schreibe Deine Nachricht direkt hier in das Textfeld..."
                 ></textarea>
               </div>
               <div class="submit-reset">
-                <input type="submit" value="Abschicken" />
+                <input type="submit" value="Abschicken" id="submit" />
               </div>
             </form>
           </div>
@@ -321,6 +332,7 @@
           </div>
         </section>
       </div>
+      <div id="form-uebergeben"></div>
     </main>
 
     <footer>
