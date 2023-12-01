@@ -171,6 +171,12 @@ try {
     //serviceRouter = require('./services/dateiuploadmehrere.js');
     //app.use(TOPLEVELPATH, serviceRouter);
 
+    serviceRouter = require('./services/kontaktaufnahme.js');
+    app.use(TOPLEVELPATH, serviceRouter);
+
+    //serviceRouter = require('./services/newsletter.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
+
 
     
     // send default error message if no matching endpoint found

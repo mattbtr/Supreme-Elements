@@ -80,4 +80,5 @@ insert into Newsletter(id, email) values (1, 'max@mustermann.de');
 -- Kontaktaufnahme
 --Test-Datensatz 
 insert into Kontaktaufnahme(id, vorname, nachname, email, nachricht) values (1, 'Max', 'Mustermann', 'max@mustermann.de', 'Wie kann ich eine Bestellung stornieren?');
+insert into Kontaktaufnahme(id, vorname, nachname, email, nachricht) values (2, 'Mark', 'Test', 'mark.test@web.de', 'test?');
 commit;
