@@ -1,0 +1,153 @@
+header h4 {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(159, 159, 159);
+    z-index: 1000;
+}
+
+
+nav {
+    border: 1px solid #6980b244;
+    width: 100%;
+    position: fixed;
+    top: 30px;
+    left: 0px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    
+    align-items: center;
+    z-index: 1000;
+    justify-content: space-around;
+}
+
+nav ul {
+    /*ul ungeordnete List um liste mit bulletpoints zu erstellen */
+    display: flex;
+    list-style: none;
+    width: 50%;
+    justify-content: space-around;
+}
+
+
+
+nav li a {
+    
+    line-height: 50px;
+    font-weight: bold;
+    color: #010101;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: rgba(150, 163, 151, 0.785);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.Logo {
+    /*Logo*/
+    margin-left: 0px;
+    width: 190px;
+    height: auto;
+}
+
+.navigationImg {
+    margin-left: 50px;
+    width: 30px;
+}
+
+
+.headerBild {
+    /*Header Bild*/
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+
+
+
+footer {
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(130, 129, 129);
+    margin-top: 0px;
+}
+
+
+
+#footerTabel th img {
+    width: 20px;
+    height: auto;
+    margin: 0 5px;
+    /* Fügt 5px Abstand zwischen den Icons hinzu */
+    vertical-align: middle;
+    /* Zentriert die Icons vertikal */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"] {
+    background-color: rgb(255, 250, 242);
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 10px 0px rgb(233, 198, 159);
+    text-align: center;
+    height: 25px;
+}
+
+
+#footerTabel {
+    width: 100%;
+    border-spacing: 80px;
+}
+
+#footerTabel th a {
+    text-decoration: none;
+    color: #010101;
+}
+
+#footerTabel th {
+    color: #010101;
+    vertical-align: text-top
+}
+
+#insta {
+    /*Darstellung Icons*/
+    width: 20px;
+    height: auto;
+}
+
+#footerEnde {
+    background-color: rgba(87, 89, 89, 0.349);
+    margin: 0;
+}
+
+main {
+    text-align: center;
+    color: #444444;
+    background-color: rgb(243, 241, 234);
+    margin-bottom: 0px;
+    padding: auto;
+    margin-bottom: 0px;
+    font-style: normal;
+    font-size: 15px;
+    margin-top: 115px;
+    /*Abstand unter Header sicherstellen*/
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: #444444;
+    margin: 0;
+
+}
