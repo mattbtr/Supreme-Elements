@@ -75,6 +75,7 @@ INSERT INTO Mehrwertsteuer (bezeichnung, steuerSatz) VALUES ('Standard', 19.0);
 -- Newsletter 
 -- Test-Datensatz
 insert into Newsletter(id, email) values (1, 'max@mustermann.de');
+insert into Newsletter(id, email) values (2, 'max@amx.de');
 
 
 -- Kontaktaufnahme
