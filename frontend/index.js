@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 function loadSliderProducts() {
   $.ajax({
-      url: 'http://localhost:8000/api/Produkt/isHighlight',
+      url: 'http://localhost:8000/api/produkt/isHighlight',
       method: 'get',
       contentType: 'application/json; charset=utf-8',
       cache: false,
