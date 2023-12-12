@@ -280,7 +280,7 @@
               innerhalb der nächsten 48h dir zu antworten.
             </p>
 
-            <form action="" method="post" id="kontaktform">
+            <form method="post" id="kontaktform">
               <div class="responsive">
                 <div class="labels">
                   <label for="vname">Vorname: </label>
@@ -290,22 +290,22 @@
                 <div class="inputs">
                   <input
                     type="text"
-                    name=""
-                    id="vorname"
+                    name="vornameInput"
+                    id="vornameInput"
                     placeholder="Vorname"
                   />
                   <input
                     type="text"
-                    name=""
-                    id="nachname"
+                    name="nachnameInput"
+                    id="nachnameInput"
                     placeholder="Nachname"
                   />
-                  <input type="email" name="" id="email" placeholder="E-Mail" />
+                  <input type="email" name="emailInput" id="emailInput" placeholder="E-Mail" />
                 </div>
               </div>
 
-              <div class="textarea" id="nachricht">
-                <textarea
+              <div class="textarea" >
+                <textarea id="nachrichtInput" name="nachrichtInput"
                   placeholder="Schreibe Deine Nachricht direkt hier in das Textfeld..."
                 ></textarea>
               </div>
