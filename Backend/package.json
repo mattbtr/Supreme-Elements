@@ -8,7 +8,7 @@
     "dev": "nodemon ./server.js",
     "start": "node ./server.js"
   },
-  "author": "Robert Kuti",
+  "author": "web2",
   "license": "ISC",
   "dependencies": {
     "better-sqlite3": "^8.1.0",

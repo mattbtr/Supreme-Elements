@@ -53,11 +53,13 @@ class KontaktaufnahmeDao {
 
         return false;
     }
-
-    create(id = '', vorname = '', nachname = '', email = '', nachricht = '') {
-        var sql = 'INSERT INTO Person (id, vorname, nachname, email, nachricht) VALUES (?,?,?,?,?)';
+    // wichtig keine ID übergeben, da in Input field ja auch keine ID generiert wird.
+    // Dementsprechend IDs werden autoincremented. 
+    // Sciherheitstechnisch nicht gut >> verschlüsselte ids eigentlich?
+    create(vorname = '', nachname = '', email = '', nachricht = '') {
+        var sql = 'INSERT INTO Kontaktaufnahme (vorname, nachname, email, nachricht) VALUES (?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [id, vorname, nachname, email, nachricht]
+        var params = [vorname, nachname, email, nachricht]
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -67,7 +69,7 @@ class KontaktaufnahmeDao {
     }
 
     update(id, vorname = '', nachname = '', email = '', nachricht = '') {
-        var sql = 'UPDATE Person SET vorname=?,nachname=?,email=?,nachricht=? WHERE id=?';
+        var sql = 'UPDATE Kontaktaufnahme SET vorname=?,nachname=?,email=?,nachricht=? WHERE id=?';
         var statement = this._conn.prepare(sql);
         var params = [vorname, nachname, email, nachricht, id];
         var result = statement.run(params);
@@ -80,7 +82,7 @@ class KontaktaufnahmeDao {
 
     delete(id) {
         try {
-            var sql = 'DELETE FROM Person WHERE id=?';
+            var sql = 'DELETE FROM Kontaktaufnahme WHERE id=?';
             var statement = this._conn.prepare(sql);
             var result = statement.run(id);
 

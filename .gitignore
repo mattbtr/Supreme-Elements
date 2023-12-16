@@ -1,4 +1,5 @@
 alternativeMain.css
 .project
 .vscode
-.debeaver
+.dbeaver
+node_modules
