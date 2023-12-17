@@ -8,6 +8,13 @@
     <link href="main.css" rel="stylesheet">
     <link href="shop.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="shop.js"></script>
 </head>
 
@@ -36,226 +43,86 @@
         <hr>
 
 
-        <label class="dropdown" for=Attribute></label>
-        <select class="dropdown" name="attribute">
-            <option value="" disabled selected hidden>Sortiert nach</option>
-            <option value="name">Name</option>
-            <option value="preis">Preis</option>
-            <option value="Verfügbarkeit">Verfügbarkeit</option>
-        </select>
-        <label class="dropdown" for=Pries></label>
-        <select class="dropdown" name="preis">
-            <option value="aufsteigend">Preis aufsteigend</option>
-            <option value="absteigend">Preis absteigend</option>
-        </select>
+        <div id="filter">
+        </div>
 
-        <section id="Produktanzahl">20 Produkte</section>
+        <section id="Produktanzahl"></section>
 
-
+        
         <table id="Produktliste">
             <tbody>
                 <tr>
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Beautiful.png"
-                            alt="Beautiful"><br>
-                        <p class="produktTitel">Beautiful</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th id="Produkt1"></th>
+
+                    <th id="Produkt2">
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Fireshield.png"
-                            alt="Fireshield"><br>
-                        <p class="produktTitel">Fireshield</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
+                    <th id="Produkt3">
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Essentials.png"
-                            alt="Essentials"><br>
-                        <p class="produktTitel">Essentials</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
-                    </th>
-
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Focus.png" alt="Focus"><br>
-                        <p class="produktTitel">Focus</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th id="Produkt4">
                     </th>
                 </tr>
                 <tr>
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/VitaminC.png"
-                            alt="Vitamin C"><br>
-                        <p class="produktTitel">Vitamin C</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th id="Produkt5">
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/sleep.png"
-                            alt="Sleep"><br>
-                        <p class="produktTitel"> Sleep +</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th id="Produkt6">
+
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Multivitamin.png"
-                            alt="Multivitamin"><br>
-                        <p class="produktTitel">Multivitamin</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th><div class="slider" id="Produkt7"></div>
                     </th>
 
-                    <th id="blickpunktWeniger"><img onclick="WeiterleitungDetails()" class="shopImg"
-                            src="Bilder/Glutathion.png" alt="Glutathion"><br>
-                        <p class="produktTitel">Glutathion</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
-                    </th>
+                    <th id="blickpunktWeniger" id="Produkt8"></th>
                 </tr>
             </tbody>
         </table>
-        <section id="zeigeMehr">8 von 20 Produkte<br><br><button onclick="mehrProdukteJS()">Zeige
-                mehr</button></section>
+        <section id="zeigeMehr">8 von </section>
         <table id="Produktliste2">
             <tbody>
                 <tr>
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Astaxanthin.png"
-                            alt="Astaxanthin"><br>
-                        <p class="produktTitel">Astaxanthin</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Magnesium.png"
-                            alt="Performance_Magnesium_okt21"><br>
-                        <p class="produktTitel">Magnesium</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/B-komplex.png"
-                            alt="B-Komplex"><br>
-                        <p class="produktTitel">B-Komplex</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th id="blickpunktMehr"><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/5HTP.png"
-                            alt="5-HTP"><br>
-                        <p class="produktTitel">5-HTP</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th id="blickpunktMehr">
                     </th>
                 </tr>
                 <tr>
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/JustC.png"
-                            alt="Just C"><br>
-                        <p class="produktTitel">Just C</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Nattokinase.png"
-                            alt="Nattokinase"><br>
-                        <p class="produktTitel">Nattokinase</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Silizium.png"
-                            alt="Silizium"><br>
-                        <p class="produktTitel">Silizium</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th id="blickpunktMehr"><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Quercetin.png"
-                            alt="Quercetin"><br>
-                        <p class="produktTitel">Quercetin</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th id="blickpunktMehr">
                     </th>
                 </tr>
                 <tr>
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Ashwaganda.png"
-                            alt="Ashwaganda"><br>
-                        <p class="produktTitel">Ashwaganda</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Immune.png"
-                            alt="Immune"><br>
-                        <p class="produktTitel">Immune</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Eisen.png"
-                            alt="Eisen"><br>
-                        <p class="produktTitel">Eisen</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den
-                            Warenkorb</button>
+                    <th>
                     </th>
 
-                    <th id="blickpunktMehr"><img onclick="WeiterleitungDetails()" class="shopImg" src="Bilder/Sunshine.png"
-                            alt="Sunshine"><br>
-                        <p class="produktTitel">Sunshine</p>
-                        <p class="verfuegbarkeit">Verfügbarkeit: 9</p>
-                        <p class="inhaltsstoffe">300mg Vitamin c + 50mg Zink</p>
-                        <p class="preis">21,90€</p><button class="indenWarenkorb" onclick="WeiterleitungWarenkorb()">In
-                            den Warenkorb</button>
+                    <th id="blickpunktMehr">
                     </th>
                 </tr>
             </tbody>
         </table>
-        <section id="wenigerZeigen">8 von 20 Produkte<br><br><button onclick="wenigerZeigen()">Zeige
-                weniger</button>
+        <section id="wenigerZeigen">
         </section>
     </main>
     <footer>
