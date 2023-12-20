@@ -51,7 +51,7 @@ serviceRouter.post('/kontaktaufnahme', function(request, response) {
     console.log('Service Kontaktaufnahme: Client requested creation of new record');
 
     var errorMsgs=[];
-    if (helper.isUndefined(request.body.vorname)) 
+    if (helper.isUndefined(request.body.vorname)) // wenn kein daten übergeben werden dann ist undefined und es wird hier geschriebender error übergeben
         errorMsgs.push('vorname fehlt');
     if (helper.isUndefined(request.body.nachname)) 
         errorMsgs.push('nachname fehlt');

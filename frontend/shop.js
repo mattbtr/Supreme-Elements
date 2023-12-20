@@ -54,7 +54,7 @@ function loadProducts() {
 
 //Dropdowns mit Filter
 function filter(){
-  var filters = '<label class="dropdown" for=Attribute></label><select class="dropdown" id="firstDropdown" name="attribute" onchange="sortiereProdukte()"><option value="" disabled selected hidden>Sortiert nach</option><option value="name">Name</option><option value="preis">Preis</option><option value="verfuegbarkeit">Verfügbarkeit</option></select><label class="dropdown" for=Preis ></label><select class="dropdown" id="secondDropdown" name="preis" onchange="sortiereProdukte()"><option value="aufsteigend">Preis aufsteigend</option><option value="absteigend">Preis absteigend</option></select>'
+  var filters = '<label class="dropdown" for=Attribute></label><select class="dropdown" id="firstDropdown" name="attribute" onchange="sortiereProdukte()"><option value="" disabled selected hidden>Sortiert nach</option><option value="name">Name</option><option value="preis">Preis</option><option value="verfuegbarkeit">Verfügbarkeit</option></select><label class="dropdown" for=Preis ></label><select class="dropdown" id="secondDropdown" name="preis" onchange="sortiereProdukte()"><option value="aufsteigend">aufsteigend</option><option value="absteigend">absteigend</option></select>'
   $('#filter').append(filters);
 }
 
