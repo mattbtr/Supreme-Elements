@@ -15,13 +15,10 @@ $(document).ready(function(){
    
    $(document).on('click', '.addToCart', function() {     // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
    
-    var selectedProduct = $(this).data('productid');    // holt html Attribut: data-productid aus slider
+    var selectedProductid = $(this).data('productid');    // holt html Attribut: data-productid aus slider
   
-    console.log("Produkt in den Warenkorb: " + selectedProduct);
-    setSessionItem("id", selectedProduct);
-  
-    console.log("Jumping to cart");
-    location.href = 'warenkorb.html';
+    console.log("Produkt in den Warenkorb: " + selectedProductid);
+    addToBasket(selectedProductid);
   });
   
 });

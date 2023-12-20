@@ -135,23 +135,26 @@ function renderBasket() {
             // create node
             var node = $('<tr>');
            
-            node.append($('<td>').text(idx + 1));
+            // node.append($('<td>').text(idx + 1)); // Position im Warenkorb
+            node.append($('<td>').append('<th id="Linkespalte"><img id="Bestellübersichtsbilder" src="' + item.product.produktbild + '" alt="' + item.product.bezeichnung + '"></th>'));
             node.append($('<td>').append(
-                $('<a>')
-                    .attr('href', 'shopDetails.html?id=' + item.product.id)
-                    .text(item.product.bezeichnung + ' (ID: ' + item.product.id + ')')
+                ($('<td>').append(
+                    $('<a>')
+                        .attr('href', 'produktdetails.html')
+                        //.attr('href', 'produktdetails.html?id=' + item.product.id) //wenn produktdetailseite dynamisiert ist
+                        .text(item.product.bezeichnung + ' (ID: ' + item.product.id + ')'),
+                    $('<section>').text(item.product.beschreibung),
+                    $('<section>').text("Versand: 1-2 Werktage"),
+                    $('<section>').text('Menge: ' + item.amount)
+                ))
+                //($('<tr>').append(
+                //    $('<section>').text(item.product.details)
+                //))
             ));
             node.append($('<td>').text(formatToEuro(item.product.bruttopreis)));
             node.append($('<td>').text(item.amount));
             node.append($('<td>').text(formatToEuro(sum)));
-            node.append(
-                $('<td>')
-                    .append($('<button>')
-                        .attr('type', 'button')
-                        .attr('onClick', 'removeBasketPosition(' + idx + ')')
-                        .text('Entfernen')
-                    )
-            );
+            node.append($('<td>').append('<a href="javascript:removeBasketPosition(' + idx + ')"><img class="symbols" src="Bilder/muelleimer.jpg" align="right"></a>'));
 
             // output node
             $('#cartContent').append(node);
