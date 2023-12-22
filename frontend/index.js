@@ -19,8 +19,7 @@ $(document).ready(function(){
   
     console.log("Produkt in den Warenkorb: " + selectedProductid);
     addToBasket(selectedProductid);
-  });
-  
+  });  
 });
 
 function loadSliderProducts() {

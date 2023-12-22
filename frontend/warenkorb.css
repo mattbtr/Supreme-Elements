@@ -286,6 +286,11 @@ button, select{
   
 }
 
+#produktbezeichnung{
+  color: inherit;
+  text-decoration: none;
+}
+
 input[type="button"]:hover {
   background-color: none;
   border-color: none;

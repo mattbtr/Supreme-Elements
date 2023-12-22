@@ -1,3 +1,13 @@
+$(document).ready(function(){
+    $(document).on('change', '.amountButton', function() {     // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
+    
+        var selectedAmount = $(this).val();    // holt html Attribut: Wert aus Menge
+        var selectedIndex = $(this).data("index");
+    
+        changeAmount(selectedIndex, selectedAmount);
+    });
+});
+
 var basket = [];
 
 function renderProducts(cartContent, products) {
@@ -138,33 +148,40 @@ function renderBasket() {
             // node.append($('<td>').text(idx + 1)); // Position im Warenkorb
             node.append($('<td>').append('<th id="Linkespalte"><img id="Bestellübersichtsbilder" src="' + item.product.produktbild + '" alt="' + item.product.bezeichnung + '"></th>'));
             node.append($('<td>').append(
-                ($('<td>').append(
-                    $('<a>')
+                ($('<td id="Mittlerespale">').append(
+                    $('<a id="produktbezeichnung">')
                         .attr('href', 'produktdetails.html')
                         //.attr('href', 'produktdetails.html?id=' + item.product.id) //wenn produktdetailseite dynamisiert ist
                         .text(item.product.bezeichnung + ' (ID: ' + item.product.id + ')'),
-                    $('<section>').text(item.product.beschreibung),
-                    $('<section>').text("Versand: 1-2 Werktage"),
-                    $('<section>').text('Menge: ' + item.amount)
+                    $('<section id="ProduktbeschreibungUndLieferadresse">').text(item.product.beschreibung),
+                    $('<section id="Einzelpreis">').text('Einzelpreis: ' + formatToEuro(item.product.bruttopreis)),
+                    $('<section id = "Versand">').text("Versand: 1-2 Werktage"),
+                    $('<section id = "Menge">').text('Menge: ').append($('<input type="number" data-index="' + idx + '" class="amountButton" size="5" value=' + item.amount + '></input>')),
+                    
                 ))
-                //($('<tr>').append(
-                //    $('<section>').text(item.product.details)
-                //))
             ));
-            node.append($('<td>').text(formatToEuro(item.product.bruttopreis)));
-            node.append($('<td>').text(item.amount));
-            node.append($('<td>').text(formatToEuro(sum)));
-            node.append($('<td>').append('<a href="javascript:removeBasketPosition(' + idx + ')"><img class="symbols" src="Bilder/muelleimer.jpg" align="right"></a>'));
+            //node.append($('<td>').text(formatToEuro(item.product.bruttopreis)));
+            //node.append($('<td>').text(item.amount));
+            //node.append($('<td>').text(formatToEuro(sum)));
+            node.append($('<td id="Rechtespalte">').append(
+                $('<a href="javascript:removeBasketPosition(' + idx + ')"><img class="symbols" src="Bilder/muelleimer.jpg" align="right"></a>'),
+                $('<section id = "Preise">').text('Preis: ' + formatToEuro(item.product.bruttopreis * item.amount))
+            ));
+            
+            var nodeTrenner = $('<tr>');
+            nodeTrenner.append($('<td colspan="6"><hr id="TrennerBestellübersicht"></td>'));
 
+            
             // output node
             $('#cartContent').append(node);
+            $('#cartContent').append(nodeTrenner);
         });
 
         $('#cartContent')
-            .append('<tr><td colspan="6">&nbsp;</td></tr>')
-            .append('<tr><td colspan="4" class="rightBold">Gesamtsumme: </td><td class="bold">' + formatToEuro(totalSum) + '</td></tr>')
-            .append('<tr><td colspan="4" class="rightBold">enth. MwSt.: </td><td class="bold">' + formatToEuro(totalTax) + '</td></tr>')
-            .append('<tr><td colspan="6">&nbsp;</td></tr>');
+            //.append('<tr><td colspan="6">&nbsp;</td></tr>')
+            //.append('<tr><td colspan="4" class="rightBold">Gesamtsumme: </td><td class="bold">' + formatToEuro(totalSum) + '</td></tr>')
+            //.append('<tr><td colspan="4" class="rightBold">enth. MwSt.: </td><td class="bold">' + formatToEuro(totalTax) + '</td></tr>')
+            //.append('<tr><td colspan="6">&nbsp;</td></tr>');
     }
 }
 
@@ -198,6 +215,22 @@ function emptyBasket() {
     // clear session variable
     removeSessionItem('shoppingBasket');
     
+    // redraw basket
+    renderBasket('#basket > tbody');
+}
+
+function changeAmount(idx, newamount) {
+    console.log('basket amount:' + newamount);
+    if (newamount == 0) {
+        removeBasketPosition(idx);
+    } else {
+        basket = getJSONSessionItem('shoppingBasket');
+        console.log('product found in basket, changing amount to: ' + newamount);
+        basket[idx].amount = newamount;
+        // remember changes in localStorage
+        setJSONSessionItem('shoppingBasket', basket);
+    }
+
     // redraw basket
     renderBasket('#basket > tbody');
 }
