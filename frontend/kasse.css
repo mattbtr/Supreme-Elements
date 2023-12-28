@@ -15,7 +15,7 @@ select {
     cursor: pointer;
 }
 
-#submit{
+#submit, #contact{
     color: #ffffff; 
 }
 
