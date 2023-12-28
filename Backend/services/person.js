@@ -49,17 +49,23 @@ serviceRouter.get('/person/existiert/:id', function(request, response) {
 
 serviceRouter.post('/person', function(request, response) {
     console.log('Service Person: Client requested creation of new record');
+    console.log(request.body);
+
 
     var errorMsgs=[];
     if (helper.isUndefined(request.body.anrede)) {
         errorMsgs.push('anrede fehlt');
+        console.log(1);
     } else if (request.body.anrede.toLowerCase() !== 'herr' && request.body.anrede.toLowerCase() !== 'frau') {
         errorMsgs.push('anrede falsch. Herr und Frau sind erlaubt');
+        console.log(2);
     }        
     if (helper.isUndefined(request.body.vorname)) 
         errorMsgs.push('vorname fehlt');
+    console.log(3);
     if (helper.isUndefined(request.body.nachname)) 
         errorMsgs.push('nachname fehlt');
+    console.log(4);
     /*if (helper.isUndefined(request.body.adresse)) {
         errorMsgs.push('adresse fehlt');
     } else if (helper.isUndefined(request.body.adresse.id)) {
@@ -67,18 +73,25 @@ serviceRouter.post('/person', function(request, response) {
     }*/
     if (helper.isUndefined(request.body.telefonnummer)) 
         request.body.telefonnummer = '';
+    console.log(5);
     if (helper.isUndefined(request.body.email)) 
         errorMsgs.push('email fehlt');
+    console.log(6);
     if (!helper.isEmail(request.body.email)) 
         errorMsgs.push('email hat ein falsches Format');
+    console.log(7);
     if (helper.isUndefined(request.body.strasse)) 
         errorMsgs.push('strasse fehlt');
+    console.log(8);
     if (helper.isUndefined(request.body.hausnummer)) 
         errorMsgs.push('hausnummer fehlt');
+    console.log(9);
     if (helper.isUndefined(request.body.plz)) 
         errorMsgs.push('postleitzahl fehlt');
+    console.log(10);
     if (helper.isUndefined(request.body.ort)) 
         errorMsgs.push('ort fehlt');
+    console.log(11);
     /*if (helper.isUndefined(request.body.geburtstag)) {
         request.body.geburtstag = null; */
     if (errorMsgs.length > 0) {
@@ -104,7 +117,7 @@ serviceRouter.put('/person', function(request, response) {
 
     var errorMsgs=[];
     if (helper.isUndefined(request.body.id)) 
-        errorMsgs.push('id missing');
+       errorMsgs.push('id missing');
         if (helper.isUndefined(request.body.anrede)) {
             errorMsgs.push('anrede fehlt');
         } else if (request.body.anrede.toLowerCase() !== 'herr' && request.body.anrede.toLowerCase() !== 'frau') {

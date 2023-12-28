@@ -7,6 +7,8 @@
     <title>Kasse</title>
     <link href="main.css" rel="stylesheet">
     <link href="kasse.css" rel="stylesheet">
+    <script src="kasse.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -41,56 +43,58 @@
                 <th id="GesamtTabelleRechts">
                     <h3>Rechnungsdetails</h3>
                     <table id="PersonendatenTabelle">
-                        <tbody>
-                            <tr>
-                                <th colspan="2">
-                                    <select id="anrede" name="anrede">
-                                        <option value="" disabled selected hidden>Anrede</option>
-                                        <option value="Keine">Keine</option>
-                                        <option value="Herr">Herr</option>
-                                        <option value="Frau">Frau</option>
-                                        <option value="Divers">Divers</option>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input placeholder="Vorname" type="text" class="rechnungsdetails" name="vorname"
-                                        required>
-                                </th>
-                                <th>
-                                    <input placeholder="Nachname" type="text" class="rechnungsdetails" name="nachname"
-                                        required>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input placeholder="Straße" type="text" class="rechnungsdetails" name="straße"
-                                        required>
-                                </th>
-                                <th>
-                                    <input placeholder="Hausnummer" type="text" class="rechnungsdetails"
-                                        name="hausnummer" required>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input placeholder="PLZ" type="text" class="rechnungsdetails" name="plz" required>
-                                </th>
-                                <th>
-                                    <input placeholder="Ort" type="text" class="rechnungsdetails" name="ort" required>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input placeholder="E-Mail" type="email" class="rechnungsdetails" name="email"
-                                        required>
-                                </th>
-                                <th>
-                                    <input placeholder="Telefonnummer" type="text" class="rechnungsdetails"
-                                        name="telefonnummer" required>
-                                </th>
-                            </tr>
-                        </tbody>
+                        <form method="post" id="kassenform">
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">
+                                        <select id="anrede" name="anrede">
+                                            <option value="" disabled selected hidden>Anrede</option>
+                                            <option value="Herr">Herr</option>
+                                            <option value="Frau">Frau</option>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input placeholder="Vorname" type="text" class="rechnungsdetails" name="vorname"
+                                            id="vornameInput" required>
+                                    </th>
+                                    <th>
+                                        <input placeholder="Nachname" type="text" class="rechnungsdetails"
+                                            name="nachname" id="nachnameInput" required>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input placeholder="Straße" type="text" class="rechnungsdetails" name="straße"
+                                            id="strasseInput" required>
+                                    </th>
+                                    <th>
+                                        <input placeholder="Hausnummer" type="text" class="rechnungsdetails"
+                                            name="hausnummer" id="hausnrInput" required>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input placeholder="PLZ" type="text" class="rechnungsdetails" name="plz"
+                                            id="plzInput" required>
+                                    </th>
+                                    <th>
+                                        <input placeholder="Ort" type="text" class="rechnungsdetails" name="ort"
+                                            id="ortInput" required>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input placeholder="E-Mail" type="email" class="rechnungsdetails" name="email"
+                                            id="emailInput" required>
+                                    </th>
+                                    <th>
+                                        <input placeholder="Telefonnummer" type="text" class="rechnungsdetails"
+                                            name="telefonnummer" id="telnrInput" required>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </form>
                     </table>
                 </th>
                 <th id="GesamtTabelleLinksOben">
@@ -111,8 +115,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Gesamtsumme<br><section id="Mwst">inkl. 19% Mwst.</section></th>
-                                <th class="preis">166,45€<br><section id="PreisMwst">54,34€</section></th>
+                                <th>Gesamtsumme<br>
+                                    <section id="Mwst">inkl. 19% Mwst.</section>
+                                </th>
+                                <th class="preis">166,45€<br>
+                                    <section id="PreisMwst">54,34€</section>
+                                </th>
                         </tbody>
                     </table>
                 </th>
@@ -151,8 +159,11 @@
                         </tr>
                         <tr>
                             <th>
-                                <a href="bestelluebersicht.html"><button>Jetzt kaufen!</button></a>
+
+                                <input type="submit" value="Jetzt kaufen !" id="submit" />
+                                </a>
                             </th>
+
                         </tr>
                     </table>
                 </th>

@@ -81,7 +81,7 @@ function submitForm(){
     event.preventDefault();
 
     // convert data of form to object
-    var formData = {
+    let formData = {
       vorname: $("#vornameInput").val(),
       nachname: $("#nachnameInput").val(),
       email: $("#emailInput").val(),

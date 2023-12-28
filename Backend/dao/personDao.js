@@ -53,12 +53,11 @@ class PersonDao {
 
         return false;
     }
-
-    create(id = '', anrede = 'Herr', vorname = '', nachname = '', telefonnummer = '', email = '', strasse = '', hausnummer = '', plz = '', ort = '') {
-        var sql = 'INSERT INTO Person (id, anrede, vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort) VALUES (?,?,?,?,?,?,?,?,?,?,?)';
+//--  anrede: 1 = Herr, 2 = Frau, 3 = Divers, 0= Keine Angabe 
+    create(anrede = '', vorname = '', nachname = '', telefonnummer = '', email = '', strasse = '', hausnummer = '', plz = '', ort = '') {
+        var sql = 'INSERT INTO Person (anrede, vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort) VALUES (?,?,?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
-        // parameter noch anpassen für anrede !! --> nicht nur herr und frau
-        var params = [(helper.strStartsWith(anrede, 'He') ? 0 : 1), id, anrede, vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort]
+        var params = [(helper.strStartsWith(anrede, 'He') ? 1 : 2), vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort]
         var result = statement.run(params);
 
         if (result.changes != 1) 
