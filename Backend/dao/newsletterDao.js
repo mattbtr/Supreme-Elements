@@ -50,11 +50,11 @@ class NewsletterDao {
     return false;
   }
 
-  create(id = "", email = "") {
+  create(email = "") {
     var sql =
-      "INSERT INTO Person (id, email) VALUES (?,?)";
+      "INSERT INTO Newsletter (email) VALUES (?)";
     var statement = this._conn.prepare(sql);
-    var params = [id, email];
+    var params = [email];
     var result = statement.run(params);
 
     if (result.changes != 1)
@@ -65,7 +65,7 @@ class NewsletterDao {
 
   update(id, email = "") {
     var sql =
-      "UPDATE Person SET email=? WHERE id=?";
+      "UPDATE Newsletter SET email=? WHERE id=?";
     var statement = this._conn.prepare(sql);
     var params = [email, id];
     var result = statement.run(params);
@@ -78,7 +78,7 @@ class NewsletterDao {
 
   delete(id) {
     try {
-      var sql = "DELETE FROM Person WHERE id=?";
+      var sql = "DELETE FROM Newsletter WHERE id=?";
       var statement = this._conn.prepare(sql);
       var result = statement.run(id);
 

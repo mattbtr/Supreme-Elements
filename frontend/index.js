@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+  submitNewsletterUeberUns();
+  submitNewsletterIndex();
   loadSliderProducts();
 
   window.setTimeout( function() {
@@ -42,3 +43,49 @@ function loadSliderProducts() {
   }); 
 };
 
+
+function submitNewsletterIndex(){
+  $("#newsletterFormIndex").submit(function (event) {
+    console.log("form submit called");
+
+    // disable default event
+    event.preventDefault();
+
+    // convert data of form to object
+    let formData = {
+      email: $("#newsletter-email-i").val()
+    };
+
+    // Send form data with AJAX
+    $.ajax({
+      url: "http://localhost:8000/api/newsletter",
+      type: "POST",
+      data: JSON.stringify(formData),
+      contentType: "application/json",
+      dataType: "json",
+    });
+  });
+}
+
+function submitNewsletterUeberUns() {
+  $("#newsletterFormUeberuns").submit(function (event) {
+    console.log("form submit called");
+
+    // disable default event
+    event.preventDefault();
+
+    // convert data of form to object
+    let formData = {
+      email: $("#email-newsletter-ue").val(),
+    };
+
+    // Send form data with AJAX
+    $.ajax({
+      url: "http://localhost:8000/api/newsletter",
+      type: "POST",
+      data: JSON.stringify(formData),
+      contentType: "application/json",
+      dataType: "json",
+    });
+  });
+}

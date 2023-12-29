@@ -24,11 +24,11 @@ main h1,h3{
     color:black;
 }
 
-  button:hover, select:hover {
+  button:hover, select:hover, input[type="submit"]:hover {
     background-color: #236dcc; /* Hintergrundfarbe ändert sich bei Hover */
   }
   
-  button, select{
+  button, select, input[type="submit"]{
     background-color: #2c3540; /* Hintergrundfarbe */
     color: #ffffff; /* Textfarbe */
     border: none; /* Kein Rand */
