@@ -74,11 +74,15 @@
 
         <th id="GesamtTabelleRechts">
           <table id="deineBestellung">
-            <tbody>
+            <thead>
               <tr>
                 <h3>Zusammenfassung</h3>
               </tr>
-              <tr>
+            </thead>
+
+            <tbody id="cartSummery"></tbody>
+              <script>renderBasket();</script>
+              <!--<tr>
                 <td>Artikel im Warenkorb</td>
                 <td align="right"> 149,49€</td>
               </tr>
@@ -98,6 +102,7 @@
                 <td><a href="kasse.html"><button>zur Kasse</button></a></td>
                 <td></td>
               </tr>
+              -->
             </tbody>
           </table>
         </th>
