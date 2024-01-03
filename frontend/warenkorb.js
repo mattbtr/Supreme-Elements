@@ -138,6 +138,9 @@ function renderBasket() {
             // containing tax
             tax = item.product.mehrwertsteueranteil * item.amount;
 
+            // Versand
+            shippingFee = 5.99;
+
             // add up totals
             totalTax += tax;
             totalSum += sum;
@@ -175,13 +178,48 @@ function renderBasket() {
             // output node
             $('#cartContent').append(node);
             $('#cartContent').append(nodeTrenner);
-        });
+        });    
 
-        $('#cartContent')
-            //.append('<tr><td colspan="6">&nbsp;</td></tr>')
-            //.append('<tr><td colspan="4" class="rightBold">Gesamtsumme: </td><td class="bold">' + formatToEuro(totalSum) + '</td></tr>')
-            //.append('<tr><td colspan="4" class="rightBold">enth. MwSt.: </td><td class="bold">' + formatToEuro(totalTax) + '</td></tr>')
-            //.append('<tr><td colspan="6">&nbsp;</td></tr>');
+            // create node
+            var node2 = $('<div>');
+
+            node2.append($('<tr>').append(
+                $('<td colspan="2">').text("Artikel im Warenkorb"),
+                $('<td align="right">').text(formatToEuro(totalSum))
+            ));
+
+            node2.append($('<tr>').append(
+                $('<td colspan="2">').text("Versand"),
+                $('<td align="right">').text(formatToEuro(shippingFee))
+            ));
+
+            node2.append($('<tr>').append(
+                $('<th colspan="2">').text("Gesamtsumme"),
+                $('<th align="right">').text(formatToEuro(totalSum + shippingFee))
+            ));
+
+            node2.append($('<tr>').append(
+                $('<td colspan="2">').text("inkl. 19% Mwst."),
+                $('<td align="right">').text(formatToEuro(totalTax))
+            ));
+
+            //node2.append($('<tr>').append(
+                //$('<td>').text('<a href="kasse.html"><button>zur Kasse</button></a>'),
+                //$('<td align="right">').text()
+            //));
+
+
+            //node2.append('<tr><td colspan="6">&nbsp;</td></tr>')
+            //node2.append('<tr><td colspan="4" class="rightBold">Gesamtsumme: </td><td class="bold">' + formatToEuro(totalSum) + '</td></tr>')
+            //node2.append('<tr><td colspan="4" class="rightBold">enth. MwSt.: </td><td class="bold">' + formatToEuro(totalTax) + '</td></tr>')
+            //node2.append('<tr><td colspan="6">&nbsp;</td></tr>');
+            
+            //html leeren
+            $('#cartSummery').empty();
+
+            //output node
+            $('#cartSummery').append(node2);
+        
     }
 }
 
