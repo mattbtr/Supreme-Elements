@@ -171,55 +171,27 @@ function renderBasket() {
                 $('<section id = "Preise">').text('Preis: ' + formatToEuro(item.product.bruttopreis * item.amount))
             ));
             
+            // Trenner
             var nodeTrenner = $('<tr>');
             nodeTrenner.append($('<td colspan="6"><hr id="TrennerBestellübersicht"></td>'));
-
             
             // output node
             $('#cartContent').append(node);
             $('#cartContent').append(nodeTrenner);
+            
         });    
 
-            // create node
-            var node2 = $('<div>');
-
-            node2.append($('<tr>').append(
-                $('<td colspan="2">').text("Artikel im Warenkorb"),
-                $('<td align="right">').text(formatToEuro(totalSum))
-            ));
-
-            node2.append($('<tr>').append(
-                $('<td colspan="2">').text("Versand"),
-                $('<td align="right">').text(formatToEuro(shippingFee))
-            ));
-
-            node2.append($('<tr>').append(
-                $('<th colspan="2">').text("Gesamtsumme"),
-                $('<th align="right">').text(formatToEuro(totalSum + shippingFee))
-            ));
-
-            node2.append($('<tr>').append(
-                $('<td colspan="2">').text("inkl. 19% Mwst."),
-                $('<td align="right">').text(formatToEuro(totalTax))
-            ));
-
-            //node2.append($('<tr>').append(
-                //$('<td>').text('<a href="kasse.html"><button>zur Kasse</button></a>'),
-                //$('<td align="right">').text()
-            //));
-
-
-            //node2.append('<tr><td colspan="6">&nbsp;</td></tr>')
-            //node2.append('<tr><td colspan="4" class="rightBold">Gesamtsumme: </td><td class="bold">' + formatToEuro(totalSum) + '</td></tr>')
-            //node2.append('<tr><td colspan="4" class="rightBold">enth. MwSt.: </td><td class="bold">' + formatToEuro(totalTax) + '</td></tr>')
-            //node2.append('<tr><td colspan="6">&nbsp;</td></tr>');
-            
-            //html leeren
-            $('#cartSummery').empty();
-
-            //output node
-            $('#cartSummery').append(node2);
-        
+        // BOX ZUSAMMENFASSUNG RECHTS
+        var summaryHTML = '';
+        summaryHTML += '<tr><td>Artikel im Warenkorb</td><td align="right">'+ formatToEuro(totalSum) +'</td></tr>';
+        summaryHTML += '<tr><td>Versand</td><td align="right">'+ formatToEuro(shippingFee) +'</td></tr>';
+        summaryHTML += '<tr><th>Gesamtsumme</th><th align="right">'+ formatToEuro(totalSum + shippingFee) +'</th></tr>';
+        summaryHTML += '<tr><td>inkl. 19% Mwst.</td><td align="right">'+ formatToEuro(totalTax) +'</td></tr>';
+        summaryHTML += '<tr><td><a href="kasse.html"><button>zur Kasse</button></a></td><td align="right"></td></tr>';
+        //html leeren
+        $('#cartSummery').empty();
+        //output node
+        $('#cartSummery').html(summaryHTML);       
     }
 }
 
