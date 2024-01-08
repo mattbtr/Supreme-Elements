@@ -19,10 +19,10 @@ serviceRouter.get('/produkt/gib/:id', function(request, response) {
     }
 });
 
-serviceRouter.get('/produkt/alle', function(request, response) {
+serviceRouter.get('/produkt/alle', function(request, response) {         //definiert get-Router wenn pfad aufgerufen wird callback funktion ausgeführt
     console.log('Service Produkt: Client requested all records');
 
-    const produktDao = new ProduktDao(request.app.locals.dbConnection);
+    const produktDao = new ProduktDao(request.app.locals.dbConnection);    //neue Instanz des ProduktDao Objekts für Datenzugriff über Datenbank (app.locals.dbConnection)
     try {
         var arr = produktDao.loadAll();
         console.log('Service Produkt: Records loaded, count=' + arr.length);

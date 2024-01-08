@@ -8,6 +8,7 @@
     <link href="main.css" rel="stylesheet">
     <link href="kasse.css" rel="stylesheet">
     <script src="kasse.js"></script>
+    <script src="sessionHandling.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -40,7 +41,7 @@
 
         <table class="GesamtTabellePersonendatenBestellung">
             <tr>
-                <th id="GesamtTabelleRechts">
+                <th id="GesamtTabelleLinks">
                     <h3>Rechnungsdetails</h3>
                     <table id="PersonendatenTabelle">
                         <form method="post" id="kassenform">
@@ -97,32 +98,37 @@
                         </form>
                     </table>
                 </th>
-                <th id="GesamtTabelleLinksOben">
-                    <h3>Deine Bestellung</h3>
+                <th id="RechtsOben">
                     <table id="deineBestellung">
-                        <tbody>
-                            <tr>
-                                <td>Artikel im Warenkorb</td>
-                                <td class="preis"> 149,49€</td>
-                            </tr>
-                            <tr>
-                                <td>Zzgl. Versandkosten</td>
-                                <td class="preis">5,44€</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <hr>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Gesamtsumme<br>
-                                    <section id="Mwst">inkl. 19% Mwst.</section>
-                                </th>
-                                <th class="preis">166,45€<br>
-                                    <section id="PreisMwst">54,34€</section>
-                                </th>
-                        </tbody>
-                    </table>
+                        <thead>
+                          <tr>
+                            <h3>Deine Bestellung</h3>
+                          </tr>
+                        </thead>
+            
+                        <tbody id="cartSummery"></tbody>
+                          <script>renderBasket();</script>
+                          <!--<tr>
+                            <td>Artikel im Warenkorb</td>
+                            <td align="right"> 149,49€</td>
+                          </tr>
+                          <tr>
+                            <td>Versand</td>
+                            <td align="right">18,85€</td>
+                          </tr>
+                          <tr>
+                            <th>Gesamtsumme</th>
+                            <th align="right">166,45€</th>
+                          </tr>
+                          <tr>
+                            <td>inkl. 19% Mwst.</td>
+                            <td align="right">23,44€</td>
+                          </tr>
+                          -->
+                      </table>
+                    </th>
+                  </tr>
+                </table>            
                 </th>
             </tr>
             <tr>
