@@ -1,7 +1,10 @@
 $(document).ready(function(){
-    $(document).on('change', '.amountButton', function() {     // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
+    // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
+    // ändert die Menge im Warenkorb
+    $(document).on('change', '.amountButton', function() {     
     
-        var selectedAmount = $(this).val();    // holt html Attribut: Wert aus Menge
+        // holt html Attribut: Wert aus Menge
+        var selectedAmount = $(this).val();    
         var selectedIndex = $(this).data("index");
     
         changeAmount(selectedIndex, selectedAmount);
@@ -131,6 +134,7 @@ function renderBasket() {
         var totalTax = 0.0;
         var totalSum = 0.0;
 
+        // Darstellen der Produkte, die in der Session gespeichert sind
         $(basket).each(function (idx, item) {
             // calc position sum
             sum = item.product.bruttopreis * item.amount;
@@ -163,9 +167,7 @@ function renderBasket() {
                     
                 ))
             ));
-            //node.append($('<td>').text(formatToEuro(item.product.bruttopreis)));
-            //node.append($('<td>').text(item.amount));
-            //node.append($('<td>').text(formatToEuro(sum)));
+            
             node.append($('<td id="Rechtespalte">').append(
                 $('<a href="javascript:removeBasketPosition(' + idx + ')"><img class="symbols" src="Bilder/muelleimer.jpg" align="right"></a>'),
                 $('<section id = "Preise">').text('Preis: ' + formatToEuro(item.product.bruttopreis * item.amount))
@@ -181,7 +183,7 @@ function renderBasket() {
             
         });    
 
-        // BOX ZUSAMMENFASSUNG RECHTS
+        // Darstellen der rechten Spalte im Warenkorb -> Zusammenfassung der Bestellung
         var summaryHTML = '';
         summaryHTML += '<tr><td>Artikel im Warenkorb</td><td align="right">'+ formatToEuro(totalSum) +'</td></tr>';
         summaryHTML += '<tr><td>Versand</td><td align="right">'+ formatToEuro(shippingFee) +'</td></tr>';

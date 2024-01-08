@@ -12,10 +12,7 @@ class ProduktDao {
     }
 
     loadById(id) {
-        //const produktkategorieDao = new ProduktkategorieDao(this._conn);
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
-        //const downloadDao = new DownloadDao(this._conn);
-        //const produktbildDao = new ProduktbildDao(this._conn);
 
         var sql = 'SELECT * FROM Produkt WHERE id=?';
         var statement = this._conn.prepare(sql);
@@ -24,17 +21,8 @@ class ProduktDao {
         if (helper.isUndefined(result)) 
             throw new Error('No Record found by id=' + id);
 
-        //result.kategorie = produktkategorieDao.loadById(result.kategorieId);
-        //delete result.kategorieId;
         result.mehrwertsteuer = mehrwertsteuerDao.loadById(result.mehrwertsteuerId);
         delete result.mehrwertsteuerId;
-        /*if (helper.isNull(result.datenblattId)) {
-            result.datenblatt = null;
-        } else {
-            result.datenblatt = downloadDao.loadById(result.datenblattId);
-        }
-        */delete result.datenblattId;
-        //result.produktbild = produktbildDao.loadByParent(result.id);
 
         result.mehrwertsteueranteil = helper.round((result.nettopreis / 100) * result.mehrwertsteuer.steuerSatz);
 
@@ -43,10 +31,12 @@ class ProduktDao {
         return result;
     }
 
+    // Funktion, um Highlights aus der Datenbank in Slider zu laden
+
     loadHighlights() {
         const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
 
-        var sql = 'SELECT * FROM Produkt WHERE isHighlight=1';
+        var sql = 'SELECT * FROM Produkt WHERE isHighlight=1';      // SQL Statement, um die Highlights zu filtern
         var statement = this._conn.prepare(sql);
         var result = statement.all();
 
