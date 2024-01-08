@@ -1,6 +1,16 @@
 $(document).ready(function(){  //erst ausführung wenn komplettes DOM geladen ist
   loadProducts(); 
-  
+
+   // speichert Produkt in der Session 
+  $(document).on('click', '.addToCart', function () {     
+    // holt html Attribut: data-productid aus jeweiligem Produkt
+    var selectedProductid = $(this).data('productid');    
+
+    // Ausgabe in Browser Console
+    console.log("Produkt in den Warenkorb: " + selectedProductid);   
+    // addToBasket Funktion befindet sich in warenkorb.js 
+    addToBasket(selectedProductid);
+  });
 });
 
 
