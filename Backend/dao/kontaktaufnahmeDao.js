@@ -1,5 +1,4 @@
 const helper = require('../helper.js');
-/*const AdresseDao = require('./adresseDao.js');*/
 
 class KontaktaufnahmeDao {
 
@@ -15,7 +14,6 @@ class KontaktaufnahmeDao {
     }
 
     loadAll() {
-        /*const adresseDao = new AdresseDao(this._conn); */
 
         var sql = 'SELECT * FROM Kontaktaufnahme';
         var statement = this._conn.prepare(sql);

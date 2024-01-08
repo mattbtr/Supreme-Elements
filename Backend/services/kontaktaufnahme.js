@@ -51,7 +51,7 @@ serviceRouter.post('/kontaktaufnahme', function(request, response) {
     console.log('Service Kontaktaufnahme: Client requested creation of new record');
 
     var errorMsgs=[];
-    if (helper.isUndefined(request.body.vorname)) // wenn kein daten übergeben werden dann ist undefined und es wird hier geschriebender error übergeben
+    if (helper.isUndefined(request.body.vorname)) // wenn kein daten übergeben werden dann ist undefined und es wird hier geschriebender error in erroerMsg eingefügt.
         errorMsgs.push('vorname fehlt');
     if (helper.isUndefined(request.body.nachname)) 
         errorMsgs.push('nachname fehlt');
@@ -61,7 +61,7 @@ serviceRouter.post('/kontaktaufnahme', function(request, response) {
         errorMsgs.push('email hat ein falsches Format');
     if (helper.isUndefined(request.body.nachricht)) 
         errorMsgs.push('nachricht fehlt');
-    if (errorMsgs.length > 0) {
+    if (errorMsgs.length > 0) { // wenn errorMsg liste nicht leer dann response wird generiert mit status code 400 und json objekt: fehler : true, nachricht: funtkiton nicht möglich ... und ausgabe der errorMsg arrays
         console.log('Service Kontaktaufnahme: Creation not possible, data missing');
         response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
         return;
