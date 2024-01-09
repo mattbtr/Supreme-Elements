@@ -1,12 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplett geladen dann führt funktionen aus
-  submitCheckout();
+  
+  $(document).on("click", "#submit", function (event) {
+    console.log("form submit called");
+
+
+
+
+    // disable default event = das aktualsisiern der seite sonst konsolenausgaben alle weg
+    event.preventDefault();
+    // Holen Sie sich die Werte der Eingabefelder
+    var vorname = document.getElementById('vornameInput').value;
+    var nachname = document.getElementById('nachnameInput').value;
+    var strasse = document.getElementById('strasseInput').value;
+    var hausnummer = document.getElementById('hausnrInput').value;
+    var plz = document.getElementById('plzInput').value;
+    var ort = document.getElementById('ortInput').value;
+    var email = document.getElementById('emailInput').value;
+    var telnr = document.getElementById('telnrInput').value;
+
+    // Überprüfen, ob die Felder ausgefüllt sind
+    if (vorname === '' || email === '' || nachname === '' || telnr === '' || strasse === '' || hausnummer === '' || plz === '' || ort === '') {
+      alert('Bitte füllen Sie alle erforderlichen Felder aus.');
+
+    } else {
+      submitCheckout();
+    }
+  })
+
+  
+  
   renderBasket();
 });
 
 
 
 function submitCheckout() {
-  const myForm = document.getElementById("kassenform");
   document.querySelector("#submit").addEventListener("click", function (event) {
     
       console.log("form submit called");
@@ -39,9 +67,22 @@ function submitCheckout() {
         type: "POST",
         data: JSON.stringify(formData),// muss man als string an server schicken damit server es verarbeiten kann
         contentType: "application/json",
-        dataType: "json",
+        dataType: "text",
         cache: false,
-      });
+      })
+        .done(function (response) {
+          // Erfolgreiche Serverantwort
+          alert('Formulardaten erfolgreich abgeschickt!');
+          console.log(response);
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+          // Fehler beim AJAX-Request
+          alert('Geben Sie eine gültige E-Mail Adresse an!');
+          console.error('Fehler beim POST-Request:', textStatus, errorThrown);
+          console.log('Serverantwort:', jqXHR.responseText);
+          $("#emailInput").val("");
+        })
+        ;
     });
   };
 
