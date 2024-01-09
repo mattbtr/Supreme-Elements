@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplett geladen dann führt funktionen aus
   submitCheckout();
   renderBasket();
 });
@@ -11,11 +11,11 @@ function submitCheckout() {
     
       console.log("form submit called");
 
-      // disable default event
+      // disable default event damit seite nicht neu aktualisiert nachedem jetzt kaufen button geklickt wird
       event.preventDefault();
     //myForm.submit() 
       
-          // convert data of form to object
+          // convert data of form to json object
           let formData = {
               anrede: $("#anrede").val(),
               vorname: $("#vornameInput").val(),
@@ -37,9 +37,10 @@ function submitCheckout() {
       $.ajax({
         url: "http://localhost:8000/api/person",
         type: "POST",
-        data: JSON.stringify(formData),
+        data: JSON.stringify(formData),// muss man als string an server schicken damit server es verarbeiten kann
         contentType: "application/json",
         dataType: "json",
+        cache: false,
       });
     });
   };

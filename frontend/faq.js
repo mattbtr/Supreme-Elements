@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   faq();
-  submitForm();
+  validateForm();
 });
 
 function faq() {
@@ -20,12 +20,8 @@ function faq() {
   }
 }
 
-function submitForm(){
-  $(document).on("click", "#submitBtn", function (event) {
-    console.log("form submit called");
-
-    // disable default event = das aktualsisiern der seite sonst konsolenausgaben alle weg
-    event.preventDefault();
+function submitForm() {
+  
 
     // convert data of form to object
     let formData = {
@@ -43,7 +39,7 @@ function submitForm(){
       data: JSON.stringify(formData),
       contentType: "application/json",
       dataType: "json",
-    })/*
+    })/* funktioniert nicht mit alerts, finde fehler nicht dasselbe für beide newsletter
       .done(function (response) {
         // Erfolgreiche Serverantwort
         alert('Formulardaten erfolgreich abgeschickt!');
@@ -54,11 +50,34 @@ function submitForm(){
         console.error('Fehler beim POST-Request:', textStatus, errorThrown);
         console.log('Serverantwort:', jqXHR.responseText);
       })
-      .always(function () {
-        // Hinzufügen von 'return false;' am Ende der Funktion
-        return false;
-      });*/
+      );*/
 
+
+  };
+
+
+function validateForm() {
+  $(document).on("click", "#submitBtn", function (event) {
+    console.log("form submit called");
+
+
+
+
+    // disable default event = das aktualsisiern der seite sonst konsolenausgaben alle weg
+    event.preventDefault();
+  // Holen Sie sich die Werte der Eingabefelder
+  var vorname = document.getElementById('vornameInput').value;
+  var nachname = document.getElementById('nachnameInput').value;
+  var email = document.getElementById('emailInput').value;
+  var nachricht = document.getElementById('nachrichtInput').value;
+
+  // Überprüfen, ob die Felder ausgefüllt sind
+    if (vorname === '' || email === '' || nachname === '' || nachricht === '') {
+    alert('Bitte füllen Sie alle erforderlichen Felder aus.');
     
-  });
-}
+  } else{
+
+    submitForm();
+  }
+})}
+
