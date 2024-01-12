@@ -38,19 +38,20 @@ function submitForm() {
       // wichtig hier als string übergeben, sodass server bzw kontaktaufnahme.js die daten mit request.body.vorname z.b zugreifen kann !! WICHTIG!
       data: JSON.stringify(formData),
       contentType: "application/json",
-      dataType: "json",
-    })/* funktioniert nicht mit alerts, finde fehler nicht dasselbe für beide newsletter
+      dataType: "text",
+    }) //funktioniert nicht mit alerts, finde fehler nicht dasselbe für beide newsletter
       .done(function (response) {
         // Erfolgreiche Serverantwort
         alert('Formulardaten erfolgreich abgeschickt!');
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
         // Fehler beim AJAX-Request
-       // alert('Etwas ist schiefgelaufen!');
+       alert('Geben Sie eine gültige E-Mail Adresse an!');
         console.error('Fehler beim POST-Request:', textStatus, errorThrown);
         console.log('Serverantwort:', jqXHR.responseText);
+        $("#emailInput").val("");
       })
-      );*/
+      ;
 
 
   };
