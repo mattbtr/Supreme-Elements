@@ -2,7 +2,7 @@ a{
     text-decoration: none;
     color: black;
 }
-.Produkt1{
+#Bild{
     width: 25%;
     height: 20%;
     padding-left: 0%;
@@ -18,7 +18,7 @@ a{
 .zweiteTabellenspalte{
     width: 440px;
 }
-#Produktbild{
+#produktbildSpalte{
     /*width: 55%; */
     margin-left: 300px;
     padding-left: 0%;
@@ -31,7 +31,7 @@ br{
     margin: 10px 0  ;
     line-height:22px;
   }
-.hinzufügen{
+.addToCart{
     background-color: #2c3540;
     color: #ffffff; 
     border: none; 
@@ -62,18 +62,29 @@ br{
     cursor: pointer; 
     margin-right: 54%;
 }
-.p4{
+#details{
     margin-left: 300px;
     margin-right: 18.5%;
     text-align: left;
     padding-left: 10px;
 }
-.p1{
+#produktBeschreibung{
     margin-left: 60px;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.p2{
+#produktID{
+    margin-left: 60px;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#verfuegbarkeit{
+    margin-left: 60px;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#bruttopreis{
     margin-left: 60px;
     font-size: x-large   ;
 }

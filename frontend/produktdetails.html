@@ -8,6 +8,10 @@
     <link href="main.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="produktdetails.js"></script>
+    <script src="sessionHandling.js"></script>
+    <script src="urlParameter.js"></script>
+    <script src="warenkorb.js"></script>
+    <script src="shop.js"></script>
 </head>
 
 <body>
@@ -29,23 +33,24 @@
         </nav>
     </header>
     <main>
-            <table id="Produktbild">
-                <td class="ersteTabellenspalte"><img class="Produkt1" src="Bilder/Beautiful.png">
-                </td>
-                    <td class="zweiteTabellenspalte"><h1>Liposomales Beautiful</h1>
+            <table id="produktbildSpalte">
+                <td class="ersteTabellenspalte"><img id="Bild" src="http://127.0.0.1:5500/frontend/" alt="kein Bild vorhanden">
+
+                    <td class="zweiteTabellenspalte"><h1 id="produktBezeichnung">Liposomales Beautiful</h1>
                     <br>     
-                             <p class="p1"><b>300mg Vitamin c + 50mg Zink</b></p>
-                             <p class="p1"><b>Verfügbarkeit: 9</b></p>
+                             <p>Produkt ID:</p><p id="produktId"></p>
+                             <p id="produktBeschreibung"><b>300mg Vitamin c + 50mg Zink</b></p>
+                             <p id="verfuegbarkeit"><b>Verfügbarkeit: 9</b></p>
                              <br>
-                             <p class="p2"><b>PREIS: 25,00€</b></p>
+                             <p id="bruttopreis"><b>PREIS: 25,00€</b></p>
                              <br>
-                             <br><button class="hinzufügen" onclick="Meldung()">In den Warenkorb</button>
+                             <br><button class="addToCart" onclick="Meldung()">In den Warenkorb</button>
                              
                 </td>            
             </table>
         <hr> 
         <h2 class="h23">Produkt Details</h2>            
-                <p class="p4">RUNDUM WOHLFÜHLEN | Premium Multi ist unser Allroundtalent mit 25 Vitalstoffen für dein Immunsystem*, 
+                <p id="details">RUNDUM WOHLFÜHLEN | Premium Multi ist unser Allroundtalent mit 25 Vitalstoffen für dein Immunsystem*, 
                               deinen Energiestoffwechsel* und dein Nervensystem*.<br>Auch Haut* und Haare* kommen nicht zu kurz!
                 <br>
                               HOCHDOSIERTER 3-MONATS-VORRAT | 180 reichhaltige Kapseln versorgen dich von Kopf bis Fuß. <br>Nur 2 Kapseln am Tag schenken 

@@ -31,7 +31,7 @@ function renderProducts(cartContent, products) {
             node.append(
                 $('<td>')
                     .append($('<a>')
-                        .attr('href', 'shopDetails.html?id=' + item.id)
+                        .attr('href', 'produktdetails.html?id=' + item.id)
                         .text(item.bezeichnung)                    
                     )            
             );
@@ -63,7 +63,7 @@ function formatToEuro(val) {
 }
 
 function jumpToDetails(id) {
-    location.href = 'shopDetails.html?id=' + id;
+    location.href = 'produktdetails.html?id=' + id;
 }
 
 function addToBasket(id) {
@@ -157,8 +157,8 @@ function renderBasket() {
             node.append($('<td>').append(
                 ($('<td id="Mittlerespale">').append(
                     $('<a id="produktbezeichnung">')
-                        .attr('href', 'produktdetails.html')
-                        //.attr('href', 'produktdetails.html?id=' + item.product.id) //wenn produktdetailseite dynamisiert ist
+                        //.attr('href', 'produktdetails.html')//
+                        .attr('href', 'produktdetails.html' + item.product.id) //wenn produktdetailseite dynamisiert ist//
                         .text(item.product.bezeichnung + ' (ID: ' + item.product.id + ')'),
                     $('<section id="ProduktbeschreibungUndLieferadresse">').text(item.product.beschreibung),
                     $('<section id="Einzelpreis">').text('Einzelpreis: ' + formatToEuro(item.product.bruttopreis)),
