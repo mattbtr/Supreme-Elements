@@ -1,6 +1,6 @@
 $(document).ready(function(){
     // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
-    // ändert die Menge im Warenkorb
+    // ändert die Menge im Warenkorb ohne die Seite neu zu laden
     $(document).on('change', '.amountButton', function() {     
     
         // holt html Attribut: Wert aus Menge
@@ -134,7 +134,7 @@ function renderBasket() {
         var totalTax = 0.0;
         var totalSum = 0.0;
 
-        // Darstellen der Produkte, die in der Session gespeichert sind
+        // Darstellen der Produkte, die in der Session gespeichert sind -> linke Tabelle
         $(basket).each(function (idx, item) {
             // calc position sum
             sum = item.product.bruttopreis * item.amount;

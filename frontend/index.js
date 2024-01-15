@@ -93,7 +93,7 @@ function submitNewsletterUeberUns() {
     // disable default event
     event.preventDefault();
 
-    // convert data of form to object
+    // convert data of form to Json object
     let formData = {
       email: $("#email-newsletter-ue").val(),
     };
