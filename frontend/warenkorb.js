@@ -214,6 +214,9 @@ function removeBasketPosition(idx) {
         removeSessionItem('shoppingBasket');
     }
 
+    //html leeren
+    $('#cartSummery').empty();
+    
     // redraw basket
     renderBasket('#basket > tbody');   //aktualisierung des tbody Kindelements von basket
 }

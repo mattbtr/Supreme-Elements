@@ -109,7 +109,7 @@ function loadSliderProducts() {
     $(response).each(function (idx, item) {     
 
       // speichern eines Produktes in einer Variablen
-      var sliderHTML = '<div class="sliderElement"><br /><a href="produktdetails.html"><img class="shopImg" src="' + item.produktbild + '"/></a><div class="infoBox"><br /><b>' + item.bezeichnung + '</b><br />' + item.bruttopreis + ' €<br /><button class="addToCart" data-productid="' + item.id + '" >In den Warenkorb</button></div></div>';
+      var sliderHTML = '<div class="sliderElement"><br /><a href="produktdetails.html"><img class="shopImg" src="' + item.produktbild + '"/></a><div class="infoBox"><br /><b>' + item.bezeichnung + '</b><br />' + formatToEuro(item.bruttopreis) + '<br /><button class="addToCart" data-productid="' + item.id + '" >In den Warenkorb</button></div></div>';
       // einzelnes Element wird an das div: sliderCointainer angehängt
       $('#sliderContainer').append(sliderHTML);   
 
