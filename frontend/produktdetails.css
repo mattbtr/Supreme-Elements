@@ -42,7 +42,7 @@ br{
     font-size: 18px; 
     border-radius: 3px; 
     cursor: pointer; 
-    margin-left: 60px;
+    margin-left: 0px;
     margin-top: 30px;
     margin-bottom: 230px;
 }
@@ -68,24 +68,25 @@ br{
     text-align: left;
     padding-left: 10px;
 }
-#produktBeschreibung{
-    margin-left: 60px;
+.produktBeschreibung{
+    margin-left: px;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-#produktID{
-    margin-left: 60px;
+.produktId{
+    padding-left: px;
+    margin-right: px;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#verfuegbarkeit{
-    margin-left: 60px;
+.verfuegbarkeit{
+    margin-left: 0px;
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-#bruttopreis{
-    margin-left: 60px;
+.bruttopreis{
+    margin-left: 0px;
     font-size: x-large   ;
 }
 h1{
@@ -99,11 +100,11 @@ h1{
     text-align: left;
     padding-left: 10px;
 }
-.p3{
+/*.p3{
     margin-left: 60px;  
     margin-bottom: 260px; 
     margin-top: 60px;
-}
+}*/
 hr {
     margin-left: 305px;
     margin-right: 18.5%;
