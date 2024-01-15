@@ -38,7 +38,7 @@ class ProduktDao {
 
         var sql = 'SELECT * FROM Produkt WHERE isHighlight=1';      // SQL Statement, um die Highlights zu filtern
         var statement = this._conn.prepare(sql);
-        var result = statement.all();
+        var result = statement.all();                       //all() funktion liefert produkte als array zurück
 
         if (helper.isUndefined(result)) 
             throw new Error('No Record found for Highlight');

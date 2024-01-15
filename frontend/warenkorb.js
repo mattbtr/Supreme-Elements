@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 var basket = [];
 
-function renderProducts(cartContent, products) {
+function renderProducts(cartContent, products) {     // jQuery-Selektor und Produktarray
     console.log('rendering products');
 
     if (products.length == 0) {
@@ -203,7 +203,7 @@ function removeBasketPosition(idx) {
     // remove position at idx or empty basket completely
     if (basket.length > 1) {
         // remove position at idx
-        basket.splice(idx, 1);
+        basket.splice(idx, 1);         //entfernt von idx an nächstes Element
 
         // remember changes in localStorage
         setJSONSessionItem('shoppingBasket', basket);
@@ -215,7 +215,7 @@ function removeBasketPosition(idx) {
     }
 
     // redraw basket
-    renderBasket('#basket > tbody');
+    renderBasket('#basket > tbody');   //aktualisierung des tbody Kindelements von basket
 }
 
 function emptyBasket() {
