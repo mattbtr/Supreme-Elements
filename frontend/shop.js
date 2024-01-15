@@ -40,10 +40,10 @@ function ProdukteEinfügen(response){
   $('#Produktliste th, #Produktliste2 th').empty();         // leeren für Neuordnung durch Filter
   for(var i = 0; i < response.length; i++){
     var produkt = '<div>' +
-    '<br /><a href="produktdetails.html">' +
+    /*'<br/><a href="produktdetails.html">' + */  '<br/><a href="produktdetails.html?id=' + response[i].id + '">' +
     '<img class="shopImg" src="' + response[i].produktbild + '" alt="' + response[i].bezeichnung + '"></a>' +
     '<div class="infoBox">'+
-    '<br /><p class="produktTitel">' + response[i].bezeichnung + '</p>' +
+    '<br/><p class="produktTitel">' + response[i].bezeichnung + '</p>' +
     '<p class="verfuegbarkeit">Verfügbarkeit: ' + response[i].verfuegbarkeit + '</p>' +
     '<p class="preis">' + formatierterPreis(response[i].bruttopreis) + ' </p>' +
    '<button class="addToCart" data-productid="' + response[i].id + '" >In den Warenkorb</button>' + '</p>' +   //data-productid um später einzelnes Produkt in SessionStorage hinzufügen zu können 
@@ -57,8 +57,6 @@ function ProdukteEinfügen(response){
   }
 };
 
-
-     
 
 
 

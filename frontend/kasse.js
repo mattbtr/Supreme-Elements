@@ -91,6 +91,8 @@ function submitCheckout() {
         val = 0.0;
     var asString = val.toFixed(2).toString();
     return asString.replace('.', ',') + " €";
+
+
 }
 for(var i = 0; i < sessionStorage.length; i++){
   console.log("Meine Session"+i.id);
@@ -98,7 +100,7 @@ for(var i = 0; i < sessionStorage.length; i++){
   function renderBasket() {
     // get basket data from session
     if (existsSessionItem('shoppingBasket')) 
-        basket = getJSONSessionItem('shoppingBasket');
+        basket = getJSONSessionItem('shoppingBasket');              //greifft auf sessionItem zu 
 
     // empty cartContent
     $('#cartContent').empty();
@@ -141,39 +143,4 @@ for(var i = 0; i < sessionStorage.length; i++){
         $('#cartSummery').html(summaryHTML);    
     }
     
-}
-function updateProductAvailability() {
-  // Abrufen der Warenkorbinhalte
-  var basket = getJSONSessionItem('shoppingBasket');
-  
-  if (basket && basket.length > 0) {
-      basket.forEach(function(item) {
-          var productId = item.product.id;
-          var quantityInCart = item.amount;
-
-          // Hier müssten Sie die aktuelle Verfügbarkeit des Produkts abrufen
-          // Zum Beispiel über einen AJAX-Request:
-          $.ajax({
-              url: 'http://localhost:8000/api/produkt/' + productId,
-              method: 'GET',
-              success: function(productData) {
-                  var newAvailability = productData.verfuegbarkeit - quantityInCart;
-
-                  // Nun senden Sie die neue Verfügbarkeit zurück zur Datenbank
-                  $.ajax({
-                      url: 'http://localhost:8000/api/produkt/gib/' + productId,
-                      method: 'POST',
-                      data: JSON.stringify({ verfuegbarkeit: newAvailability }),
-                      contentType: 'application/json',
-                      success: function(response) {
-                          console.log('Produkt aktualisiert', response);
-                      }
-                  });
-              }
-          });
-      });
-  }
-}
-
-// Diese Funktion würde am Ende des Checkout-Prozesses aufgerufen
-submitCheckout().then(updateProductAvailability);
+};

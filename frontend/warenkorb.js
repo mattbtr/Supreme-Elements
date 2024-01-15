@@ -1,6 +1,6 @@
 $(document).ready(function(){
     // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
-    // ändert die Menge im Warenkorb
+    // ändert die Menge im Warenkorb ohne die Seite neu zu laden
     $(document).on('change', '.amountButton', function() {     
     
         // holt html Attribut: Wert aus Menge
@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 var basket = [];
 
-function renderProducts(cartContent, products) {
+function renderProducts(cartContent, products) {     // jQuery-Selektor und Produktarray
     console.log('rendering products');
 
     if (products.length == 0) {
@@ -134,7 +134,7 @@ function renderBasket() {
         var totalTax = 0.0;
         var totalSum = 0.0;
 
-        // Darstellen der Produkte, die in der Session gespeichert sind
+        // Darstellen der Produkte, die in der Session gespeichert sind -> linke Tabelle
         $(basket).each(function (idx, item) {
             // calc position sum
             sum = item.product.bruttopreis * item.amount;
@@ -203,7 +203,7 @@ function removeBasketPosition(idx) {
     // remove position at idx or empty basket completely
     if (basket.length > 1) {
         // remove position at idx
-        basket.splice(idx, 1);
+        basket.splice(idx, 1);         //entfernt von idx an nächstes Element
 
         // remember changes in localStorage
         setJSONSessionItem('shoppingBasket', basket);
@@ -214,8 +214,11 @@ function removeBasketPosition(idx) {
         removeSessionItem('shoppingBasket');
     }
 
+    //html leeren
+    $('#cartSummery').empty();
+    
     // redraw basket
-    renderBasket('#basket > tbody');
+    renderBasket('#basket > tbody');   //aktualisierung des tbody Kindelements von basket
 }
 
 function emptyBasket() {
