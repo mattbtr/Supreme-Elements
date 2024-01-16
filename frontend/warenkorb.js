@@ -153,12 +153,11 @@ function renderBasket() {
             var node = $('<tr>');
            
             // node.append($('<td>').text(idx + 1)); // Position im Warenkorb
-            node.append($('<td>').append('<th id="Linkespalte"><img id="Bestellübersichtsbilder" src="' + item.product.produktbild + '" alt="' + item.product.bezeichnung + '"></th>'));
+            node.append($('<td>').append('<th id="Linkespalte"><a href="produktdetails.html?id=' + item.product.id + '"><img id="Bestellübersichtsbilder" src="' + item.product.produktbild + '" alt="' + item.product.bezeichnung + '"></th>'));
             node.append($('<td>').append(
                 ($('<td id="Mittlerespale">').append(
                     $('<a id="produktbezeichnung">')
-                        //.attr('href', 'produktdetails.html')//
-                        .attr('href', 'produktdetails.html' + item.product.id) //wenn produktdetailseite dynamisiert ist//
+                        .attr('href', 'produktdetails.html?id=' + item.product.id)
                         .text(item.product.bezeichnung + ' (ID: ' + item.product.id + ')'),
                     $('<section id="ProduktbeschreibungUndLieferadresse">').text(item.product.beschreibung),
                     $('<section id="Einzelpreis">').text('Einzelpreis: ' + formatToEuro(item.product.bruttopreis)),
