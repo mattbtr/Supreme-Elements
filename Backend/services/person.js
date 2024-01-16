@@ -106,6 +106,7 @@ serviceRouter.post('/person', function(request, response) {
             request.body.strasse, request.body.hausnummer, request.body.plz, request.body.ort);
         console.log('Service Person: Record inserted');
         response.status(200).json(obj);
+        console.log(response)
     } catch (ex) {
         console.error('Service Person: Error creating new record. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
