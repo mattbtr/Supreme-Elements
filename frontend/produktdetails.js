@@ -1,39 +1,26 @@
-function ZurückProdukte() {
+function ZurueckProdukte() {
   window.location.href = 'shop.html';
 }
+
+// globale var
+var id = -1;
+
 $(document).ready(function() {
   console.log('loading specific product');
-  var id = -1;
-  console.log('Current URL: ' + window.location.href);
+  
   if (existsUrlParameter('id')) {
       id = getUrlParameterValue('id');
+      console.log('target product id=' + id);
+  } else {
+    alert('keine id erhalten');
+    return;
   }
-  console.log('target product id=' + id);
+  
 
-  if (id == -1) {
-      alert('keine id erhalten');
-      return;
-  }
-  console.log('Current URL: ' + window.location.href);
 
-  if (existsUrlParameter('id')) 
-      id = getUrlParameterValue('id');
-
-  console.log('target product id=' + id);
-
-  if (id == -1) {
-      alert('keine id erhalten');
-      return;
-  } 
-
-  $(document).on('click', '.addToCart', function () {     
-    var selectedProductid = getUrlParameterValue('id');
-    if (selectedProductid === null) {
-      console.log('Invalid or missing id');
-      return;
-    }
-    console.log("Produkt in den Warenkorb: " + selectedProductid);
-    addToBasket(selectedProductid);
+  $('input#addCartButton').on('click', function () {     
+    console.log("Produkt in den Warenkorb: " + id);
+    addToBasket(id);
   });
 
 $.ajax({
@@ -47,7 +34,7 @@ $.ajax({
 
 /* hier können Sie das Produkt nach eigenen Wünschen rendern und ausgeben. Ich mache es mir einfach und gebe nur einen Teil aus */
 
-$('#Bild').attr('src', 'http://127.0.0.1:5500/frontend/' + response.produktbild);
+$('#Bild').attr('src', response.produktbild);
 //$('#Bild').html('<img src="http://127.0.0.1:5500/frontend/' + response.produktbild + '?v=' + new Date().getTime() + '">');//
 $('.produktId').text('ID: '+ response.id);  
 $('.verfuegbarkeit').text('Verfügbarkeit: ' + response.verfuegbarkeit);
@@ -63,10 +50,3 @@ $('#details').html(formattedDetails);
 }); 
 
 });
-
-function formatToEuro(val) {
-  if (val === null || val === undefined) 
-      val = 0.0;
-  var asString = val.toFixed(2).toString();
-  return asString.replace('.', ',') + " €";
-}
