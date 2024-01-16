@@ -1,6 +1,6 @@
 $(document).ready(function(){
     // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
-    // ändert die Menge im Warenkorb ohne die Seite neu zu laden
+    // ändert die Menge im Warenkorb
     $(document).on('change', '.amountButton', function() {     
     
         // holt html Attribut: Wert aus Menge
@@ -31,7 +31,7 @@ function renderProducts(cartContent, products) {     // jQuery-Selektor und Prod
             node.append(
                 $('<td>')
                     .append($('<a>')
-                        .attr('href', 'shopDetails.html?id=' + item.id)
+                        .attr('href', 'produktdetails.html?id=' + item.id)
                         .text(item.bezeichnung)                    
                     )            
             );
@@ -63,7 +63,7 @@ function formatToEuro(val) {
 }
 
 function jumpToDetails(id) {
-    location.href = 'shopDetails.html?id=' + id;
+    location.href = 'produktdetails.html?id=' + id;
 }
 
 function addToBasket(id) {
@@ -134,7 +134,7 @@ function renderBasket() {
         var totalTax = 0.0;
         var totalSum = 0.0;
 
-        // Darstellen der Produkte, die in der Session gespeichert sind -> linke Tabelle
+        // Darstellen der Produkte, die in der Session gespeichert sind
         $(basket).each(function (idx, item) {
             // calc position sum
             sum = item.product.bruttopreis * item.amount;
@@ -153,12 +153,11 @@ function renderBasket() {
             var node = $('<tr>');
            
             // node.append($('<td>').text(idx + 1)); // Position im Warenkorb
-            node.append($('<td>').append('<th id="Linkespalte"><img id="Bestellübersichtsbilder" src="' + item.product.produktbild + '" alt="' + item.product.bezeichnung + '"></th>'));
+            node.append($('<td>').append('<th id="Linkespalte"><a href="produktdetails.html?id=' + item.product.id + '"><img id="Bestellübersichtsbilder" src="' + item.product.produktbild + '" alt="' + item.product.bezeichnung + '"></th>'));
             node.append($('<td>').append(
                 ($('<td id="Mittlerespale">').append(
                     $('<a id="produktbezeichnung">')
-                        .attr('href', 'produktdetails.html')
-                        //.attr('href', 'produktdetails.html?id=' + item.product.id) //wenn produktdetailseite dynamisiert ist
+                        .attr('href', 'produktdetails.html?id=' + item.product.id)
                         .text(item.product.bezeichnung + ' (ID: ' + item.product.id + ')'),
                     $('<section id="ProduktbeschreibungUndLieferadresse">').text(item.product.beschreibung),
                     $('<section id="Einzelpreis">').text('Einzelpreis: ' + formatToEuro(item.product.bruttopreis)),
@@ -214,9 +213,6 @@ function removeBasketPosition(idx) {
         removeSessionItem('shoppingBasket');
     }
 
-    //html leeren
-    $('#cartSummery').empty();
-    
     // redraw basket
     renderBasket('#basket > tbody');   //aktualisierung des tbody Kindelements von basket
 }

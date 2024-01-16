@@ -1,0 +1,132 @@
+Index slider Funktionsweise:
+
+document.ready() {
+--> wenn dom geladen wurde:
+
+loadSliderProducts();
+
+--> loadSliderProducts(){
+$.ajax({
+    // Funktion aus produktDao.js wird geladen
+    url: 'http://localhost:8000/api/produkt/isHighlight',   
+    method: 'get',
+    contentType: 'application/json; charset=utf-8',
+    cache: false,
+    dataType: 'json'
+})
+--> ajax request auf url bzw funktion von produkt.js : /produkt/isHighlight
+--> get request
+--> content-type: application/json : Standardsyntax um mitzuteilen, dass im request als auch response vom server JSON Daten übermittlelt(und erwartet) werden.
+--> cache: false : cache ist standardmäßig auf true --> wollen aber nicht dass sich server response auf bestimmten request merkt --> deshalb auf false gestzt
+--> dataType: json : gibt an, welcher Datentyp erwartet wird, wenn die Antwort vom Server zurückkommt --> eigentlich meist überflüssig zu content-type application/json, da es auch serverantwort auf json beinhaltet oder bereits erwartet wird 
+
+// wird ausgeführt, wenn geladen
+// response wird als json zurückgegeben
+// in zwischenzeit wird response von server generiert wie folgt:
+serviceRouter.get('/produkt/isHighlight', function(request, response) {  //neuer Service Router für die Higlights
+    console.log('Service Produkt: Client requested all records');
+
+    const produktDao = new ProduktDao(request.app.locals.dbConnection);
+    try {
+        var arr = produktDao.loadHighlights();
+		
+		--> loadHighlights() --> in ProduktDao enthalten:
+		
+		loadHighlights() {
+        const mehrwertsteuerDao = new MehrwertsteuerDao(this._conn);
+        // wird eine liste erzeugt mit allen elementen die zu select passen
+        var sql = 'SELECT * FROM Produkt WHERE isHighlight=1';      // SQL Statement, um die Highlights zu filtern
+        // Vorbereiten des SQL-Statements mit der Verbindung
+        var statement = this._conn.prepare(sql);
+        // Ausführen des vorbereiteten Statements und Abrufen aller Ergebnisse
+        var result = statement.all();
+
+        if (helper.isUndefined(result)) 
+            throw new Error('No Record found for Highlight');
+
+        for (var i = 0; i < result.length; i++) {
+            // für jedes produkt wird mehrwertsteuer zugeordnet mithilfe mehrwertsteurerDao und über fremdschlüssel mehrwertsteuerid
+            // Laden der Mehrwertsteuerinformationen für jedes Produkt mithilfe des MehrwertsteuerDao
+            // es wird also jedem produkt neues attribut produkt.mehrwertsteuer gegeben mit den Daten der Mehrwertsteur tabelle
+            result[i].mehrwertsteuer = mehrwertsteuerDao.loadById(result[i].mehrwertsteuerId);
+            // Löschen der überflüssigen Eigenschaft mehrwertsteuerId aus dem Ergebnisobjekt, da richtiger Wert jetz in produkt.mehrwertsteur gespeichert
+            delete result[i].mehrwertsteuerId;
+
+            // hier wird aus nettopreis der mehrwertsteueranteil am preis berechnet
+            result[i].mehrwertsteueranteil = helper.round((result[i].nettopreis / 100) * result[i].mehrwertsteuer.steuerSatz);
+            
+            // zuletzt wird bruttopreis also verkaufspreis berechnet aus mehrwertsteuer + nettopreis !!
+            result[i].bruttopreis = helper.round(result[i].nettopreis + result[i].mehrwertsteueranteil);
+        }
+
+        // Rückgabe der Liste der json Produktobjekte
+        return result;
+    }
+		
+		
+console.log('Service ProduktHighlights: Records loaded, count=' + arr.length);
+        // hier response generiert aus statuscode (200) und liste der json objekte !! 
+        response.status(200).json(arr);
+    } catch (ex) {
+        // hier springt rein bei ireiner exveption auftritt:
+        console.error('Service Produkt: Error loading all records. Exception occured: ' + ex.message);
+        
+        //response wird generiert aus status code 400 und list aus json objekt wie folgt !!
+        response.status(400).json({ 'fehler': true, 'nachricht': "Fehler2" });
+    }
+});
+
+.done(function (response) {  
+// response wird an Konsole ausgegeben   
+    console.log(response);
+    // Schleife, um ausgewählte Produkte  im Slider darzustellen
+    $(response).each(function (idx, item) {     
+
+      // speichern eines Produktes in einer Variablen
+      var sliderHTML = '<div class="sliderElement"><br /><a href="produktdetails.html"><img class="shopImg" src="' + item.produktbild + '"/></a><div class="infoBox"><br /><b>' + item.bezeichnung + '</b><br />' + item.bruttopreis + ' €<br /><button class="addToCart" data-productid="' + item.id + '" >In den Warenkorb</button></div></div>';
+      // einzelnes Element wird an das div: sliderCointainer angehängt
+      $('#sliderContainer').append(sliderHTML);   
+
+    });
+  }).fail(function (jqXHR, statusText, error) {
+    // Zeigt die Serverantwort im Konsolenprotokoll an
+    console.log('Response Code: ' + jqXHR.status + ' - Fehlermeldung: ' + jqXHR.responseText);  
+  });
+};	
+
+dann weiter in document.ready funtion :
+
+slider funktionalität:
+ // verzögert das Ausführen des Codes für den Slider
+  window.setTimeout(function () {   
+    // Slider Funktionalität laden
+    $('.slider').slick({            
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: true,
+      dots: true,
+    });
+  }, 500);
+  
+  ab jetzt Warenkorb mit session objekten !!
+  wichtig zuvor wurde jedem Produkt aus dem response dass in html dargestellt wurde ein button dazu hinzugefügt mit der Klasse .addToCart gegeben !!
+  ausserdem wurde jedem Produkt ein attribut product-id gegeben mit wert item.id also der id desjeweiligen produkt objekts
+  
+  // speichert Produkt in der Session 
+  // funktioniert auch, wenn Elemente nachgeladen werden (slider) -> dynamsich
+  $(document).on('click', '.addToCart', function () {      // wenn auf buttons geklickt wird mit klasse .addToCart dann folgt funktion
+    // holt html Attribut: data-productid aus slider in dem item.id gespeichert wurde des jeweiligen produkt objekts und speihert in variable selected...
+    var selectedProductid = $(this).data('productid');    
+
+    // Ausgabe in Browser Console
+    console.log("Produkt in den Warenkorb: " + selectedProductid);   
+	
+    // addToBasket Funktion befindet sich in warenkorb.js und wird ausgeführt
+    addToBasket(selectedProductid);
+  });
+});
+
+
+addToBasket funktion wird aufgerufen für jedes mal wenn auf button in warenkorb geklickt wird aufgerufen:
+  
+  
