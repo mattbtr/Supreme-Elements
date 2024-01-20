@@ -73,8 +73,6 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
         cache: false,
         data: JSON.stringify(formData),// muss man als string an server schicken damit server es verarbeiten kann
       }).done(function (response) {
-          let integerId = parseInt(response.id);
-          response.id = integerId;
           console.log(response);
           console.log(response.id);
 
