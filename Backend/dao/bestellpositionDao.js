@@ -27,9 +27,9 @@ class BestellpositionDao {
         result.produkt = produktDao.loadById(result.produktId);
         delete result.produktId;
 
-        result.mehrwertsteuersumme = helper.round(result.menge * result.produkt.mehrwertsteueranteil);
-        result.nettosumme = helper.round(result.menge * result.produkt.nettopreis);
-        result.bruttosumme = helper.round(result.menge * result.produkt.bruttopreis);
+        result.mehrwertsteuersumme = helper.round(result.amount * result.produkt.mehrwertsteueranteil);
+        result.nettosumme = helper.round(result.amount * result.produkt.nettopreis);
+        result.bruttosumme = helper.round(result.amount * result.produkt.bruttopreis);
 
         return result;
     }
@@ -51,9 +51,9 @@ class BestellpositionDao {
             result[i].produkt = produktDao.loadById(result[i].produktId);
             delete result[i].produktId;
 
-            result[i].mehrwertsteuersumme = helper.round(result[i].menge * result[i].produkt.mehrwertsteueranteil);
-            result[i].nettosumme = helper.round(result[i].menge * result[i].produkt.nettopreis);
-            result[i].bruttosumme = helper.round(result[i].menge * result[i].produkt.bruttopreis);
+            result[i].mehrwertsteuersumme = helper.round(result[i].amount * result[i].produkt.mehrwertsteueranteil);
+            result[i].nettosumme = helper.round(result[i].amount * result[i].produkt.nettopreis);
+            result[i].bruttosumme = helper.round(result[i].amount * result[i].produkt.bruttopreis);
         }
 
         return result;
@@ -76,9 +76,9 @@ class BestellpositionDao {
             result[i].produkt = produktDao.loadById(result[i].produktId);
             delete result[i].produktId;
 
-            result[i].mehrwertsteuersumme = helper.round(result[i].menge * result[i].produkt.mehrwertsteueranteil);
-            result[i].nettosumme = helper.round(result[i].menge * result[i].produkt.nettopreis);
-            result[i].bruttosumme = helper.round(result[i].menge * result[i].produkt.bruttopreis);
+            result[i].mehrwertsteuersumme = helper.round(result[i].amount * result[i].produkt.mehrwertsteueranteil);
+            result[i].nettosumme = helper.round(result[i].amount * result[i].produkt.nettopreis);
+            result[i].bruttosumme = helper.round(result[i].amount * result[i].produkt.bruttopreis);
         }
 
         return result;
@@ -95,10 +95,10 @@ class BestellpositionDao {
         return false;
     }
 
-    create(bestellungId = 1, produktId = 1, menge = 1) {
-        var sql = 'INSERT INTO Bestellposition (bestellungId,produktId,menge) VALUES (?,?,?)';
+    create(bestellungId = 1, produktId = 1, amount = 1) {
+        var sql = 'INSERT INTO Bestellposition (bestellungId,produktId,amount) VALUES (?,?,?)';
         var statement = this._conn.prepare(sql);
-        var params = [bestellungId, produktId, menge];
+        var params = [bestellungId, produktId, amount];
         var result = statement.run(params);
 
         if (result.changes != 1) 
@@ -107,10 +107,10 @@ class BestellpositionDao {
         return this.loadById(result.lastInsertRowid);
     }
 
-    update(id, bestellungId = 1, produktId = 1, menge = 1) {
-        var sql = 'UPDATE Bestellposition SET bestellungId=?,produktId=?,menge=? WHERE id=?';
+    update(id, bestellungId = 1, produktId = 1, amount = 1) {
+        var sql = 'UPDATE Bestellposition SET bestellungId=?,produktId=?,amount=? WHERE id=?';
         var statement = this._conn.prepare(sql);
-        var params = [bestellungId, produktId, menge, id];
+        var params = [bestellungId, produktId, amount, id];
         var result = statement.run(params);
 
         if (result.changes != 1) 

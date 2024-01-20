@@ -12,6 +12,24 @@ class PersonDao {
     }
 
     loadById(id) {
+
+        var sql = 'SELECT * FROM Person WHERE id=?';
+        var statement = this._conn.prepare(sql);
+        var result = statement.get(id);
+
+        if (helper.isUndefined(result))
+            throw new Error('No Record found by id=' + id);
+
+        if (result.anrede == 1)
+            result.anrede = 'Herr';
+        else
+            result.anrede = 'Frau';
+
+        //result.adresse = adresseDao.loadById(result.adresseId);
+        //delete result.adresseId;
+        console.log("Result von loadById:", JSON.stringify(result, null, 2));
+        return result;
+        
     }
 
     loadAll() {
@@ -53,7 +71,7 @@ class PersonDao {
 
         return false;
     }
-//--  anrede: 1 = Herr, 2 = Frau, 3 = Divers, 0= Keine Angabe 
+//--  anrede: 1 = Herr, 2 = Frau
     create(anrede = '', vorname = '', nachname = '', telefonnummer = '', email = '', strasse = '', hausnummer = '', plz = '', ort = '') {
         var sql = 'INSERT INTO Person (anrede, vorname, nachname, telefonnummer, email, strasse, hausnummer, plz, ort) VALUES (?,?,?,?,?,?,?,?,?)';
         var statement = this._conn.prepare(sql);
@@ -62,7 +80,7 @@ class PersonDao {
 
         if (result.changes != 1) 
             throw new Error('Could not insert new Record. Data: ' + params);
-
+        console.log(result)
         return this.loadById(result.lastInsertRowid);
     }
 

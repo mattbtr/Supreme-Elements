@@ -62,6 +62,8 @@ serviceRouter.post('/bestellung', function(request, response) {
         request.body.besteller = null;
     } else if (helper.isUndefined(request.body.besteller.id)) {
         errorMsgs.push('besteller gesetzt, aber id fehlt');
+    } else if (!Number.isInteger(request.body.besteller.id)) {
+        console.log('besteller id ist kein integer')
     } else {
         request.body.besteller = request.body.besteller.id;
     }
@@ -76,13 +78,14 @@ serviceRouter.post('/bestellung', function(request, response) {
     
     if (errorMsgs.length > 0) {
         console.log('Service Bestellung: Creation not possible, data missing');
+        console.log('Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs))
         response.status(400).json({ 'fehler': true, 'nachricht': 'Funktion nicht möglich. Fehlende Daten: ' + helper.concatArray(errorMsgs) });
         return;
     }
 
     const bestellungDao = new BestellungDao(request.app.locals.dbConnection);
     try {
-        var obj = bestellungDao.create(request.body.bestellzeitpunkt, request.body.besteller, request.body.bestellpositionen);
+        var obj = bestellungDao.create(request.body.bestellzeitpunkt, parseInt(request.body.besteller), request.body.bestellpositionen);
         console.log('Service Bestellung: Record inserted');
         response.status(200).json(obj);
     } catch (ex) {

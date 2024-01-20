@@ -62,36 +62,43 @@ serviceRouter.post('/person', function(request, response) {
     }        
     if (helper.isUndefined(request.body.vorname)) 
         errorMsgs.push('vorname fehlt');
-    console.log(3);
+        console.log(3);
     if (helper.isUndefined(request.body.nachname)) 
         errorMsgs.push('nachname fehlt');
-    console.log(4);
+        console.log(4);
     /*if (helper.isUndefined(request.body.adresse)) {
         errorMsgs.push('adresse fehlt');
     } else if (helper.isUndefined(request.body.adresse.id)) {
         errorMsgs.push('adresse gesetzt, aber id fehlt');
     }*/
-    if (helper.isUndefined(request.body.telefonnummer)) 
+    if (helper.isUndefined(request.body.telefonnummer)) {
         request.body.telefonnummer = '';
-    console.log(5);
-    if (helper.isUndefined(request.body.email)) 
+        console.log(5);
+    }
+    if (helper.isUndefined(request.body.email)) {
         errorMsgs.push('email fehlt');
-    console.log(6);
-    if (!helper.isEmail(request.body.email)) 
+        console.log(6);
+    }
+    if (!helper.isEmail(request.body.email)) {
         errorMsgs.push('email hat ein falsches Format');
-    console.log(7);
-    if (helper.isUndefined(request.body.strasse)) 
+        console.log(7);
+    }
+    if (helper.isUndefined(request.body.strasse)) {
         errorMsgs.push('strasse fehlt');
-    console.log(8);
-    if (helper.isUndefined(request.body.hausnummer)) 
+        console.log(8);
+    }
+    if (helper.isUndefined(request.body.hausnummer)) {
         errorMsgs.push('hausnummer fehlt');
-    console.log(9);
-    if (helper.isUndefined(request.body.plz)) 
+        console.log(9);
+    }
+    if (helper.isUndefined(request.body.plz)) {
         errorMsgs.push('postleitzahl fehlt');
-    console.log(10);
-    if (helper.isUndefined(request.body.ort)) 
+        console.log(10);
+    }
+    if (helper.isUndefined(request.body.ort)) {
         errorMsgs.push('ort fehlt');
-    console.log(11);
+        console.log(11);
+    }
     /*if (helper.isUndefined(request.body.geburtstag)) {
         request.body.geburtstag = null; */
     if (errorMsgs.length > 0) {
