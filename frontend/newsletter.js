@@ -14,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "POST",
             data: JSON.stringify(formData),
             contentType: "application/json",
-            //dataType: "text",   // muss auf text sein, da server hier mit text antwortet und nicht mit einem json-objekt. Aber warum?? Vllt weil server nur ein einzelenes attribut quasi im response zurückschickt und dann das json objekt als string gilt???
+            dataType: "text",   // muss auf text sein, da server hier mit text antwortet und nicht mit einem json-objekt. Aber warum?? Vllt weil server nur ein einzelenes attribut quasi im response zurückschickt und dann das json objekt als string gilt???
         }).done(function (response) {
             console.log(response);
+            $(".email-newsletter").val("");
             alert("Sie sind ab sofort bei unserem Newsletter angemeldet.");
 
         })
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Sie haben keine gültige E-Mail-Adresse eingegeben.");
                 
             });
-        $(".email-newsletter").val("");
+        
     });
 
 });
