@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    $(".newsletterForm").submit(function (event) {
+    $(document).on("click", ".subscribe", function (event) {
         console.log("form submit called");
-
-        // disable default event
-        event.preventDefault();
 
         // convert data of form to object
         let formData = {
@@ -20,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             dataType: "text",   // muss auf text sein, da server hier mit text antwortet und nicht mit einem json-objekt. Aber warum?? Vllt weil server nur ein einzelenes attribut quasi im response zurückschickt und dann das json objekt als string gilt???
         }).done(function (response) {
             console.log(response);
+            $(".email-newsletter").val("");
             alert("Sie sind ab sofort bei unserem Newsletter angemeldet.");
 
         })
@@ -28,8 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('Response Code:', jqXHR.status);
                 console.log('Fehlermeldung:', jqXHR.responseText);
                 alert("Sie haben keine gültige E-Mail-Adresse eingegeben.");
-                $(".email-newsletter").val("");
+                
             });
+        
     });
 
 });
