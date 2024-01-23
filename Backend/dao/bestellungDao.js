@@ -32,13 +32,10 @@ class BestellungDao {
         }
         delete result.bestellerId;
 
-        
-
         result.bestellpositionen = bestellpositionDao.loadByParent(result.id);
         
         result.total = { 'netto': 0, 'brutto': 0, 'mehrwertsteuer': 0 };
-
-        for (i = 0; i < result.bestellpositionen.length; i++) {
+        for (var i = 0; i < result.bestellpositionen.length; i++) {
             result.total.netto += result.bestellpositionen[i].nettosumme;
             result.total.brutto += result.bestellpositionen[i].bruttosumme;
             result.total.mehrwertsteuer += result.bestellpositionen[i].mehrwertsteuersumme;
@@ -117,7 +114,7 @@ class BestellungDao {
 
         if (bestellpositionen.length > 0) {
             for (var element of bestellpositionen) {
-                bestellpositionDao.create(result.lastInsertRowid, element.produkt.id, element.amount);
+                bestellpositionDao.create(result.lastInsertRowid, element.product.id, element.amount);
             }
         }
 

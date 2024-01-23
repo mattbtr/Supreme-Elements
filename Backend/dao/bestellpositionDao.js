@@ -70,15 +70,16 @@ class BestellpositionDao {
             return [];
 
         for (var i = 0; i < result.length; i++) {
+            
             result[i].bestellung = { 'id': result[i].bestellungId };
             delete result[i].bestellungId;
 
             result[i].produkt = produktDao.loadById(result[i].produktId);
             delete result[i].produktId;
 
-            result[i].mehrwertsteuersumme = helper.round(result[i].amount * result[i].produkt.mehrwertsteueranteil);
-            result[i].nettosumme = helper.round(result[i].amount * result[i].produkt.nettopreis);
-            result[i].bruttosumme = helper.round(result[i].amount * result[i].produkt.bruttopreis);
+            result[i].mehrwertsteuersumme = helper.round(result[i].menge * result[i].produkt.mehrwertsteueranteil);
+            result[i].nettosumme = helper.round(result[i].menge * result[i].produkt.nettopreis);
+            result[i].bruttosumme = helper.round(result[i].menge * result[i].produkt.bruttopreis);
         }
 
         return result;
@@ -96,7 +97,7 @@ class BestellpositionDao {
     }
 
     create(bestellungId = 1, produktId = 1, amount = 1) {
-        var sql = 'INSERT INTO Bestellposition (bestellungId,produktId,amount) VALUES (?,?,?)';
+        var sql = 'INSERT INTO Bestellposition (bestellungId,produktId,menge) VALUES (?,?,?)';
         var statement = this._conn.prepare(sql);
         var params = [bestellungId, produktId, amount];
         var result = statement.run(params);
@@ -108,7 +109,7 @@ class BestellpositionDao {
     }
 
     update(id, bestellungId = 1, produktId = 1, amount = 1) {
-        var sql = 'UPDATE Bestellposition SET bestellungId=?,produktId=?,amount=? WHERE id=?';
+        var sql = 'UPDATE Bestellposition SET bestellungId=?,produktId=?,menge=? WHERE id=?';
         var statement = this._conn.prepare(sql);
         var params = [bestellungId, produktId, amount, id];
         var result = statement.run(params);

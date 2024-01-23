@@ -91,24 +91,14 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
           .done(function (response) {
             console.log("Bestelldaten wurden an Datenbank geschickt.")
             console.log(response)
-            alert("Post mit bestellungdaten hat funktioniert");
+            alert("Ihre Bestellung wurde erfolgreich übermittelt.");
           })
           .fail(function (response) {
             console.log(response)
             console.log("Fehler aufgetreten")
             alert(fehler)
           })
-
-
-          alert("Test");
-
-
-
-      })
-      
-      
-      
-                        
+      })              
     }
   });
 
