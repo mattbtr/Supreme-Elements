@@ -21,7 +21,7 @@ function loadProducts() {
       cache: false,
       dataType: 'json'
 
-  }).done(function (response) {                                                                    //-->ist das anonyme funktion ? was muss in done
+  }).done(function (response) {                                                                    
       console.log(response);
       //window.response = response; //globaler Zugriff
       ProdukteEinfügen(response);

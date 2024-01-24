@@ -75,6 +75,8 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
       }).done(function (response) {
           console.log(response);
           console.log(response.id);
+          window.id = response.id;
+  
 
         // wenn Formulardaten erfolgreich gespeichert dann post request um bestellung und bestellpostionen zu speichern:
         // bisher shoppingbasket nicht stringifyed --> versuche in post request zu parsen
@@ -92,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
             console.log("Bestelldaten wurden an Datenbank geschickt.")
             console.log(response)
             alert("Ihre Bestellung wurde erfolgreich übermittelt.");
+            //window.location.href = 'kassenbestaetigung.html';
           })
           .fail(function (response) {
             console.log(response)
@@ -100,10 +103,15 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
           })
       })              
     }
+    
   });
 
 });
 
+function bestaetigung(){
+  console.log("das hier ist: "+ id);
+  return id;
+}
 
 function formatToEuro(val) {
   if (val === null || val === undefined)
@@ -113,9 +121,12 @@ function formatToEuro(val) {
 
 
 }
-for (var i = 0; i < sessionStorage.length; i++) {
+/*for (var i = 0; i < sessionStorage.length; i++) {
   console.log("Meine Session" + i.id);
-}
+}*/
+
+
+
 function renderBasket() {
   // get basket data from session
   if (existsSessionItem('shoppingBasket'))
