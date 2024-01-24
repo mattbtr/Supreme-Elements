@@ -96,12 +96,13 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
             window.id1 = response.id;
             localStorage.setItem('bestellr', window.id1); // Speichern mit korrektem Schlüssel
             console.log("Gespeicherte Bestell-ID: " + window.id1);
-            //alert("Ihre Bestellung wurde erfolgreich übermittelt.");
+            window.location.href = 'kassenbestaetigung.html';
+            /*alert("Ihre Bestellung wurde erfolgreich übermittelt.");
             emptyBasket();
             console.log("test");
             window.location.href = 'kassenbestaetigung.html';
            // emptyBasket();
-           
+           */
           })
           .fail(function (response) {
             console.log(response)
