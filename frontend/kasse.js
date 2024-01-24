@@ -93,6 +93,9 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
           .done(function (response) {
             console.log("Bestelldaten wurden an Datenbank geschickt.")
             console.log(response)
+            console.log('BestellID: ' + response.id);
+            window.id = response.id;
+            bestaetigung();
             alert("Ihre Bestellung wurde erfolgreich übermittelt.");
             //window.location.href = 'kassenbestaetigung.html';
           })

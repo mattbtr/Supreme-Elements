@@ -39,10 +39,15 @@ function submitForm() {
       data: JSON.stringify(formData),
       contentType: "application/json",
       dataType: "text",
-    }) //funktioniert nicht mit alerts, finde fehler nicht dasselbe für beide newsletter
+    }) 
       .done(function (response) {
         // Erfolgreiche Serverantwort
         alert('Formulardaten erfolgreich abgeschickt!');
+        //Eingabefelder im Formular leeren
+        $('#vornameInput').val('');
+        $('#nachnameInput').val('');
+        $('#emailInput').val('');
+        $('#nachrichtInput').val('');
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
         // Fehler beim AJAX-Request
@@ -60,25 +65,22 @@ function submitForm() {
 function validateForm() {
   $(document).on("click", "#submitBtn", function (event) {
     console.log("form submit called");
-
-
-
-
+  
     // disable default event = das aktualsisiern der seite sonst konsolenausgaben alle weg
     event.preventDefault();
-  // Holen Sie sich die Werte der Eingabefelder
-  var vorname = document.getElementById('vornameInput').value;
-  var nachname = document.getElementById('nachnameInput').value;
-  var email = document.getElementById('emailInput').value;
-  var nachricht = document.getElementById('nachrichtInput').value;
+    // Holen Sie sich die Werte der Eingabefelder
+    var vorname = document.getElementById('vornameInput').value;
+    var nachname = document.getElementById('nachnameInput').value;
+    var email = document.getElementById('emailInput').value;
+    var nachricht = document.getElementById('nachrichtInput').value;
 
   // Überprüfen, ob die Felder ausgefüllt sind
     if (vorname === '' || email === '' || nachname === '' || nachricht === '') {
     alert('Bitte füllen Sie alle erforderlichen Felder aus.');
-    
   } else{
 
     submitForm();
+    
   }
 })}
 

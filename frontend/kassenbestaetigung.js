@@ -1,1 +1,1 @@
-console.log(bestaetigung());
+console.log(window.id);
