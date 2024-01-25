@@ -74,12 +74,14 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
         data: JSON.stringify(formData),// muss man als string an server schicken damit server es verarbeiten kann
       }).done(function (response) {
           console.log(response);
-          console.log(response.id);
+        
+  
 
         // wenn Formulardaten erfolgreich gespeichert dann post request um bestellung und bestellpostionen zu speichern:
         // bisher shoppingbasket nicht stringifyed --> versuche in post request zu parsen
         let obj = { 'bestellzeitpunkt': undefined, 'besteller': response, 'bestellpositionen': getJSONSessionItem('shoppingBasket')};
         console.log(obj);
+        console.log("test1");
         
         $.ajax({
           url: 'http://localhost:8000/api/bestellung',
@@ -91,19 +93,29 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
           .done(function (response) {
             console.log("Bestelldaten wurden an Datenbank geschickt.")
             console.log(response)
-            alert("Ihre Bestellung wurde erfolgreich übermittelt.");
+            window.id1 = response.id;
+            localStorage.setItem('bestellr', window.id1); // Speichern mit korrektem Schlüssel
+            console.log("Gespeicherte Bestell-ID: " + window.id1);
+            window.location.href = 'kassenbestaetigung.html';
+            /*alert("Ihre Bestellung wurde erfolgreich übermittelt.");
+            emptyBasket();
+            console.log("test");
+            window.location.href = 'kassenbestaetigung.html';
+           // emptyBasket();
+           */
           })
           .fail(function (response) {
             console.log(response)
             console.log("Fehler aufgetreten")
             alert(fehler)
           })
+         
       })              
     }
+    
   });
 
 });
-
 
 function formatToEuro(val) {
   if (val === null || val === undefined)
@@ -113,9 +125,11 @@ function formatToEuro(val) {
 
 
 }
-for (var i = 0; i < sessionStorage.length; i++) {
+/*for (var i = 0; i < sessionStorage.length; i++) {
   console.log("Meine Session" + i.id);
-}
+}*/
+
+
 function renderBasket() {
   // get basket data from session
   if (existsSessionItem('shoppingBasket'))

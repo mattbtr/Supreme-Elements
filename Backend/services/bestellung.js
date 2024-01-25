@@ -139,7 +139,7 @@ serviceRouter.put('/bestellung', function(request, response) {
         response.status(200).json(obj);
     } catch (ex) {
         console.error('Service Bestellung: Error updating record by id. Exception occured: ' + ex.message);
-        response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
+        response.status(400).json({ 'fehler': true, 'npnachricht': ex.message });
     }    
 });
 
