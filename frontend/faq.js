@@ -33,7 +33,7 @@ function submitForm() {
 
     // Send form data with AJAX
     $.ajax({
-      url: "http://localhost:8000/api/kontaktaufnahme",
+      url: "http://localhost:3000/api/kontaktaufnahme",
       type: "POST",
       // wichtig hier als string übergeben, sodass server bzw kontaktaufnahme.js die daten mit request.body.vorname z.b zugreifen kann !! WICHTIG!
       data: JSON.stringify(formData),

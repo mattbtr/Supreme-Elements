@@ -16,7 +16,7 @@ $(document).ready(function(){  //erst ausführung wenn komplettes DOM geladen is
 
 function loadProducts() {
   $.ajax({
-      url: 'http://localhost:8000/api/produkt/alle',
+      url: 'http://localhost:3000/api/produkt/alle',
       method: 'get',                                                                         //durch Pfadaufruf wird loadall() funktion der Dao aufgerufen und ausgeführt
       cache: false,
       dataType: 'json'

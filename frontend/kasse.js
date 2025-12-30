@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
       console.log(formData);
 
       $.ajax({
-        url: 'http://localhost:8000/api/person',
+        url: 'http://localhost:3000/api/person',
         type: 'post',
         contentType: 'application/json; charset=utf-8',
         cache: false,
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => { // erst wenn seite komplet
         console.log("test1");
         
         $.ajax({
-          url: 'http://localhost:8000/api/bestellung',
+          url: 'http://localhost:3000/api/bestellung',
           type: 'POST',
           contentType: 'application/json; charset=utf-8',
           cache: false,

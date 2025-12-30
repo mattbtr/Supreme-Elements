@@ -24,7 +24,7 @@ $(document).ready(function() {
   });
 
 $.ajax({
-  url: 'http://localhost:8000/api/produkt/gib/' + id,
+  url: 'http://localhost:3000/api/produkt/gib/' + id,
   method: 'get',
   contentType: 'application/json; charset=utf-8',
   cache: false,

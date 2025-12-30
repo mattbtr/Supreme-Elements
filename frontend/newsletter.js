@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Send form data with AJAX
         $.ajax({
-            url: "http://localhost:8000/api/newsletter",
+            url: "http://localhost:3000/api/newsletter",
             type: "POST",
             data: JSON.stringify(formData),
             contentType: "application/json",

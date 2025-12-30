@@ -31,7 +31,7 @@ $(document).ready(function () {
 function loadSliderProducts() {     
   $.ajax({
     // Funktion aus produktDao.js wird geladen
-    url: 'http://localhost:8000/api/produkt/isHighlight',   
+    url: 'http://localhost:3000/api/produkt/isHighlight',   
     method: 'get',
     contentType: 'application/json; charset=utf-8',
     cache: false,
